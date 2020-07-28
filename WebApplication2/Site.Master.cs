@@ -9,6 +9,8 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
+using System.Text;
+using System.IO;
 
 namespace WebApplication2
 {
@@ -77,42 +79,71 @@ namespace WebApplication2
             }
             else
             {
-                if (!Page.IsPostBack)
+                if (!this.IsPostBack)
                 {
-                    bindMenu();
+                    DataTable dt = this.GetMenuData();
+                    PopulateMenu(dt);
                 }
             }
         }
-        private void bindMenu()
+        private void PopulateMenu(DataTable dt)
         {
-            Connection getCon = new Connection();
-            string connectString = getCon.create_connection();
-            string schema_name = "rbavari.";
-            OracleConnection con = new OracleConnection(connectString);
-            con.Open();
-            OracleCommand comm = new OracleCommand("select rems, menu_level, sub_mnu_id, mnu_id from "+schema_name+"MenuView1", con);
-
-            OracleDataAdapter da = new OracleDataAdapter(comm);
-            DataSet ds = new DataSet();
-            DataTable dt = new DataTable();
-            da.Fill(ds); // fill dataset
-
-            da.Fill(ds);
-            dt = ds.Tables[0];
-            DataRow[] drowparent = dt.Select("mnu_id like '%MAIN%'");
-
-            foreach (DataRow dr in drowparent)
+            string currentPage = Path.GetFileName(Request.Url.AbsolutePath);
+            DataView view = new DataView(dt);
+            view.RowFilter = "mnu_id like '%MAIN%'";
+            foreach (DataRowView row in view)
             {
-                Menu1.Items.Add(new MenuItem(dr["rems"].ToString(), dr["sub_mnu_id"].ToString(), ""));
-
-            }
-            foreach (DataRow dr in dt.Select("mnu_id NOT LIKE '%MAIN%'"))
-            {
-                MenuItem men1 = new MenuItem(dr["rems"].ToString(), dr["sub_mnu_id"].ToString(), "");
-                Menu1.FindItem(dr["mnu_id"].ToString()).ChildItems.Add(men1);
-
+                MenuItem menuItem = new MenuItem
+                {
+                    Value = row["sub_mnu_id"].ToString(),
+                    Text = row["rems"].ToString(),
+                    NavigateUrl = row["report_url"].ToString(),
+                    Selected = row["report_url"].ToString().EndsWith(currentPage, StringComparison.CurrentCultureIgnoreCase)
+                };
+                Menu1.Items.Add(menuItem);
+                AddChildItems(dt, menuItem);
             }
         }
+  
+
+        private void AddChildItems(DataTable table, MenuItem menuItem)
+        {
+            DataView viewItem = new DataView(table);
+            //viewItem.RowFilter = "mnu_id=" + menuItem.Value;
+            viewItem.RowFilter = "mnu_id = '" + menuItem.Value + "' ";
+
+            foreach (DataRowView childView in viewItem)
+            {
+                MenuItem childmenuItem = new MenuItem
+                {
+                    Value = childView["sub_mnu_id"].ToString(),
+                    Text = childView["rems"].ToString(),
+                    NavigateUrl = childView["report_url"].ToString(),
+                };
+                menuItem.ChildItems.Add(childmenuItem);
+                AddChildItems(table, childmenuItem);
+            }
+        }
+
+        private DataTable GetMenuData()
+        {
+            object userNameSession = Session["u_id"];
+            Connection getCon = new Connection();
+            string connectString = getCon.create_connection();
+
+            OracleConnection con = new OracleConnection(connectString);
+            con.Open();
+            OracleCommand comm = new OracleCommand("select rems, mnu_id, sub_mnu_id, report_url from " + Session["schema_name"] + "Menuview1  where nvl(report_yn,'N') = 'Y' and usr_name = " + "'" + userNameSession + "'" + " order by 1", con);
+
+            OracleDataAdapter da = new OracleDataAdapter(comm);
+          
+            DataTable dt = new DataTable();
+            da.Fill(dt); // fill dataset
+
+           return dt;
+
+        
+    }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
@@ -125,10 +156,10 @@ namespace WebApplication2
             Session.RemoveAll();
             Session.Abandon();
 
-            HttpCookie cookie = Request.Cookies["UserDetails"];
-            cookie.Expires = DateTime.Now.AddDays(-1d);
-            Response.Cookies.Add(cookie);
-            Response.Cookies["Email_id"].Expires = DateTime.Now.AddDays(-1);
+            //HttpCookie cookie = Request.Cookies["UserDetails"];
+            //cookie.Expires = DateTime.Now.AddDays(-1d);
+            //Response.Cookies.Add(cookie);
+            //Response.Cookies["Email_id"].Expires = DateTime.Now.AddDays(-1);
             Response.Redirect("~/Action/Login.aspx");
         }
     }

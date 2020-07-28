@@ -71,16 +71,23 @@ namespace WebApplication2.Reports
 
         private DataTable GetData(string Name)
         {
+            Connection getCon = new Connection();
+            string connectString = getCon.create_connection();
             try
             {
-                string schema_name = "rbavari.";
-                OracleConnection con = new OracleConnection();
-                con.ConnectionString = "Data Source=(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = 52.148.86.1)(PORT = 1521))(CONNECT_DATA = (SERVICE_NAME = orcl.hh5omeip5wlutgscvhiqhuuamc.ix.internal.cloudapp.net)));USER ID=rbarep;PASSWORD=rbarep;";
-                con.Open();
-                OracleDataAdapter da = new OracleDataAdapter("select a.cityName, a.custname, a.trxref, a.tpp_Date, a.value_date, a.DiscProfile, a.phaseref,a.itemname, a.packing_wt, a.order_qty, a.order_rate, a.grossamount, a.discamt, a.netamount from sov_OrderMaster a where cust_code IN  ('" + Name + "')", con);
+                //string schema_name = "rbavari.";
+                OracleConnection con = new OracleConnection(connectString);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                OracleDataAdapter da = new OracleDataAdapter("select a.cityName, a.custname, a.trxref, a.tpp_Date, a.value_date, a.DiscProfile, a.phaseref,a.itemname, a.packing_wt, a.order_qty, a.order_rate, a.grossamount, a.discamt, a.netamount from rbavari.sov_OrderMaster a where cust_code IN  ('" + Name + "')", con);
                 DataTable dt = new DataTable("DemoDt");
                 da.Fill(dt);
                 return dt;
+                
+                //con.Close();
+                
             }
             catch (OracleException ex)
             {
@@ -92,23 +99,26 @@ namespace WebApplication2.Reports
         {
             Connection getCon = new Connection();
             string connectString = getCon.create_connection();
-            string schema_name = "rbavari.";
+            //string schema_name = "rbavari.";
 
             try
             {
                
                 OracleConnection con = new OracleConnection(connectString);
-                con.Open();
-                OracleCommand comm = new OracleCommand("select distinct(add_name), address_code from GcAddress_Book a, usr_profile_hdr_auth b where a.auth_level like '%' || b.auth_level || '%' and lower(b.usr_name) ='sysmumtaz@gmail.com' order by add_name", con);
-                //OracleCommand comm = new OracleCommand("select distinct( add_name), address_code from GcAddress_Book a, usr_profile_hdr_auth b where a.auth_level like '%' || b.auth_level || '%' and lower(b.usr_name) ='"+APP_USER+"' order by add_name", con);
-                OracleDataAdapter da = new OracleDataAdapter(comm);
-                DataSet ds = new DataSet();
-                da.Fill(ds); // fill dataset
-                ListBox1.DataSource = ds.Tables[0];
-                ListBox1.DataTextField = ds.Tables[0].Columns["add_name"].ToString();
-                ListBox1.DataValueField = ds.Tables[0].Columns["address_code"].ToString();
-                ListBox1.DataBind();
-                //conn.close_con();
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                    OracleCommand comm = new OracleCommand("select distinct add_name, address_code  from " + Session["schema_name"] + "GcvAbList where UserName = 'sysmumtaz@gmail.com'  ", con);
+                    OracleDataAdapter da = new OracleDataAdapter(comm);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds); // fill dataset
+                    ListBox1.DataSource = ds.Tables[0];
+                    ListBox1.DataTextField = ds.Tables[0].Columns["add_name"].ToString();
+                    ListBox1.DataValueField = ds.Tables[0].Columns["address_code"].ToString();
+                    ListBox1.DataBind();
+                }
+                con.Close();
+              
             }
             catch (Exception)
             {

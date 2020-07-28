@@ -25,14 +25,16 @@ namespace WebApplication2.Action
             Connection getCon = new Connection();
             string connectString = getCon.create_connection();
             string usr_name = "";
-            string schema_name = "rbavari.";
+            string auth_level = "";
+            string PASS_CODE = "";
+            string schema_name = "";
 
             try
             {
                 
                 OracleConnection con = new OracleConnection(connectString);
                 con.Open();
-                OracleCommand cmd = new OracleCommand("select user_name, auth_level, PASS_CODE from "+schema_name+"gcpasscode where pass_code = '" + txtpasscode.Text + "' ", con);
+                OracleCommand cmd = new OracleCommand("select user_name, auth_level, pass_code, schema_name from rbavari.gcpasscode where pass_code = '" + txtpasscode.Text + "' ", con);
 
 
                 OracleDataReader dr = cmd.ExecuteReader();
@@ -42,28 +44,24 @@ namespace WebApplication2.Action
                     while (dr.Read())
                     {
                         usr_name = (string)dr["user_name"];
-                        string auth_level = (string)dr["auth_level"];
-                        string PASS_CODE = (string)dr["PASS_CODE"];
+                        auth_level = (string)dr["auth_level"];
+                        PASS_CODE = (string)dr["pass_code"];
+                        schema_name = (string)dr["schema_name"];
+
 
                         //Creating Session
 
+                        //Session["UserName"] = usr_name;
+                        Session["Schema_Name"] = schema_name;
                         Session["u_id"] = usr_name;
-
-                        HttpCookie cookie = new HttpCookie("UserDetails");
-                        cookie["Email_id"] = Server.UrlEncode(usr_name);
-                        cookie["AuthLevel"] = Server.UrlEncode(auth_level);
-
-                        // Cookie will be persisted for 30 days
-                        cookie.Expires = DateTime.Now.AddDays(30);
-                        // Add the cookie to the client machine
-                        Response.Cookies.Add(cookie);
-
-                        Response.Redirect("~/Dashboard.aspx");
+                        
                     }
+                        con.Close();
+                        Response.Redirect("~/Dashboard.aspx",false);
                 }
                 else
                 {
-                    lblMessage.Text = "Enter Corrrect passcode";
+                    lblMessage.Text = "Please Provide a Corrrect Pass Code or Generate a New Pass Code from your Self Service";
                 }
             }
             catch (Exception err)

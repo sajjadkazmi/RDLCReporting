@@ -12,8 +12,9 @@
  <div class="login-card" >
          <h1>Log-in</h1><br>
     <form id="form1" runat="server" >
+ 
     <asp:TextBox ID="txtpasscode" runat="server" CssClass="form-control" placeholder="Enter Pass Code"
-        required />
+        required="required" />
     <br />
 
 <%--        <asp:CheckBox ID="chkRememberMe" Text="Remember Me" runat="server" />--%>
@@ -27,9 +28,9 @@
         <asp:Label ID="lblMessage" runat="server" Text="" style="color:red;"></asp:Label>
     </div>
      <br />
-    <div class="login-help">
+  <%--  <div class="login-help">
     <a href="#">Register</a> • <a href="#">Forgot Password</a>
-  </div>
+  </div>--%>
     </div >
       <script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
 
