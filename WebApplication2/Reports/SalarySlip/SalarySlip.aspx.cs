@@ -26,19 +26,29 @@ namespace WebApplication2.Reports.SalarySlip
             OracleConnection con = new OracleConnection(connectString);
 
             if (con.State == ConnectionState.Closed)
+
             {
                 con.Open();
             }
-            OracleDataAdapter da = new OracleDataAdapter("select old_Emp_no || '-' || employee_no emp_no, Company_Name, employee_name, father_spouse_name, cnic, appointment_date, confirmation_Date, left_date, extension_date, days_Worked, employment_status, department, designation, grade, worklocation, city, regionname, employee_bank, employee_bank_branchname, compensation, nvl(allowance, 0) - nvl(deduction, 0) amt from rbavari.prv_employeesalaryactl a where a.Process_Month = '31-Jul-2019' ", con);
+            OracleDataAdapter da = new OracleDataAdapter("select old_Emp_no || '-' || employee_no emp_no, Company_Name, employee_name, father_spouse_name, cnic, appointment_date, confirmation_Date, left_date, extension_date, days_Worked, employment_status, department, designation, grade, worklocation, city, regionname, employee_bank, employee_bank_branchname, compensation, nvl(allowance, 0) - nvl(deduction, 0) amt,allowance,deduction,net from rbavari.prv_employeesalaryactl a where a.Process_Month = '31-Jul-2019' ", con);
 
             DataTable dt = new DataTable("DemoDt");
             da.Fill(dt);
 
+            OracleDataAdapter daa = new OracleDataAdapter("select old_Emp_no || '-' || employee_no emp_no, Company_Name, employee_name, compensation as Compensation2, nvl(allowance, 0) - nvl(deduction, 0) amt,allowance as Allowance2 ,deduction as Deduction2,Process_Month from rbavari.prv_employeesalaryactl a where a.Process_Month BETWEEN '30-Jun-2019' AND '01-Jul-2020' AND compensation_code='00-000' ", con);
+
+            DataTable dtt = new DataTable("DemoDtt");
+            daa.Fill(dtt);
+
+            //dtt.Merge(dt);
+            //dtt.AcceptChanges();
+
             ReportViewer1.ProcessingMode = ProcessingMode.Local;
             ReportViewer1.LocalReport.DataSources.Clear();
 
+            ReportViewer1.LocalReport.ReportPath = "./Reports/SalarySlip/Report8.rdlc";
             ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("SalarySlipData", dt));
-            ReportViewer1.LocalReport.ReportPath = "./Reports/SalarySlip/Report7.rdlc";
+            ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("YTD", dtt));
             ReportViewer1.LocalReport.Refresh();
             //con.Close();
 
@@ -112,9 +122,9 @@ namespace WebApplication2.Reports.SalarySlip
                     Directory.Delete(sourcePdfPath.ToLower().Replace(".pdf", ""), true);
                     Directory.CreateDirectory(sourcePdfPath.ToLower().Replace(".pdf", ""));
 
-                    string dirPath = DestinationFolder.ToLower().Replace(".pdf", "");
-                    string sub = dirPath.Substring(dirPath.IndexOf("Downloads") + 26);
-                    string dirName = sub.Substring(0, 8);
+                    //string dirPath = DestinationFolder.ToLower().Replace(".pdf", "");
+                    //string sub = dirPath.Substring(dirPath.IndexOf("Downloads") + 26);
+                    //string dirName = sub.Substring(0, 8);
                 }
 
                 for (p = 1; p <= reader.NumberOfPages; p++)
@@ -127,9 +137,9 @@ namespace WebApplication2.Reports.SalarySlip
                     string sub = currentText.Substring(currentText.IndexOf("Employee ID:") + 13);
                     string EmpID = sub.Substring(0, 11);
 
-                    //string dirPath = sourcePdfPath.ToLower().Replace(".pdf", "");
-                    //string subb = dirPath.Substring(dirPath.IndexOf("Downloads") + 26);
-                    //string dirName = subb.Substring(0, 8);
+                    string dirPath = sourcePdfPath.ToLower().Replace(".pdf", "");
+                    string subb = dirPath.Substring(dirPath.IndexOf("Downloads") + 26);
+                    string dirName = subb.Substring(0, 8);
 
                     using (MemoryStream memoryStream = new MemoryStream())
                     {

@@ -323,6 +323,12 @@ namespace WebApplication2.Reports.SalarySlip {
             
             private global::System.Data.DataColumn columnCompany_Name;
             
+            private global::System.Data.DataColumn columnallowance;
+            
+            private global::System.Data.DataColumn columndeduction;
+            
+            private global::System.Data.DataColumn columnNet;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -534,6 +540,30 @@ namespace WebApplication2.Reports.SalarySlip {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn allowanceColumn {
+                get {
+                    return this.columnallowance;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn deductionColumn {
+                get {
+                    return this.columndeduction;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NetColumn {
+                get {
+                    return this.columnNet;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -591,7 +621,10 @@ namespace WebApplication2.Reports.SalarySlip {
                         string employee_bank_branchname, 
                         string compensation, 
                         string amt, 
-                        string Company_Name) {
+                        string Company_Name, 
+                        string allowance, 
+                        string deduction, 
+                        string Net) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         old_Emp_no,
@@ -615,7 +648,10 @@ namespace WebApplication2.Reports.SalarySlip {
                         employee_bank_branchname,
                         compensation,
                         amt,
-                        Company_Name};
+                        Company_Name,
+                        allowance,
+                        deduction,
+                        Net};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -660,6 +696,9 @@ namespace WebApplication2.Reports.SalarySlip {
                 this.columncompensation = base.Columns["compensation"];
                 this.columnamt = base.Columns["amt"];
                 this.columnCompany_Name = base.Columns["Company_Name"];
+                this.columnallowance = base.Columns["allowance"];
+                this.columndeduction = base.Columns["deduction"];
+                this.columnNet = base.Columns["Net"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -709,6 +748,12 @@ namespace WebApplication2.Reports.SalarySlip {
                 base.Columns.Add(this.columnamt);
                 this.columnCompany_Name = new global::System.Data.DataColumn("Company_Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCompany_Name);
+                this.columnallowance = new global::System.Data.DataColumn("allowance", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnallowance);
+                this.columndeduction = new global::System.Data.DataColumn("deduction", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndeduction);
+                this.columnNet = new global::System.Data.DataColumn("Net", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNet);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1203,6 +1248,54 @@ namespace WebApplication2.Reports.SalarySlip {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string allowance {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.allowanceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'allowance\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.allowanceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string deduction {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.deductionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'deduction\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.deductionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Net {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.NetColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Net\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.NetColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isold_Emp_noNull() {
                 return this.IsNull(this.tableDataTable1.old_Emp_noColumn);
             }
@@ -1463,6 +1556,42 @@ namespace WebApplication2.Reports.SalarySlip {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCompany_NameNull() {
                 this[this.tableDataTable1.Company_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsallowanceNull() {
+                return this.IsNull(this.tableDataTable1.allowanceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetallowanceNull() {
+                this[this.tableDataTable1.allowanceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdeductionNull() {
+                return this.IsNull(this.tableDataTable1.deductionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdeductionNull() {
+                this[this.tableDataTable1.deductionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNetNull() {
+                return this.IsNull(this.tableDataTable1.NetColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNetNull() {
+                this[this.tableDataTable1.NetColumn] = global::System.Convert.DBNull;
             }
         }
         

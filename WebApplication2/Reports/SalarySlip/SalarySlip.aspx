@@ -9,7 +9,10 @@
 
     <asp:Button ID="Button2" runat="server" Text="Download" OnClick="DownloadReport"/>
 
-    <rsweb:ReportViewer ID="ReportViewer1" runat="server" Height="1000px" Width="1100px">
+    <rsweb:ReportViewer ID="ReportViewer1" runat="server" Height="1000px" Width="1100px" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
+        <LocalReport ReportPath="Reports\SalarySlip\Report8.rdlc">
+        </LocalReport>
+ 
 
     </rsweb:ReportViewer>
 </asp:Content>

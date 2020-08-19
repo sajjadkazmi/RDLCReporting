@@ -29,14 +29,17 @@
                 <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
                     class="icon-bar"></span><span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"  id="changehover" style="padding-right: 735px; ">FIG - Figures & Indicators for Growth - Reporting</a>
-            <a class="navbar-brand navbar-right"  runat="server" href="#" id="changehover2" onserverclick="Delete"> <span class="glyphicon glyphicon-log-out"></span> Logout</a>
-            <a class="navbar-brand navbar-right"  runat="server" href="http://52.148.86.1/apex/f?p=105:LOGIN_DESKTOP:10492254484198:::::" id="A1"> <span class="glyphicon glyphicon-home"></span> Main </a>
+            <a class="navbar-brand changehover" href="#"  id="changehover" style="padding-right: 715px; font-weight:bold;">FIG - Figures & Indicators for Growth - Reporting</a>
+            <a class="navbar-brand navbar-right changehover"  runat="server" href="#" onserverclick="Delete"> <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+            <a class="navbar-brand navbar-right changehover"  runat="server" href="http://52.148.86.1/apex/f?p=105:LOGIN_DESKTOP:10492254484198:::::" id="A1"> <span class="glyphicon glyphicon-home"></span>  Main </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" RenderingMode="List"
+         <%--   <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" RenderingMode="List"
                 IncludeStyleBlock="false" StaticMenuStyle-CssClass="nav navbar-nav" DynamicMenuStyle-CssClass="dropdown-menu">
-            </asp:Menu>
+            </asp:Menu>--%>
+              <asp:Menu ID="Menu1" runat="server" CssClass="menu"  Orientation="Horizontal" RenderingMode="List"
+                IncludeStyleBlock="false">
+                    </asp:Menu>
         </div>
     </div>
 </div>
@@ -51,7 +54,61 @@
             </footer>
         </div>
     </form>
-    <style type="text/css">
+     <style>
+        .changehover:hover {
+            color: white !important;
+        }
+
+        .changehover {
+            color: white !important;
+        }
+
+        div.menu {
+            padding: .4px 0px 4px 0px;
+        }
+
+            div.menu ul {
+                list-style: none;
+                margin: 0px;
+                padding: 0px;
+                width: auto;
+                font-weight: bold;
+            }
+
+                div.menu ul li ul li {
+                    display: block;
+                    width: 250px;
+                    font-weight: normal;
+                }
+
+                div.menu ul li a, div.menu ul li a:visited {
+                    background-color: #0464b5 !important;
+                    /*border: 1px #4e667d solid;*/
+                    color: white;
+                    display: block;
+                    line-height: 1.35em;
+                    padding: 4px 20px;
+                    text-decoration: none;
+                    white-space: nowrap;
+                }
+
+                div.menu ul li {
+                    margin: 0 0 0px;
+                }
+
+                    div.menu ul li a:hover {
+                        background-color: #044bb5 !important;
+                        color: white;
+                        text-decoration: none;
+                    }
+
+                    div.menu ul li a:active {
+                        background-color: #0464b5 !important;
+                        color: white;
+                        text-decoration: none;
+                    }
+    </style>
+ <%--   <style type="text/css">
         #changehover:hover{
             color:white;
         }
@@ -71,7 +128,7 @@
             font-weight: bold;
         }
 
-    </style>
+    </style>--%>
 <%--    <script type="text/javascript">
     //Disable the default MouseOver functionality of ASP.Net Menu control.
     //Sys.WebForms.Menu._elementObjectMapper.getMappedObject = function () {

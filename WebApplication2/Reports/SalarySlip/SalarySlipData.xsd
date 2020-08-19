@@ -37,6 +37,9 @@
               <xs:element name="compensation" msprop:Generator_ColumnVarNameInTable="columncompensation" msprop:Generator_ColumnPropNameInRow="compensation" msprop:Generator_ColumnPropNameInTable="compensationColumn" msprop:Generator_UserColumnName="compensation" type="xs:string" minOccurs="0" />
               <xs:element name="amt" msprop:Generator_ColumnVarNameInTable="columnamt" msprop:Generator_ColumnPropNameInRow="amt" msprop:Generator_ColumnPropNameInTable="amtColumn" msprop:Generator_UserColumnName="amt" type="xs:string" minOccurs="0" />
               <xs:element name="Company_Name" msprop:Generator_ColumnVarNameInTable="columnCompany_Name" msprop:Generator_ColumnPropNameInRow="Company_Name" msprop:Generator_ColumnPropNameInTable="Company_NameColumn" msprop:Generator_UserColumnName="Company_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="allowance" msprop:Generator_ColumnVarNameInTable="columnallowance" msprop:Generator_ColumnPropNameInRow="allowance" msprop:Generator_ColumnPropNameInTable="allowanceColumn" msprop:Generator_UserColumnName="allowance" type="xs:string" minOccurs="0" />
+              <xs:element name="deduction" msprop:Generator_ColumnVarNameInTable="columndeduction" msprop:Generator_ColumnPropNameInRow="deduction" msprop:Generator_ColumnPropNameInTable="deductionColumn" msprop:Generator_UserColumnName="deduction" type="xs:string" minOccurs="0" />
+              <xs:element name="Net" msprop:Generator_ColumnVarNameInTable="columnNet" msprop:Generator_ColumnPropNameInRow="Net" msprop:Generator_ColumnPropNameInTable="NetColumn" msprop:Generator_UserColumnName="Net" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

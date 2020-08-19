@@ -274,8 +274,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Reports\NetPay\NetPay.aspx" />
     <Content Include="Reports\PayrollEmpDetails\PayrollEmpDetail.aspx" />
-    <Content Include="Reports\PaySlip\PaySlip.aspx" />
+    <Content Include="Reports\PurchaseOrder\PO.aspx" />
     <Content Include="Reports\SalarySlip\SalarySlip.aspx" />
     <Content Include="Reports\TestData.xsc">
       <DependentUpon>TestData.xsd</DependentUpon>
@@ -283,20 +284,20 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="DataSet123.xsc">
-      <DependentUpon>DataSet123.xsd</DependentUpon>
-    </Content>
-    <None Include="DataSet123.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet123.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="DataSet123.xss">
-      <DependentUpon>DataSet123.xsd</DependentUpon>
-    </Content>
     <None Include="Properties\PublishProfiles\sajjad.pubxml" />
     <Content Include="Reports\PayrollEmpDetails\PayrollData.xsc">
       <DependentUpon>PayrollData.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\NetPay\NetPayData.xsc">
+      <DependentUpon>NetPayData.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\NetPay\NetPayData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NetPayData.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\NetPay\NetPayData.xss">
+      <DependentUpon>NetPayData.xsd</DependentUpon>
     </Content>
     <None Include="Reports\PayrollEmpDetails\PayrollData.xsd">
       <SubType>Designer</SubType>
@@ -306,19 +307,19 @@
     <Content Include="Reports\PayrollEmpDetails\PayrollData.xss">
       <DependentUpon>PayrollData.xsd</DependentUpon>
     </Content>
-    <Content Include="Reports\PaySlip\PaySlipData.xsc">
-      <DependentUpon>PaySlipData.xsd</DependentUpon>
-    </Content>
-    <None Include="Reports\PaySlip\PaySlipData.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PaySlipData.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Reports\PaySlip\PaySlipData.xss">
-      <DependentUpon>PaySlipData.xsd</DependentUpon>
-    </Content>
     <Content Include="Reports\SalarySlip\SalarySlipData.xsc">
       <DependentUpon>SalarySlipData.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\PurchaseOrder\POData.xsc">
+      <DependentUpon>POData.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\PurchaseOrder\POData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>POData.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\PurchaseOrder\POData.xss">
+      <DependentUpon>POData.xsd</DependentUpon>
     </Content>
     <None Include="Reports\SalarySlip\SalarySlipData.xsd">
       <SubType>Designer</SubType>
@@ -327,6 +328,17 @@
     </None>
     <Content Include="Reports\SalarySlip\SalarySlipData.xss">
       <DependentUpon>SalarySlipData.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\SalarySlip\YTD.xsc">
+      <DependentUpon>YTD.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\SalarySlip\YTD.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>YTD.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\SalarySlip\YTD.xss">
+      <DependentUpon>YTD.xsd</DependentUpon>
     </Content>
     <None Include="Reports\TestData.xsd">
       <SubType>Designer</SubType>
@@ -528,11 +540,6 @@
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DataSet123.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet123.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -540,12 +547,23 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Email.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\NetPay\NetPay.aspx.cs">
+      <DependentUpon>NetPay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\NetPay\NetPay.aspx.designer.cs">
+      <DependentUpon>NetPay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\NetPay\NetPayData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NetPayData.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reports\PayrollEmpDetails\PayrollData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -561,17 +579,17 @@
     <Compile Include="Reports\PayrollEmpDetails\ReportPrintDocument.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\PaySlip\PaySlip.aspx.cs">
-      <DependentUpon>PaySlip.aspx</DependentUpon>
+    <Compile Include="Reports\PurchaseOrder\PO.aspx.cs">
+      <DependentUpon>PO.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Reports\PaySlip\PaySlip.aspx.designer.cs">
-      <DependentUpon>PaySlip.aspx</DependentUpon>
+    <Compile Include="Reports\PurchaseOrder\PO.aspx.designer.cs">
+      <DependentUpon>PO.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reports\PaySlip\PaySlipData.Designer.cs">
+    <Compile Include="Reports\PurchaseOrder\POData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PaySlipData.xsd</DependentUpon>
+      <DependentUpon>POData.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reports\SalarySlip\SalarySlip.aspx.cs">
       <DependentUpon>SalarySlip.aspx</DependentUpon>
@@ -584,6 +602,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SalarySlipData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SalarySlip\YTD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YTD.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reports\TestData.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -622,15 +645,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Reports\Invoice\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\NetPay\Report6.rdlc" />
     <EmbeddedResource Include="Reports\PayrollEmpDetails\Report3.rdlc" />
-    <EmbeddedResource Include="Reports\PaySlip\Report2.rdlc" />
-    <EmbeddedResource Include="Reports\PaySlip\Report4.rdlc" />
-    <EmbeddedResource Include="Reports\PaySlip\Report6.rdlc" />
+    <EmbeddedResource Include="Reports\PurchaseOrder\Report9.rdlc" />
     <EmbeddedResource Include="Reports\Report1.rdlc" />
-    <EmbeddedResource Include="Reports\Report5.rdlc" />
+    <EmbeddedResource Include="Reports\SalarySlip\Report2.rdlc" />
+    <EmbeddedResource Include="Reports\SalarySlip\Report4.rdlc" />
+    <EmbeddedResource Include="Reports\SalarySlip\Report5.rdlc" />
     <EmbeddedResource Include="Reports\SalarySlip\Report7.rdlc" />
+    <EmbeddedResource Include="Reports\SalarySlip\Report8.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
