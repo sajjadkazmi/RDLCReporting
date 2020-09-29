@@ -33,6 +33,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -41,6 +43,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <IncludeIisSettings>false</IncludeIisSettings>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AspNet.ScriptManager.bootstrap, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -137,8 +142,18 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Types, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.12.0.5000.0\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.19.6.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.3.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.3.9\lib\net40\QRCoder.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -192,6 +207,7 @@
     <Reference Include="Microsoft.AspNet.FriendlyUrls">
       <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
@@ -244,24 +260,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
-    <Content Include="Account\AddPhoneNumber.aspx" />
-    <Content Include="Account\Confirm.aspx" />
-    <Content Include="Account\Forgot.aspx" />
-    <Content Include="Account\Lockout.aspx" />
-    <Content Include="Account\Login.aspx" />
-    <Content Include="Account\Manage.aspx" />
-    <Content Include="Account\ManageLogins.aspx" />
-    <Content Include="Account\ManagePassword.aspx" />
-    <Content Include="Account\OpenAuthProviders.ascx" />
-    <Content Include="Account\Register.aspx" />
-    <Content Include="Account\RegisterExternalLogin.aspx" />
-    <Content Include="Account\ResetPassword.aspx" />
-    <Content Include="Account\ResetPasswordConfirmation.aspx" />
-    <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
-    <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Action\Login.aspx" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -269,87 +268,124 @@
     <Content Include="Content\Site.css" />
     <Content Include="css\style.css" />
     <Content Include="Dashboard.aspx" />
-    <Content Include="Account\Web.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Reports\NetPay\NetPay.aspx" />
-    <Content Include="Reports\PayrollEmpDetails\PayrollEmpDetail.aspx" />
-    <Content Include="Reports\PurchaseOrder\PO.aspx" />
-    <Content Include="Reports\SalarySlip\SalarySlip.aspx" />
-    <Content Include="Reports\TestData.xsc">
-      <DependentUpon>TestData.xsd</DependentUpon>
-    </Content>
+    <Content Include="RBAVARI\GL\PettyCash.aspx" />
+    <Content Include="RBAVARI\PO\PO.aspx" />
+    <Content Include="RBAVARI\PR\AppointSummary.aspx" />
+    <Content Include="RBAVARI\PR\BankAdvice.aspx" />
+    <Content Include="RBAVARI\PR\PayrollEmpDetails.aspx" />
+    <Content Include="RBAVARI\PR\PaySlip.aspx" />
+    <Content Include="RBAVARI\PR\PerksReport.aspx" />
+    <Content Include="RBAVARI\SO\DeliveryChallan.aspx" />
+    <Content Include="RBAVARI\SO\Invoices.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <None Include="Properties\PublishProfiles\sajjad.pubxml" />
-    <Content Include="Reports\PayrollEmpDetails\PayrollData.xsc">
+    <Content Include="RBAVARI\PR\PayrollData.xsc">
       <DependentUpon>PayrollData.xsd</DependentUpon>
     </Content>
-    <Content Include="Reports\NetPay\NetPayData.xsc">
+    <Content Include="RBAVARI\PR\NetPayData.xsc">
       <DependentUpon>NetPayData.xsd</DependentUpon>
     </Content>
-    <None Include="Reports\NetPay\NetPayData.xsd">
+    <Content Include="RBAVARI\PR\AppSummaryData.xsc">
+      <DependentUpon>AppSummaryData.xsd</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\WebDeploy.pubxml" />
+    <Content Include="RBAVARI\GL\PettyCashData.xsc">
+      <DependentUpon>PettyCashData.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\GL\PettyCashData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PettyCashData.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RBAVARI\GL\PettyCashData.xss">
+      <DependentUpon>PettyCashData.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\PR\AppSummaryData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AppSummaryData.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RBAVARI\PR\AppSummaryData.xss">
+      <DependentUpon>AppSummaryData.xsd</DependentUpon>
+    </Content>
+    <Content Include="RBAVARI\SO\InvoiceData.xsc">
+      <DependentUpon>InvoiceData.xsd</DependentUpon>
+    </Content>
+    <Content Include="RBAVARI\PR\PerksData.xsc">
+      <DependentUpon>PerksData.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\PR\PerksData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PerksData.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RBAVARI\PR\PerksData.xss">
+      <DependentUpon>PerksData.xsd</DependentUpon>
+    </Content>
+    <Content Include="RBAVARI\SO\CustomerLedgerData.xsc">
+      <DependentUpon>CustomerLedgerData.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\SO\CustomerLedgerData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CustomerLedgerData.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RBAVARI\SO\CustomerLedgerData.xss">
+      <DependentUpon>CustomerLedgerData.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\SO\InvoiceData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InvoiceData.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RBAVARI\SO\InvoiceData.xss">
+      <DependentUpon>InvoiceData.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\PR\NetPayData.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>NetPayData.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Reports\NetPay\NetPayData.xss">
+    <Content Include="RBAVARI\PR\NetPayData.xss">
       <DependentUpon>NetPayData.xsd</DependentUpon>
     </Content>
-    <None Include="Reports\PayrollEmpDetails\PayrollData.xsd">
+    <None Include="RBAVARI\PR\PayrollData.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>PayrollData.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Reports\PayrollEmpDetails\PayrollData.xss">
+    <Content Include="RBAVARI\PR\PayrollData.xss">
       <DependentUpon>PayrollData.xsd</DependentUpon>
     </Content>
-    <Content Include="Reports\SalarySlip\SalarySlipData.xsc">
-      <DependentUpon>SalarySlipData.xsd</DependentUpon>
-    </Content>
-    <Content Include="Reports\PurchaseOrder\POData.xsc">
+    <Content Include="RBAVARI\PO\POData.xsc">
       <DependentUpon>POData.xsd</DependentUpon>
     </Content>
-    <None Include="Reports\PurchaseOrder\POData.xsd">
+    <Content Include="RBAVARI\PR\PaySlipData.xsc">
+      <DependentUpon>PaySlipData.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\PR\PaySlipData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PaySlipData.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RBAVARI\PR\PaySlipData.xss">
+      <DependentUpon>PaySlipData.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\PO\POData.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>POData.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Reports\PurchaseOrder\POData.xss">
+    <Content Include="RBAVARI\PO\POData.xss">
       <DependentUpon>POData.xsd</DependentUpon>
     </Content>
-    <None Include="Reports\SalarySlip\SalarySlipData.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SalarySlipData.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Reports\SalarySlip\SalarySlipData.xss">
-      <DependentUpon>SalarySlipData.xsd</DependentUpon>
-    </Content>
-    <Content Include="Reports\SalarySlip\YTD.xsc">
-      <DependentUpon>YTD.xsd</DependentUpon>
-    </Content>
-    <None Include="Reports\SalarySlip\YTD.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>YTD.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Reports\SalarySlip\YTD.xss">
-      <DependentUpon>YTD.xsd</DependentUpon>
-    </Content>
-    <None Include="Reports\TestData.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TestData.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Reports\TestData.xss">
-      <DependentUpon>TestData.xsd</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Reports\TestReport.aspx" />
+    <Content Include="RBAVARI\SO\So_CustomerLedger.aspx" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -385,12 +421,27 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr100.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr100.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Bundle.config" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
@@ -402,111 +453,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\AddPhoneNumber.aspx.cs">
-      <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\AddPhoneNumber.aspx.designer.cs">
-      <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Confirm.aspx.cs">
-      <DependentUpon>Confirm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Confirm.aspx.designer.cs">
-      <DependentUpon>Confirm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Forgot.aspx.cs">
-      <DependentUpon>Forgot.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Forgot.aspx.designer.cs">
-      <DependentUpon>Forgot.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Lockout.aspx.cs">
-      <DependentUpon>Lockout.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Lockout.aspx.designer.cs">
-      <DependentUpon>Lockout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Manage.aspx.cs">
-      <DependentUpon>Manage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Manage.aspx.designer.cs">
-      <DependentUpon>Manage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ManageLogins.aspx.cs">
-      <DependentUpon>ManageLogins.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ManageLogins.aspx.designer.cs">
-      <DependentUpon>ManageLogins.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ManagePassword.aspx.cs">
-      <DependentUpon>ManagePassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ManagePassword.aspx.designer.cs">
-      <DependentUpon>ManagePassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\OpenAuthProviders.ascx.cs">
-      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\OpenAuthProviders.ascx.designer.cs">
-      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\RegisterExternalLogin.aspx.cs">
-      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
-      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ResetPassword.aspx.cs">
-      <DependentUpon>ResetPassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ResetPassword.aspx.designer.cs">
-      <DependentUpon>ResetPassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ResetPasswordConfirmation.aspx.cs">
-      <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ResetPasswordConfirmation.aspx.designer.cs">
-      <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\TwoFactorAuthenticationSignIn.aspx.cs">
-      <DependentUpon>TwoFactorAuthenticationSignIn.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\TwoFactorAuthenticationSignIn.aspx.designer.cs">
-      <DependentUpon>TwoFactorAuthenticationSignIn.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\VerifyPhoneNumber.aspx.cs">
-      <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
-      <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Action\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -515,24 +461,10 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Connection.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -550,75 +482,123 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GlobalReport.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\NetPay\NetPay.aspx.cs">
-      <DependentUpon>NetPay.aspx</DependentUpon>
+    <Compile Include="RBAVARI\GL\PettyCash.aspx.cs">
+      <DependentUpon>PettyCash.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Reports\NetPay\NetPay.aspx.designer.cs">
-      <DependentUpon>NetPay.aspx</DependentUpon>
+    <Compile Include="RBAVARI\GL\PettyCash.aspx.designer.cs">
+      <DependentUpon>PettyCash.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reports\NetPay\NetPayData.Designer.cs">
+    <Compile Include="RBAVARI\GL\PettyCashData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PettyCashData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PO\PO.aspx.cs">
+      <DependentUpon>PO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAVARI\PO\PO.aspx.designer.cs">
+      <DependentUpon>PO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\AppointSummary.aspx.cs">
+      <DependentUpon>AppointSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAVARI\PR\AppointSummary.aspx.designer.cs">
+      <DependentUpon>AppointSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\BankAdvice.aspx.cs">
+      <DependentUpon>BankAdvice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAVARI\PR\BankAdvice.aspx.designer.cs">
+      <DependentUpon>BankAdvice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\PayrollEmpDetails.aspx.cs">
+      <DependentUpon>PayrollEmpDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAVARI\PR\PayrollEmpDetails.aspx.designer.cs">
+      <DependentUpon>PayrollEmpDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\PaySlip.aspx.cs">
+      <DependentUpon>PaySlip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAVARI\PR\PaySlip.aspx.designer.cs">
+      <DependentUpon>PaySlip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\PerksData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PerksData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\PerksReport.aspx.cs">
+      <DependentUpon>PerksReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAVARI\PR\PerksReport.aspx.designer.cs">
+      <DependentUpon>PerksReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\SO\CustomerLedgerData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerLedgerData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\SO\DeliveryChallan.aspx.cs">
+      <DependentUpon>DeliveryChallan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAVARI\SO\DeliveryChallan.aspx.designer.cs">
+      <DependentUpon>DeliveryChallan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\SO\Invoices.aspx.cs">
+      <DependentUpon>Invoices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAVARI\SO\Invoices.aspx.designer.cs">
+      <DependentUpon>Invoices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\AppSummaryData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppSummaryData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\SO\InvoiceData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\NetPayData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>NetPayData.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reports\PayrollEmpDetails\PayrollData.Designer.cs">
+    <Compile Include="RBAVARI\PR\PayrollData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PayrollData.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reports\PayrollEmpDetails\PayrollEmpDetail.aspx.cs">
-      <DependentUpon>PayrollEmpDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="RBAVARI\PR\PaySlipData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaySlipData.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reports\PayrollEmpDetails\PayrollEmpDetail.aspx.designer.cs">
-      <DependentUpon>PayrollEmpDetail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\PayrollEmpDetails\ReportPrintDocument.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\PurchaseOrder\PO.aspx.cs">
-      <DependentUpon>PO.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reports\PurchaseOrder\PO.aspx.designer.cs">
-      <DependentUpon>PO.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\PurchaseOrder\POData.Designer.cs">
+    <Compile Include="RBAVARI\PO\POData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>POData.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reports\SalarySlip\SalarySlip.aspx.cs">
-      <DependentUpon>SalarySlip.aspx</DependentUpon>
+    <Compile Include="RBAVARI\SO\So_CustomerLedger.aspx.cs">
+      <DependentUpon>So_CustomerLedger.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Reports\SalarySlip\SalarySlip.aspx.designer.cs">
-      <DependentUpon>SalarySlip.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\SalarySlip\SalarySlipData.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SalarySlipData.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\SalarySlip\YTD.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>YTD.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\TestData.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TestData.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\TestReport.aspx.cs">
-      <DependentUpon>TestReport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reports\TestReport.aspx.designer.cs">
-      <DependentUpon>TestReport.aspx</DependentUpon>
+    <Compile Include="RBAVARI\SO\So_CustomerLedger.aspx.designer.cs">
+      <DependentUpon>So_CustomerLedger.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -634,6 +614,7 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -644,19 +625,26 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Reports\Invoice\" />
+    <Folder Include="RBAVARI\AP\" />
+    <Folder Include="RBAVARI\AR\" />
+    <Folder Include="RBAVARI\FA\" />
+    <Folder Include="RBAVARI\IM\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\NetPay\Report6.rdlc" />
-    <EmbeddedResource Include="Reports\PayrollEmpDetails\Report3.rdlc" />
-    <EmbeddedResource Include="Reports\PurchaseOrder\Report9.rdlc" />
-    <EmbeddedResource Include="Reports\Report1.rdlc" />
-    <EmbeddedResource Include="Reports\SalarySlip\Report2.rdlc" />
-    <EmbeddedResource Include="Reports\SalarySlip\Report4.rdlc" />
-    <EmbeddedResource Include="Reports\SalarySlip\Report5.rdlc" />
-    <EmbeddedResource Include="Reports\SalarySlip\Report7.rdlc" />
-    <EmbeddedResource Include="Reports\SalarySlip\Report8.rdlc" />
+    <EmbeddedResource Include="RBAVARI\GL\PettyCash.rdlc" />
+    <EmbeddedResource Include="RBAVARI\PO\PO.rdlc" />
+    <EmbeddedResource Include="RBAVARI\PR\Perks.rdlc" />
+    <EmbeddedResource Include="RBAVARI\PR\PayrollEmpDetail.rdlc" />
+    <EmbeddedResource Include="RBAVARI\PR\PaySlip.rdlc" />
+    <EmbeddedResource Include="RBAVARI\PR\BankAdvice.rdlc" />
+    <EmbeddedResource Include="RBAVARI\PR\AppointSummary.rdlc" />
+    <EmbeddedResource Include="RBAVARI\PR\Report1.rdlc" />
+    <EmbeddedResource Include="RBAVARI\SO\DeliveryChallan.rdlc" />
+    <EmbeddedResource Include="RBAVARI\SO\CustomerLedger.rdlc" />
+    <EmbeddedResource Include="RBAVARI\SO\Invoice.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

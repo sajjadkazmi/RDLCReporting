@@ -81,6 +81,7 @@ namespace WebApplication2
             {
                 if (!this.IsPostBack)
                 {
+                    //Label1.Text = Session["u_id"].ToString();
                     DataTable dt = this.GetMenuData();
                     PopulateMenu(dt);
                 }
@@ -104,7 +105,7 @@ namespace WebApplication2
                 AddChildItems(dt, menuItem);
             }
         }
-  
+
 
         private void AddChildItems(DataTable table, MenuItem menuItem)
         {
@@ -131,19 +132,30 @@ namespace WebApplication2
             Connection getCon = new Connection();
             string connectString = getCon.create_connection();
 
-            OracleConnection con = new OracleConnection(connectString);
-            con.Open();
-            OracleCommand comm = new OracleCommand("select rems, mnu_id, sub_mnu_id, report_url from " + Session["schema_name"] + "Menuview1  where nvl(report_yn,'N') = 'Y' and usr_name = " + "'" + userNameSession + "'" + " order by 1", con);
+            try
+            {
+                OracleConnection con = new OracleConnection(connectString);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                OracleCommand comm = new OracleCommand("select mnu_id, sub_mnu_id, rems, report_url from "+Session["Schema_Name"] + " ReportMenu where auth_level like '%"+Session["auth_level"]+"%'  ", con);
 
-            OracleDataAdapter da = new OracleDataAdapter(comm);
-          
-            DataTable dt = new DataTable();
-            da.Fill(dt); // fill dataset
+                OracleDataAdapter da = new OracleDataAdapter(comm);
 
-           return dt;
+                DataTable dt = new DataTable();
+                da.Fill(dt); // fill dataset
+                con.Close();
+                return dt;
+            }
 
-        
-    }
+
+            catch (Exception e)
+            {
+
+                throw;
+            }
+        }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {

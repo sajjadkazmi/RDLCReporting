@@ -26,7 +26,7 @@ namespace WebApplication2.Action
             string connectString = getCon.create_connection();
             string usr_name = "";
             string auth_level = "";
-            string PASS_CODE = "";
+            string pass_code = "";
             string schema_name = "";
 
             try
@@ -45,19 +45,20 @@ namespace WebApplication2.Action
                     {
                         usr_name = (string)dr["user_name"];
                         auth_level = (string)dr["auth_level"];
-                        PASS_CODE = (string)dr["pass_code"];
+                        pass_code = (string)dr["pass_code"];
                         schema_name = (string)dr["schema_name"];
 
 
                         //Creating Session
 
-                        //Session["UserName"] = usr_name;
+                        Session["Pass_Code"] = pass_code;
+                        Session["Auth_Level"] = auth_level;
                         Session["Schema_Name"] = schema_name;
                         Session["u_id"] = usr_name;
                         
                     }
                         con.Close();
-                        Response.Redirect("~/Dashboard.aspx",false);
+                        Response.Redirect("~/Dashboard.aspx");
                 }
                 else
                 {
@@ -70,10 +71,6 @@ namespace WebApplication2.Action
              
                 //throw;
             }
-
-        
-
-
         }
     }
 }

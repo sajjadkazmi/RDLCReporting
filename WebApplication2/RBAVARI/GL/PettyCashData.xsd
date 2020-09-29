@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PettyCashData" targetNamespace="http://tempuri.org/PettyCashData.xsd" xmlns:mstns="http://tempuri.org/PettyCashData.xsd" xmlns="http://tempuri.org/PettyCashData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PettyCashData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="PettyCashData" msprop:Generator_UserDSName="PettyCashData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TPP_CODE" msprop:Generator_ColumnVarNameInTable="columnTPP_CODE" msprop:Generator_ColumnPropNameInRow="TPP_CODE" msprop:Generator_ColumnPropNameInTable="TPP_CODEColumn" msprop:Generator_UserColumnName="TPP_CODE" type="xs:string" minOccurs="0" />
+              <xs:element name="REF1" msprop:Generator_ColumnVarNameInTable="columnREF1" msprop:Generator_ColumnPropNameInRow="REF1" msprop:Generator_ColumnPropNameInTable="REF1Column" msprop:Generator_UserColumnName="REF1" type="xs:string" minOccurs="0" />
+              <xs:element name="VALUE_DATE" msprop:Generator_ColumnVarNameInTable="columnVALUE_DATE" msprop:Generator_ColumnPropNameInRow="VALUE_DATE" msprop:Generator_ColumnPropNameInTable="VALUE_DATEColumn" msprop:Generator_UserColumnName="VALUE_DATE" type="xs:string" minOccurs="0" />
+              <xs:element name="HDR_REMARKS" msprop:Generator_ColumnVarNameInTable="columnHDR_REMARKS" msprop:Generator_ColumnPropNameInRow="HDR_REMARKS" msprop:Generator_ColumnPropNameInTable="HDR_REMARKSColumn" msprop:Generator_UserColumnName="HDR_REMARKS" type="xs:string" minOccurs="0" />
+              <xs:element name="BANK_NAME" msprop:Generator_ColumnVarNameInTable="columnBANK_NAME" msprop:Generator_ColumnPropNameInRow="BANK_NAME" msprop:Generator_ColumnPropNameInTable="BANK_NAMEColumn" msprop:Generator_UserColumnName="BANK_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="ACCOUNT_CENTER" msprop:Generator_ColumnVarNameInTable="columnACCOUNT_CENTER" msprop:Generator_ColumnPropNameInRow="ACCOUNT_CENTER" msprop:Generator_ColumnPropNameInTable="ACCOUNT_CENTERColumn" msprop:Generator_UserColumnName="ACCOUNT_CENTER" type="xs:string" minOccurs="0" />
+              <xs:element name="ACCOUNT_NAME" msprop:Generator_ColumnVarNameInTable="columnACCOUNT_NAME" msprop:Generator_ColumnPropNameInRow="ACCOUNT_NAME" msprop:Generator_ColumnPropNameInTable="ACCOUNT_NAMEColumn" msprop:Generator_UserColumnName="ACCOUNT_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="DTL_REMARKS" msprop:Generator_ColumnVarNameInTable="columnDTL_REMARKS" msprop:Generator_ColumnPropNameInRow="DTL_REMARKS" msprop:Generator_ColumnPropNameInTable="DTL_REMARKSColumn" msprop:Generator_UserColumnName="DTL_REMARKS" type="xs:string" minOccurs="0" />
+              <xs:element name="DR_AMT" msprop:Generator_ColumnVarNameInTable="columnDR_AMT" msprop:Generator_ColumnPropNameInRow="DR_AMT" msprop:Generator_ColumnPropNameInTable="DR_AMTColumn" msprop:Generator_UserColumnName="DR_AMT" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

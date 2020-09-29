@@ -13,48 +13,88 @@
     </asp:PlaceHolder>
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-       
+
+
 </head>
 <body>
     <form runat="server">
-   <link rel="stylesheet" href='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'
-    media="screen" />
-<script type="text/javascript" src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
-<script type="text/javascript" src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
-<div class="navbar navbar-default navbar-fixed-top" style="background-color: #0572CE;">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-                aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
-                    class="icon-bar"></span><span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand changehover" href="#"  id="changehover" style="padding-right: 715px; font-weight:bold;">FIG - Figures & Indicators for Growth - Reporting</a>
-            <a class="navbar-brand navbar-right changehover"  runat="server" href="#" onserverclick="Delete"> <span class="glyphicon glyphicon-log-out"></span> Logout</a>
-            <a class="navbar-brand navbar-right changehover"  runat="server" href="http://52.148.86.1/apex/f?p=105:LOGIN_DESKTOP:10492254484198:::::" id="A1"> <span class="glyphicon glyphicon-home"></span>  Main </a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-         <%--   <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" RenderingMode="List"
-                IncludeStyleBlock="false" StaticMenuStyle-CssClass="nav navbar-nav" DynamicMenuStyle-CssClass="dropdown-menu">
-            </asp:Menu>--%>
-              <asp:Menu ID="Menu1" runat="server" CssClass="menu"  Orientation="Horizontal" RenderingMode="List"
-                IncludeStyleBlock="false">
-                    </asp:Menu>
-        </div>
-    </div>
-</div>
+        
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+           
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css" />
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.js"></script>
 
-        <div class="container body-content" style="margin-left: 20px; margin-top:40px;">
+    <style type="text/css">
+        .multiselect-container {
+            width: 400px !important;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $('#ListBox1,#ListBox2,#ListBox3').multiselect({
+                includeSelectAllOption: true,
+                enableFiltering: true,
+                enableCaseInsensitiveFiltering: true,
+                buttonWidth: '400px',
+                maxHeight: 300,
+            });
+        });
+        $(document).ready(function () {
+            $('.datePicker').datepicker();
+        });
 
+      
+        function enterKeyPressed(e) {
+            if (window.event) {
+                e = window.event;
+            }
+            if (e.keyCode == 13) {
+                __doPostBack('ShowMessage', '');
+            }
+        }
+    </script>
+
+        <div class="navbar navbar-default navbar-fixed-top" style="background-color: #0572CE;">
+            <div class="container-fluid">
+                <div class="navbar-header nav">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
+                            class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand changehover" href="#"><b>FIG - Reporting</b></a>
+
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav  navbar-right">
+                        <li><a href="http://52.148.86.1/apex/f?p=105:LOGIN_DESKTOP:10492254484198:::::" class="changehover" style="font-size: 16px;"><span class="glyphicon glyphicon-link"></span><b>Main</b></a></li>
+                      <%--  <li><a href="#" class="changehover" runat="server" onserverclick="Delete" data-toggle="collapse" data-target=".navbar-collapse.in" style="font-size: 16px;"><span class="glyphicon glyphicon-log-out"></span><b>Logout </b></a></li>--%>
+                        <li><a runat="server" onserverclick="Delete" class="changehover" style="font-size: 16px" href="#"><span class="glyphicon glyphicon-log-out"></span><b>Logout </b></a></li>
+                    </ul>
+                </div>
+                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" RenderingMode="List"
+                    IncludeStyleBlock="true" StaticMenuStyle-CssClass="nav navbar-nav" DynamicMenuStyle-CssClass="dropdown-menu" CssClass="menu changehover">
+                  
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="container body-content" style="margin-left: 20px; margin-top: 40px;">
+            
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-<%--                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>--%>
+                <%--                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>--%>
             </footer>
         </div>
     </form>
-     <style>
+    <style>
         .changehover:hover {
             color: white !important;
         }
@@ -62,92 +102,73 @@
         .changehover {
             color: white !important;
         }
-
-        div.menu {
+        div.menu1 {
             padding: .4px 0px 4px 0px;
         }
 
-            div.menu ul {
-                list-style: none;
-                margin: 0px;
-                padding: 0px;
-                width: auto;
-                font-weight: bold;
+        div.menu ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            width: auto;
+            font-weight: bold;
+        }
+
+            div.menu ul li ul li {
+                display: block;
+                width: 250px;
+                font-weight: normal;
+                font-size: 12px;
             }
 
-                div.menu ul li ul li {
-                    display: block;
-                    width: 250px;
-                    font-weight: normal;
-                }
+            div.menu ul li a, div.menu ul li a:visited {
+                background-color: #0464b5 !important;
+                /*border: 1px #4e667d solid;*/
+                color: white !important;
+                display: block;
+                line-height: 1.35em;
+                padding: 9px 15px;
+                text-decoration: none;
+                white-space: nowrap;
+            }
 
-                div.menu ul li a, div.menu ul li a:visited {
-                    background-color: #0464b5 !important;
-                    /*border: 1px #4e667d solid;*/
-                    color: white;
-                    display: block;
-                    line-height: 1.35em;
-                    padding: 4px 20px;
+            div.menu ul li {
+                margin: 0 0 0px;
+            }
+
+                div.menu ul li a:hover {
+                    background-color: #044bb5 !important;
+                    color: white !important;
                     text-decoration: none;
-                    white-space: nowrap;
                 }
 
-                div.menu ul li {
-                    margin: 0 0 0px;
+                div.menu ul li a:active {
+                    background-color: #0464b5 !important;
+                    color: white;
+                    text-decoration: none;
                 }
-
-                    div.menu ul li a:hover {
-                        background-color: #044bb5 !important;
-                        color: white;
-                        text-decoration: none;
-                    }
-
-                    div.menu ul li a:active {
-                        background-color: #0464b5 !important;
-                        color: white;
-                        text-decoration: none;
-                    }
     </style>
- <%--   <style type="text/css">
-        #changehover:hover{
-            color:white;
-        }
-        #changehover2:hover{
-            color:white;
-        }
-        .navbar-default .navbar-nav > li > a {
-            color: white;
-            font-weight: bold;
-        }
 
-        .navbar-default .navbar-brand {
-            color: white;
-        }
-        .navbar-default .navbar-nav > li > a:hover {
-            color: white !important; 
-            font-weight: bold;
-        }
 
-    </style>--%>
-<%--    <script type="text/javascript">
-    //Disable the default MouseOver functionality of ASP.Net Menu control.
-    //Sys.WebForms.Menu._elementObjectMapper.getMappedObject = function () {
-    //    return false;
-    //};
-    $(function () {
-        //Remove the style attributes.
-        $(".navbar-nav li, .navbar-nav a, .navbar-nav ul").removeAttr('style');
+    <script type="text/javascript">
+        //Disable the default MouseOver functionality of ASP.Net Menu control.
+        //Sys.WebForms.Menu._elementObjectMapper.getMappedObject = function () {
+        //    return false;
+        };
+        $(function () {
+            //Remove the style attributes.
+            $(".navbar-nav li, .navbar-nav a, .navbar-nav ul").removeAttr('style');
            
-        //Apply the Bootstrap class to the Submenu.
-        $(".dropdown-menu").closest("li").removeClass().addClass("dropdown-toggle");
+            //Apply the Bootstrap class to the Submenu.
+            $(".dropdown-menu").closest("li").removeClass().addClass("dropdown-toggle");
            
-        //Apply the Bootstrap properties to the Submenu.
-        $(".dropdown-toggle").find("a").eq(0).attr("data-toggle", "dropdown").attr("aria-haspopup", "true").attr("aria-expanded", "false").append("<span class='caret'></span>");
+            //Apply the Bootstrap properties to the Submenu.
+            $(".dropdown-toggle").find("a").eq(0).attr("data-toggle", "dropdown").attr("aria-haspopup", "true").attr("aria-expanded", "false").append("<span class='caret'></span>");
            
-        //Apply the Bootstrap "active" class to the selected Menu item.
-        $("a.selected").closest("li").addClass("active");
-        $("a.selected").closest(".dropdown-toggle").addClass("active");
-    });
-</script>--%>
+            //Apply the Bootstrap "active" class to the selected Menu item.
+            $("a.selected").closest("li").addClass("active");
+            $("a.selected").closest(".dropdown-toggle").addClass("active");
+        });
+    </script>
 </body>
 </html>
