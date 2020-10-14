@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication2.RBAVARI.SO
 {
-    public partial class So_CustomerLedger : System.Web.UI.Page
+    public partial class Activity : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -53,47 +53,40 @@ namespace WebApplication2.RBAVARI.SO
                 CustName = string.Join(" ", value.Split(' ').Select(x => x.Trim('\''))).TrimEnd(',').TrimEnd('\'');
             }
 
-            string date = datepicker.Text.ToString();
-            var datetime = DateTime.Parse(date);
-            var FromDate = datetime.ToString("dd-MMM-yyyy");
+            //string date = datepicker.Text.ToString();
+            //var datetime = DateTime.Parse(date);
+            //var FromDate = datetime.ToString("dd-MMM-yyyy");
 
             string date1 = datepicker2.Text.ToString();
             var datetime1 = DateTime.Parse(date1);
             var ToDate = datetime1.ToString("dd-MMM-yyyy");
-            string RT = "" ; 
-
-            //string ToDate = ListBox3.SelectedItem.ToString().Substring(0, 9);
-
+            string RT = "";
+            
             //Reset
             ReportViewer1.Reset();
             //datasource
-            DataTable dt = GetData(string.Join(" ", CustName), FromDate,ToDate);
-            DataTable dt2 = GetRT(string.Join(" ", CustName), FromDate);
-            for (int i = 0; i < dt2.Rows.Count; i++)
-            {
-                if (dt2.Rows[i]["RT"].ToString() == "")
-                {
-                    RT = "0";
-                }
-                else
-                {
-                 RT =dt2.Rows[i]["RT"].ToString();
-                }
-                
-            }
+            DataTable dt = GetData(CustName, ToDate);
+
+            //DataTable dt2 = GetRT(string.Join(" ", CustName), FromDate);
+            //for (int i = 0; i < dt2.Rows.Count; i++)
+            //{
+            //    //for each row, get the 3rd column
+            //    RT = dt2.Rows[i]["RT"].ToString();
+            //}
+
 
             ReportDataSource rds = new ReportDataSource("CustomerLedgerData", dt);
 
             ReportViewer1.LocalReport.DataSources.Add(rds);
             //path
 
-            ReportViewer1.LocalReport.ReportPath = "./RBAVARI/SO/CustomerLedger.rdlc";
+            ReportViewer1.LocalReport.ReportPath = "./RBAVARI/SO/Activity.rdlc";
             //parameter
             ReportParameter[] rptParms = new ReportParameter[]
             {
-                    new ReportParameter ("RT", RT),
+                    //new ReportParameter ("RT",RT),
                     new ReportParameter ("CustName",CustName),
-                    new ReportParameter ("FromDate",FromDate),
+                    //new ReportParameter ("FromDate",FromDate),
                     new ReportParameter ("ToDate",ToDate),
                     new ReportParameter("USERID", Session["u_id"].ToString(),false)
             };
@@ -105,7 +98,7 @@ namespace WebApplication2.RBAVARI.SO
             PrintButton.Visible = true;
         }
 
-        private DataTable GetData(string CustName,string FromDate,string ToDate)
+        private DataTable GetData(string CustName, string ToDate)
         {
 
             Connection getCon = new Connection();
@@ -118,7 +111,7 @@ namespace WebApplication2.RBAVARI.SO
                 {
                     con.Open();
                 }
-                OracleDataAdapter da = new OracleDataAdapter("select grp_seq,grp_remarks, value_date, tpp_code, ref1, customer_name, discount_reference,   item_name, debit_amount, credit_amount from rbavari.Sov_Customerledger a where cust_code IN('" + CustName + "')  and value_date >= '" + FromDate + "' AND value_date <= '" + ToDate + "' order by value_date, GRP_SEQ", con);
+                OracleDataAdapter da = new OracleDataAdapter("select grp_seq,grp_remarks,region_description,zone_description,cityname,value_date, tpp_code, ref1, customer_name, discount_reference,   item_name, debit_amount, credit_amount from rbavari.Sov_Customerledger a where cust_code IN('" + CustName + "')   AND value_date <= '" + ToDate + "' order by value_date, GRP_SEQ", con);
                 DataTable dt = new DataTable("DemoDt");
                 da.Fill(dt);
                 return dt;
@@ -132,32 +125,6 @@ namespace WebApplication2.RBAVARI.SO
             }
         }
 
-        private DataTable GetRT(string CustName, string FromDate)
-        {
-
-            Connection getCon = new Connection();
-            string connectString = getCon.create_connection();
-            try
-            {
-                //string schema_name = "rbavari.";
-                OracleConnection con = new OracleConnection(connectString);
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-                }
-                OracleDataAdapter da = new OracleDataAdapter("select sum(nvl(debit_amount,0)) - sum(nvl(credit_amount,0) ) RT from rbavari.sov_customerledger where cust_code IN('" + CustName + "') and value_Date < '" + FromDate + "'", con);
-                DataTable dt = new DataTable("DemoDt");
-                da.Fill(dt);
-                return dt;
-
-                //con.Close();
-
-            }
-            catch (OracleException ex)
-            {
-                return null;
-            }
-        }
 
         private void BindListbox()
         {
@@ -185,7 +152,7 @@ namespace WebApplication2.RBAVARI.SO
                     OracleDataAdapter da2 = new OracleDataAdapter(com2);
                     DataSet ds2 = new DataSet();
                     da2.Fill(ds2); // fill dataset
-                    
+
                 }
                 con.Close();
 
@@ -197,7 +164,6 @@ namespace WebApplication2.RBAVARI.SO
             }
 
         }
-
         protected void PrintButton_Click(object sender, EventArgs e)
         {
             byte[] bytes = ReportViewer1.LocalReport.Render("PDF");

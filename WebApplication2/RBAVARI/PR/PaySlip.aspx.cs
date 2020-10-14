@@ -1,5 +1,6 @@
 ﻿using iTextSharp.text.pdf.parser;
 using Microsoft.Reporting.WebForms;
+using Microsoft.Win32;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
@@ -17,10 +18,19 @@ namespace WebApplication2.RBAVARI.PR
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string pass = Request["id"];
+            string passcode = string.Empty;
+            passcode = Convert.ToString(Session["Pass_Code"]);
 
-            if (Session["u_id"] == null)
+            if (Session["Pass_Code"] == null)
             {
-                Response.Redirect("~/Action/Login.aspx");
+                GlobalReport GLRpt = new GlobalReport();
+                GLRpt.GetPassCode(pass);
+            }
+            else if (Session["Pass_Code"] != null)
+            {
+                GlobalReport GLRpt = new GlobalReport();
+                GLRpt.GetPassCode(passcode);
             }
 
             if (!Page.IsPostBack)
@@ -68,6 +78,7 @@ namespace WebApplication2.RBAVARI.PR
             ReportViewer1.LocalReport.SetParameters(rptParms);
             //refresh
             ReportViewer1.LocalReport.Refresh();
+            Button2.Visible = true;
         }
 
         private DataTable GetData(string Date)
@@ -130,18 +141,54 @@ namespace WebApplication2.RBAVARI.PR
 
         }
 
+        //string GetDownloadFolderPath()
+        //{
+        //    return Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "{374DE290-123F-4565-9164-39C4925E467B}", String.Empty).ToString();
+        //}
+        public static string getHomePath()
+        {
+            // Not in .NET 2.0
+            // System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            if (System.Environment.OSVersion.Platform == System.PlatformID.Unix)
+                return System.Environment.GetEnvironmentVariable("HOME");
+
+            return System.Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%");
+        }
+
+
+        public static string getDownloadFolderPath()
+        {
+            if (System.Environment.OSVersion.Platform == System.PlatformID.Unix)
+            {
+                string pathDownload = System.IO.Path.Combine(getHomePath(), "Downloads");
+                return pathDownload;
+            }
+
+            return System.Convert.ToString(
+                Microsoft.Win32.Registry.GetValue(
+                     @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders"
+                    , "{374DE290-123F-4565-9164-39C4925E467B}"
+                    , String.Empty
+                )
+            );
+        }
+
         protected void DownloadReport(object sender, EventArgs e)
         {
+           
             string Url = ConvertReportToPDF(ReportViewer1.LocalReport);
+            //System.Diagnostics.Process.Start(Url);
             string sourcePdfPath = Url;
+            string folderPath = System.IO.Path.ChangeExtension(sourcePdfPath.ToLower(), null);
+            //File.Delete(folderPath);
 
-            //string DestinationFolder = @"C:\Users\sajja\Desktop\file";
-
-            string DestinationFolder = Environment.GetEnvironmentVariable("USERPROFILE");
+            //string DestinationFolder = AppDomain.CurrentDomain.BaseDirectory;
+            string DestinationFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             ExtractPages(sourcePdfPath, DestinationFolder);
+
             //System.Diagnostics.Process.Start(Url);
             File.Delete(Url);
-            Label2.Text = Url;
+            Label2.Text = folderPath;
         }
 
         private string ConvertReportToPDF(LocalReport rep)
@@ -165,11 +212,10 @@ namespace WebApplication2.RBAVARI.PR
             string extension = string.Empty;
 
             byte[] bytes = rep.Render(reportType, deviceInfo, out mimeType, out encoding, out extension, out streamIds, out warnings);
-            string localPath = Environment.GetEnvironmentVariable("USERPROFILE");
-            //string localPath = AppDomain.CurrentDomain.BaseDirectory+"pdfiles";
+            //string localPath = AppDomain.CurrentDomain.BaseDirectory;
+            string localPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-
-            ////string fileName = Guid.NewGuid().ToString() + ".pdf";
+            //string fileName = Guid.NewGuid().ToString() + ".pdf";
             string fileName = "MyReport" + ".pdf";
             localPath = localPath + @"\" + fileName;
             System.IO.File.WriteAllBytes(localPath, bytes);
@@ -203,17 +249,12 @@ namespace WebApplication2.RBAVARI.PR
                     ITextExtractionStrategy strategy = new iTextSharp.text.pdf.parser.LocationTextExtractionStrategy();
                     string currentText = PdfTextExtractor.GetTextFromPage(reader, p, strategy);
                     currentText = Encoding.UTF8.GetString(ASCIIEncoding.Convert(Encoding.Default, Encoding.UTF8, Encoding.Default.GetBytes(currentText)));
-                    //strText = strText + currentText;
-
-                    //string sub = currentText.Substring(currentText.IndexOf("Employee ID:") + 13);
-                    //string EmpID = sub.Substring(0, 11);
+                    
                     int pos1 = currentText.IndexOf("Employee ID") + 11;
                     int pos2 = currentText.IndexOf("Department", pos1);
                     string EmpID = currentText.Substring(pos1, pos2 - pos1).Trim();
 
                     string dirPath = sourcePdfPath.ToLower().Replace(".pdf", "");
-                    //string subb = dirPath.Substring(dirPath.IndexOf("Downloads") + 26);
-                    //string dirName = subb.Substring(0, 8);
                     string dirName = "myreport";
 
                     using (MemoryStream memoryStream = new MemoryStream())

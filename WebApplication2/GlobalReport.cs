@@ -67,6 +67,57 @@ namespace WebApplication2
             }
 
         }
+        public void GetPassCode(string pass)
+        {
+            //string pass = system.web.httpcontext.current.request["id"];
+            Connection getCon = new Connection();
+            string connectString = getCon.create_connection();
+            string usr_name = "";
+            string auth_level = "";
+            string pass_code = "";
+            string schema_name = "";
+
+            try
+            {
+                OracleConnection con = new OracleConnection(connectString);
+                con.Open();
+                OracleCommand cmd = new OracleCommand("select user_name, auth_level, pass_code, schema_name from rbavari.gcpasscode where pass_code = '" + pass + "' ", con);
+
+                OracleDataReader dr = cmd.ExecuteReader();
+                int FieldCount = dr.FieldCount;
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        usr_name = (string)dr["user_name"];
+                        auth_level = (string)dr["auth_level"];
+                        pass_code = (string)dr["pass_code"];
+                        schema_name = (string)dr["schema_name"];
+                        //Creating Session
+                        System.Web.HttpContext.Current.Session["Pass_Code"] = pass_code;
+
+                        System.Web.HttpContext.Current.Session["Auth_Level"] = auth_level;
+                        System.Web.HttpContext.Current.Session["Schema_Name"] = schema_name;
+                        System.Web.HttpContext.Current.Session["u_id"] = usr_name;
+
+                    }
+                    con.Close();
+                    //Response.Redirect("~/Dashboard.aspx");
+                }
+                else
+                {
+                   HttpContext.Current.Response.Redirect("~/Action/login.aspx");
+                    
+                    //lblMessage.Text = "Please Provide a Corrrect Pass Code or Generate a New Pass Code from your Self Service";
+                }
+            }
+            catch (Exception err)
+            {
+                   HttpContext.Current.Response.Redirect("~/Action/login.aspx");
+
+                throw;
+            }
+        }
 
     }
 }

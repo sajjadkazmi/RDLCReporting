@@ -142,10 +142,6 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.SqlServer.Types, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.Types.12.0.5000.0\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.19.6.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
       <Private>True</Private>
@@ -279,6 +275,7 @@
     <Content Include="RBAVARI\PR\PayrollEmpDetails.aspx" />
     <Content Include="RBAVARI\PR\PaySlip.aspx" />
     <Content Include="RBAVARI\PR\PerksReport.aspx" />
+    <Content Include="RBAVARI\SO\Activity.aspx" />
     <Content Include="RBAVARI\SO\DeliveryChallan.aspx" />
     <Content Include="RBAVARI\SO\Invoices.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -421,19 +418,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
-    <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr100.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr100.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -544,6 +528,13 @@
     <Compile Include="RBAVARI\PR\PerksReport.aspx.designer.cs">
       <DependentUpon>PerksReport.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RBAVARI\SO\Activity.aspx.cs">
+      <DependentUpon>Activity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAVARI\SO\Activity.aspx.designer.cs">
+      <DependentUpon>Activity.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RBAVARI\SO\CustomerLedgerData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -614,7 +605,6 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

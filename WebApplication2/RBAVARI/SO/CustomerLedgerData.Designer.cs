@@ -301,6 +301,14 @@ namespace WebApplication2.RBAVARI.SO {
             
             private global::System.Data.DataColumn columnRT;
             
+            private global::System.Data.DataColumn columnzone_description;
+            
+            private global::System.Data.DataColumn columnregion_description;
+            
+            private global::System.Data.DataColumn columncityname;
+            
+            private global::System.Data.DataColumn columnref1;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -424,6 +432,38 @@ namespace WebApplication2.RBAVARI.SO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn zone_descriptionColumn {
+                get {
+                    return this.columnzone_description;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn region_descriptionColumn {
+                get {
+                    return this.columnregion_description;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn citynameColumn {
+                get {
+                    return this.columncityname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ref1Column {
+                get {
+                    return this.columnref1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -459,7 +499,7 @@ namespace WebApplication2.RBAVARI.SO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string grp_seq, string grp_remarks, string trxref, string value_Date, string cust_code, string customer_name, string discount_reference, string item_name, string debit_amount, string credit_amount, string RT) {
+            public DataTable1Row AddDataTable1Row(string grp_seq, string grp_remarks, string trxref, string value_Date, string cust_code, string customer_name, string discount_reference, string item_name, string debit_amount, string credit_amount, string RT, string zone_description, string region_description, string cityname, string ref1) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         grp_seq,
@@ -472,7 +512,11 @@ namespace WebApplication2.RBAVARI.SO {
                         item_name,
                         debit_amount,
                         credit_amount,
-                        RT};
+                        RT,
+                        zone_description,
+                        region_description,
+                        cityname,
+                        ref1};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -506,6 +550,10 @@ namespace WebApplication2.RBAVARI.SO {
                 this.columndebit_amount = base.Columns["debit_amount"];
                 this.columncredit_amount = base.Columns["credit_amount"];
                 this.columnRT = base.Columns["RT"];
+                this.columnzone_description = base.Columns["zone_description"];
+                this.columnregion_description = base.Columns["region_description"];
+                this.columncityname = base.Columns["cityname"];
+                this.columnref1 = base.Columns["ref1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -533,6 +581,14 @@ namespace WebApplication2.RBAVARI.SO {
                 base.Columns.Add(this.columncredit_amount);
                 this.columnRT = new global::System.Data.DataColumn("RT", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRT);
+                this.columnzone_description = new global::System.Data.DataColumn("zone_description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnzone_description);
+                this.columnregion_description = new global::System.Data.DataColumn("region_description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnregion_description);
+                this.columncityname = new global::System.Data.DataColumn("cityname", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncityname);
+                this.columnref1 = new global::System.Data.DataColumn("ref1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnref1);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -851,6 +907,70 @@ namespace WebApplication2.RBAVARI.SO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string zone_description {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.zone_descriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'zone_description\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.zone_descriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string region_description {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.region_descriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'region_description\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.region_descriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string cityname {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.citynameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cityname\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.citynameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ref1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.ref1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ref1\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.ref1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isgrp_seqNull() {
                 return this.IsNull(this.tableDataTable1.grp_seqColumn);
             }
@@ -979,6 +1099,54 @@ namespace WebApplication2.RBAVARI.SO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetRTNull() {
                 this[this.tableDataTable1.RTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Iszone_descriptionNull() {
+                return this.IsNull(this.tableDataTable1.zone_descriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setzone_descriptionNull() {
+                this[this.tableDataTable1.zone_descriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isregion_descriptionNull() {
+                return this.IsNull(this.tableDataTable1.region_descriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setregion_descriptionNull() {
+                this[this.tableDataTable1.region_descriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscitynameNull() {
+                return this.IsNull(this.tableDataTable1.citynameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcitynameNull() {
+                this[this.tableDataTable1.citynameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isref1Null() {
+                return this.IsNull(this.tableDataTable1.ref1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setref1Null() {
+                this[this.tableDataTable1.ref1Column] = global::System.Convert.DBNull;
             }
         }
         

@@ -16,7 +16,8 @@ namespace WebApplication2.Action
         {
             if (Session["u_id"] != null)
             {
-                Response.Redirect("~/Dashboard.aspx");
+                //Response.Redirect("~/Dashboard.aspx");
+
             }
         }
 
@@ -31,7 +32,7 @@ namespace WebApplication2.Action
 
             try
             {
-                
+
                 OracleConnection con = new OracleConnection(connectString);
                 con.Open();
                 OracleCommand cmd = new OracleCommand("select user_name, auth_level, pass_code, schema_name from rbavari.gcpasscode where pass_code = '" + txtpasscode.Text + "' ", con);
@@ -55,10 +56,10 @@ namespace WebApplication2.Action
                         Session["Auth_Level"] = auth_level;
                         Session["Schema_Name"] = schema_name;
                         Session["u_id"] = usr_name;
-                        
+
                     }
-                        con.Close();
-                        Response.Redirect("~/Dashboard.aspx");
+                    con.Close();
+                    Response.Redirect("~/Dashboard.aspx");
                 }
                 else
                 {
@@ -68,7 +69,7 @@ namespace WebApplication2.Action
             catch (Exception err)
             {
                 lblMessage.Text = err.Message;
-             
+
                 //throw;
             }
         }

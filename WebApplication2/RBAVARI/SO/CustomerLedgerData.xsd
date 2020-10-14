@@ -26,6 +26,10 @@
               <xs:element name="debit_amount" msprop:Generator_ColumnVarNameInTable="columndebit_amount" msprop:Generator_ColumnPropNameInRow="debit_amount" msprop:Generator_ColumnPropNameInTable="debit_amountColumn" msprop:Generator_UserColumnName="debit_amount" type="xs:string" minOccurs="0" />
               <xs:element name="credit_amount" msprop:Generator_ColumnVarNameInTable="columncredit_amount" msprop:Generator_ColumnPropNameInRow="credit_amount" msprop:Generator_ColumnPropNameInTable="credit_amountColumn" msprop:Generator_UserColumnName="credit_amount" type="xs:string" minOccurs="0" />
               <xs:element name="RT" msprop:Generator_ColumnVarNameInTable="columnRT" msprop:Generator_ColumnPropNameInRow="RT" msprop:Generator_ColumnPropNameInTable="RTColumn" msprop:Generator_UserColumnName="RT" type="xs:string" minOccurs="0" />
+              <xs:element name="zone_description" msprop:Generator_ColumnVarNameInTable="columnzone_description" msprop:Generator_ColumnPropNameInRow="zone_description" msprop:Generator_ColumnPropNameInTable="zone_descriptionColumn" msprop:Generator_UserColumnName="zone_description" type="xs:string" minOccurs="0" />
+              <xs:element name="region_description" msprop:Generator_ColumnVarNameInTable="columnregion_description" msprop:Generator_ColumnPropNameInRow="region_description" msprop:Generator_ColumnPropNameInTable="region_descriptionColumn" msprop:Generator_UserColumnName="region_description" type="xs:string" minOccurs="0" />
+              <xs:element name="cityname" msprop:Generator_ColumnVarNameInTable="columncityname" msprop:Generator_ColumnPropNameInRow="cityname" msprop:Generator_ColumnPropNameInTable="citynameColumn" msprop:Generator_UserColumnName="cityname" type="xs:string" minOccurs="0" />
+              <xs:element name="ref1" msprop:Generator_ColumnVarNameInTable="columnref1" msprop:Generator_ColumnPropNameInRow="ref1" msprop:Generator_ColumnPropNameInTable="ref1Column" msprop:Generator_UserColumnName="ref1" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

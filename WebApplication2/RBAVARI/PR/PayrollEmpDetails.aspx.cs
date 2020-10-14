@@ -16,10 +16,21 @@ namespace WebApplication2.RBAVARI.PR
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["u_id"] == null)
+            string pass = Request["id"];
+            string passcode = string.Empty;
+            passcode = Convert.ToString(Session["Pass_Code"]);
+
+            if (Session["Pass_Code"] == null)
             {
-                Response.Redirect("~/Action/Login.aspx");
+                GlobalReport GLRpt = new GlobalReport();
+                GLRpt.GetPassCode(pass);
             }
+            else if (Session["Pass_Code"] != null)
+            {
+                GlobalReport GLRpt = new GlobalReport();
+                GLRpt.GetPassCode(passcode);
+            }
+
             if (!Page.IsPostBack)
                 BindListbox();
         }

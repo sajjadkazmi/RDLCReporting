@@ -14,10 +14,21 @@ namespace WebApplication2.RBAVARI.PR
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["u_id"] == null)
+            string pass = Request["id"];
+            string passcode = string.Empty;
+            passcode = Convert.ToString(Session["Pass_Code"]);
+
+            if (Session["Pass_Code"] == null)
             {
-                Response.Redirect("~/Action/Login.aspx");
+                GlobalReport GLRpt = new GlobalReport();
+                GLRpt.GetPassCode(pass);
             }
+            else if (Session["Pass_Code"] != null)
+            {
+                GlobalReport GLRpt = new GlobalReport();
+                GLRpt.GetPassCode(passcode);
+            }
+
             if (!Page.IsPostBack)
             BindListbox();
         }
@@ -28,14 +39,6 @@ namespace WebApplication2.RBAVARI.PR
 
         private void showReport()
         {
-
-            //string ListBoxValues = "";
-            //string value = "";
-            //foreach (int i in ListBox1.GetSelectedIndices())
-            //{
-            //    value = value + "'" + ListBox1.Items[i].Value + "',";
-            //    ListBoxValues = string.Join(" ", value.Split(' ').Select(x => x.Trim('\''))).TrimEnd(',');
-            //}
             string EmpBank = "";
             string value2 = "";
             foreach (int i in ListBox2.GetSelectedIndices())

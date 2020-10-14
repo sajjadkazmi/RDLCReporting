@@ -14,10 +14,19 @@ namespace WebApplication2.RBAVARI.SO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string pass = Request["id"];
+            string passcode = string.Empty;
+            passcode = Convert.ToString(Session["Pass_Code"]);
 
-            if (Session["u_id"] == null)
+            if (Session["Pass_Code"] == null)
             {
-                Response.Redirect("~/Action/Login.aspx");
+                GlobalReport GLRpt = new GlobalReport();
+                GLRpt.GetPassCode(pass);
+            }
+            else if(Session["Pass_Code"] != null)
+            {
+                GlobalReport GLRpt = new GlobalReport();
+                GLRpt.GetPassCode(passcode);
             }
 
             if (!Page.IsPostBack)
@@ -155,7 +164,7 @@ namespace WebApplication2.RBAVARI.SO
                 {
                     con.Open();
                     //listbox2
-                    OracleCommand comm = new OracleCommand("select distinct TRXREF from " + Session["schema_name"] + "sov_invoice where CUSTOMER_CODE IN('" + CustName + "') ", con);
+                    OracleCommand comm = new OracleCommand("select distinct TRXREF from " + Session["schema_name"] + "sov_invoice where CUSTOMER_CODE IN('" + CustName + "') order by TRXREF", con);
 
                     OracleDataAdapter da = new OracleDataAdapter(comm);
                     DataSet ds = new DataSet();

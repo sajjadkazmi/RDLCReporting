@@ -11,7 +11,7 @@
             </td>
             <td>
 
-                <asp:Label ID="Label2" runat="server" for="usr"> <h4>Select Invoice No:</h4> </asp:Label>
+                <asp:Label ID="Label2" runat="server" for="usr"> <h4>Select Challan No:</h4> </asp:Label>
                 <asp:Button ID="Button2" class="btn btn-primary" runat="server" OnClick="Button2_Click" Text="Select" ></asp:Button> 
                 <asp:ListBox ID="ListBox1" runat="server" class="form-control" SelectionMode="Single" ClientIDMode="Static"></asp:ListBox>
             </td>

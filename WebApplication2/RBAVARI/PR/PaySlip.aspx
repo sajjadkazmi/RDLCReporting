@@ -12,9 +12,9 @@
     </asp:ScriptManager>
 
     <div id="ReportViewer1_ctl10">
-        <asp:Button ID="Button2" class="btn btn-primary" runat="server" OnClick="DownloadReport" Text="Download" />
+        <asp:Button ID="Button2" class="btn btn-primary" runat="server" OnClick="DownloadReport" Text="Download" Visible="false" />
       
-        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
 
         <rsweb:ReportViewer ID="ReportViewer1" runat="server" Height="600px" Width="1000px"></rsweb:ReportViewer>
     </div>

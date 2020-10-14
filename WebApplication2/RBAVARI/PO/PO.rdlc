@@ -576,9 +576,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>="Remarks /Other Instructions:"+First(Fields!FOOTER_REMS.Value)</Value>
+                                  <Value>=First(Fields!FOOTER_REMS.Value)</Value>
                                   <Style>
-                                    <FontFamily>calibri</FontFamily>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>Underline</TextDecoration>
                                   </Style>
@@ -1709,6 +1710,39 @@
                             </Border>
                           </Style>
                         </Tablix>
+                        <Textbox Name="Textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Remarks / Other Instructions:</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                          <Top>2.73278in</Top>
+                          <Left>0.00789in</Left>
+                          <Height>0.25in</Height>
+                          <Width>1.87628in</Width>
+                          <ZIndex>8</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
                       </ReportItems>
                       <KeepTogether>true</KeepTogether>
                       <Style>
@@ -1717,6 +1751,7 @@
                         </Border>
                       </Style>
                     </Rectangle>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

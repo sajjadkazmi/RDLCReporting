@@ -317,11 +317,14 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox59</rd:DefaultName>
-                              <Top>0.70151in</Top>
+                              <Top>0.50087in</Top>
                               <Left>1.11278in</Left>
                               <Height>0.17846in</Height>
                               <Width>1.99212in</Width>
                               <ZIndex>8</ZIndex>
+                              <Visibility>
+                                <Hidden>=iif(Fields!ADDRESS_LINE.Value = "",false,true)</Hidden>
+                              </Visibility>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
