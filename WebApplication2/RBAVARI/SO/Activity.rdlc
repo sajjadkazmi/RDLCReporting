@@ -108,7 +108,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>Policy Utilization For the Period </Value>
+                        <Value>Policy Utilization For the Period  as on</Value>
                         <Style>
                           <FontFamily>calibri</FontFamily>
                           <FontSize>8pt</FontSize>
@@ -124,7 +124,7 @@
                 <rd:DefaultName>Textbox64</rd:DefaultName>
                 <Left>3.07661in</Left>
                 <Height>0.19445in</Height>
-                <Width>1.66024in</Width>
+                <Width>1.87344in</Width>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -155,8 +155,8 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox64</rd:DefaultName>
-                <Top>0.23473in</Top>
-                <Left>3.56523in</Left>
+                <Top>0.22223in</Top>
+                <Left>3.63998in</Left>
                 <Height>0.19445in</Height>
                 <Width>0.70045in</Width>
                 <ZIndex>1</ZIndex>
@@ -444,7 +444,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!value_Date.Value</Value>
+                                  <Value>=FormatDateTime(Fields!value_Date.Value,DateFormat.ShortDate)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <FontSize>8pt</FontSize>

@@ -270,6 +270,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="RBAVARI\GL\PettyCash.aspx" />
     <Content Include="RBAVARI\PO\PO.aspx" />
+    <Content Include="RBAVARI\PO\POWithoutTax.aspx" />
     <Content Include="RBAVARI\PR\AppointSummary.aspx" />
     <Content Include="RBAVARI\PR\BankAdvice.aspx" />
     <Content Include="RBAVARI\PR\PayrollEmpDetails.aspx" />
@@ -488,6 +489,13 @@
     <Compile Include="RBAVARI\PO\PO.aspx.designer.cs">
       <DependentUpon>PO.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RBAVARI\PO\POWithoutTax.aspx.cs">
+      <DependentUpon>POWithoutTax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAVARI\PO\POWithoutTax.aspx.designer.cs">
+      <DependentUpon>POWithoutTax.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RBAVARI\PR\AppointSummary.aspx.cs">
       <DependentUpon>AppointSummary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -622,6 +630,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="RBAVARI\GL\PettyCash.rdlc" />
+    <EmbeddedResource Include="RBAVARI\PO\POWithoutTax.rdlc" />
     <EmbeddedResource Include="RBAVARI\PO\PO.rdlc" />
     <EmbeddedResource Include="RBAVARI\PR\Perks.rdlc" />
     <EmbeddedResource Include="RBAVARI\PR\PayrollEmpDetail.rdlc" />

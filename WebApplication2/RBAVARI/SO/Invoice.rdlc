@@ -88,42 +88,6 @@
                                 <PaddingBottom>2pt</PaddingBottom>
                               </Style>
                             </Textbox>
-                            <Textbox Name="Textbox81">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>Dated</Value>
-                                      <Style>
-                                        <FontFamily>calibri</FontFamily>
-                                        <FontSize>8pt</FontSize>
-                                        <FontWeight>Bold</FontWeight>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Left</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Textbox64</rd:DefaultName>
-                              <Top>0.25639in</Top>
-                              <Left>5.62343in</Left>
-                              <Height>0.19445in</Height>
-                              <Width>0.80327in</Width>
-                              <ZIndex>2</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
                             <Textbox Name="Textbox82">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
@@ -149,7 +113,7 @@
                               <Left>5.62343in</Left>
                               <Height>0.19445in</Height>
                               <Width>0.80327in</Width>
-                              <ZIndex>3</ZIndex>
+                              <ZIndex>2</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -185,7 +149,7 @@
                               <Left>5.62343in</Left>
                               <Height>0.19445in</Height>
                               <Width>0.81716in</Width>
-                              <ZIndex>4</ZIndex>
+                              <ZIndex>3</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -221,7 +185,7 @@
                               <Left>5.62343in</Left>
                               <Height>0.19445in</Height>
                               <Width>0.80327in</Width>
-                              <ZIndex>5</ZIndex>
+                              <ZIndex>4</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -255,7 +219,7 @@
                               <Left>0.04334in</Left>
                               <Height>0.19305in</Height>
                               <Width>1in</Width>
-                              <ZIndex>6</ZIndex>
+                              <ZIndex>5</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -288,7 +252,7 @@
                               <Left>1.11278in</Left>
                               <Height>0.18056in</Height>
                               <Width>1.99212in</Width>
-                              <ZIndex>7</ZIndex>
+                              <ZIndex>6</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -321,7 +285,7 @@
                               <Left>1.11278in</Left>
                               <Height>0.17846in</Height>
                               <Width>1.99212in</Width>
-                              <ZIndex>8</ZIndex>
+                              <ZIndex>7</ZIndex>
                               <Visibility>
                                 <Hidden>=iif(Fields!ADDRESS_LINE.Value = "",false,true)</Hidden>
                               </Visibility>
@@ -360,7 +324,7 @@
                               <Left>0.04333in</Left>
                               <Height>0.19445in</Height>
                               <Width>1in</Width>
-                              <ZIndex>9</ZIndex>
+                              <ZIndex>8</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -396,7 +360,7 @@
                               <Left>1.11278in</Left>
                               <Height>0.19445in</Height>
                               <Width>1.99212in</Width>
-                              <ZIndex>10</ZIndex>
+                              <ZIndex>9</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -431,42 +395,7 @@
                               <Left>6.49615in</Left>
                               <Height>0.19445in</Height>
                               <Width>1.11219in</Width>
-                              <ZIndex>11</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="Textbox88">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Format(Fields!VALUE_DATE.Value,"dd-MMM-yyyy")</Value>
-                                      <Style>
-                                        <FontFamily>calibri</FontFamily>
-                                        <FontSize>8pt</FontSize>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Left</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Textbox64</rd:DefaultName>
-                              <Top>0.25779in</Top>
-                              <Left>6.49615in</Left>
-                              <Height>0.19445in</Height>
-                              <Width>1.11219in</Width>
-                              <ZIndex>12</ZIndex>
+                              <ZIndex>10</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -500,7 +429,7 @@
                               <Left>0.04334in</Left>
                               <Height>0.22222in</Height>
                               <Width>1in</Width>
-                              <ZIndex>13</ZIndex>
+                              <ZIndex>11</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -533,7 +462,7 @@
                               <Left>1.11278in</Left>
                               <Height>0.22222in</Height>
                               <Width>1.99212in</Width>
-                              <ZIndex>14</ZIndex>
+                              <ZIndex>12</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -569,7 +498,7 @@
                               <Left>0.04334in</Left>
                               <Height>0.19445in</Height>
                               <Width>1in</Width>
-                              <ZIndex>15</ZIndex>
+                              <ZIndex>13</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -605,7 +534,7 @@
                               <Left>1.11279in</Left>
                               <Height>0.19445in</Height>
                               <Width>1.99212in</Width>
-                              <ZIndex>16</ZIndex>
+                              <ZIndex>14</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -2018,7 +1947,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox64</rd:DefaultName>
-          <Top>0.28342in</Top>
+          <Top>0.5081in</Top>
           <Left>6.32007in</Left>
           <Height>0.19445in</Height>
           <Width>1.32425in</Width>
@@ -2053,7 +1982,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox64</rd:DefaultName>
-          <Top>0.03063in</Top>
+          <Top>0.25531in</Top>
           <Left>6.32007in</Left>
           <Height>0.19445in</Height>
           <Width>1.32425in</Width>
@@ -2088,7 +2017,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox64</rd:DefaultName>
-          <Top>0.48064in</Top>
+          <Top>0.70532in</Top>
           <Left>6.32007in</Left>
           <Height>0.2788in</Height>
           <Width>1.32425in</Width>
@@ -2124,7 +2053,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox64</rd:DefaultName>
-          <Top>0.03063in</Top>
+          <Top>0.25531in</Top>
           <Left>5.63832in</Left>
           <Height>0.19445in</Height>
           <Width>0.66162in</Width>
@@ -2160,7 +2089,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox64</rd:DefaultName>
-          <Top>0.48065in</Top>
+          <Top>0.70533in</Top>
           <Left>5.63832in</Left>
           <Height>0.19445in</Height>
           <Width>0.66579in</Width>
@@ -2196,7 +2125,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox64</rd:DefaultName>
-          <Top>0.26813in</Top>
+          <Top>0.49281in</Top>
           <Left>5.63832in</Left>
           <Height>0.19445in</Height>
           <Width>0.67412in</Width>
@@ -2272,6 +2201,77 @@
           <Height>0.34042in</Height>
           <Width>3.14821in</Width>
           <ZIndex>8</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox81">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Dated</Value>
+                  <Style>
+                    <FontFamily>calibri</FontFamily>
+                    <FontSize>8pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox64</rd:DefaultName>
+          <Top>0.0053in</Top>
+          <Left>5.63832in</Left>
+          <Height>0.19445in</Height>
+          <Width>0.66023in</Width>
+          <ZIndex>9</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox88">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Format(Fields!VALUE_DATE.Value,"dd-MMM-yyyy")</Value>
+                  <Style>
+                    <FontFamily>calibri</FontFamily>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox64</rd:DefaultName>
+          <Top>0.0067in</Top>
+          <Left>6.35411in</Left>
+          <Height>0.19445in</Height>
+          <Width>1.26912in</Width>
+          <ZIndex>10</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -2413,7 +2413,7 @@
     </PageFooter>
     <PageHeight>11.69in</PageHeight>
     <PageWidth>8.27in</PageWidth>
-    <LeftMargin>0.25in</LeftMargin>
+    <LeftMargin>0.5in</LeftMargin>
     <RightMargin>0.25in</RightMargin>
     <TopMargin>0.25in</TopMargin>
     <BottomMargin>0.25in</BottomMargin>

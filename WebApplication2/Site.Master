@@ -36,7 +36,7 @@
     </style>
     <script type="text/javascript">
         $(function () {
-            $('#ListBox1,#ListBox2,#ListBox3').multiselect({
+            $('#ListBox1,#ListBox2,#ListBox3,#ListBox4').multiselect({
                 includeSelectAllOption: true,
                 enableFiltering: true,
                 enableCaseInsensitiveFiltering: true,

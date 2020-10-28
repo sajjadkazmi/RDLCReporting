@@ -12,6 +12,11 @@
                 <asp:Label ID="Label2" runat="server" for="usr"> <h4>Mode of Payment :</h4> </asp:Label>
                 <asp:ListBox ID="ListBox2" runat="server" class="form-control" SelectionMode="Single" ClientIDMode="Static"></asp:ListBox>
             </td>
+            <br />
+                        <td>
+                <asp:Label ID="Label4" runat="server" for="usr"> <h4>Work Location:</h4> </asp:Label>
+                <asp:ListBox ID="ListBox4" runat="server" class="form-control" SelectionMode="Multiple" ClientIDMode="Static"></asp:ListBox>
+            </td>
             <td>
                 <asp:Label ID="Label3" runat="server" for="usr"> <h4> Select Process Month :</h4> </asp:Label>
                 <asp:ListBox ID="ListBox3" runat="server" class="form-control" SelectionMode="Single" ClientIDMode="Static"></asp:ListBox>

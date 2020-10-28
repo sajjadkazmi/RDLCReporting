@@ -90,7 +90,6 @@
             </Paragraphs>
             <rd:DefaultName>Textbox56</rd:DefaultName>
             <Top>0.01583in</Top>
-            <Left>0in</Left>
             <Height>0.22222in</Height>
             <Width>1in</Width>
             <ZIndex>2</ZIndex>
@@ -975,7 +974,7 @@
                           <DataSetName>AppSummaryData</DataSetName>
                           <Top>0.36458in</Top>
                           <Height>0.75in</Height>
-                          <Width>7.34371in</Width>
+                          <Width>7.34368in</Width>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -1003,7 +1002,6 @@
                           </Paragraphs>
                           <rd:DefaultName>department</rd:DefaultName>
                           <Top>0.04514in</Top>
-                          <Left>0in</Left>
                           <Height>0.25in</Height>
                           <Width>2.74112in</Width>
                           <ZIndex>1</ZIndex>

@@ -41,12 +41,20 @@ namespace WebApplication2.RBAVARI.PR
         {
             string EmpBank = "";
             string value2 = "";
+            string value3 = "";
+            string workLocation = "";
             foreach (int i in ListBox2.GetSelectedIndices())
             {
                 value2 = value2 + "'" + ListBox2.Items[i].Value + "',";
                 EmpBank = value2.TrimEnd(',').TrimEnd('\'').TrimStart('\'');
             }
-            //string EmpBank = ListBox2.SelectedItem.ToString();
+
+            foreach (int i in ListBox4.GetSelectedIndices())
+            {
+                value3 = value3 + "'" + ListBox4.Items[i].Value + "',";
+                workLocation = value3.TrimEnd(',').TrimEnd('\'').TrimStart('\'');
+            }
+
             string Name = ListBox1.SelectedItem.ToString();
             string processmonth = ListBox3.SelectedItem.ToString();
 
@@ -59,7 +67,7 @@ namespace WebApplication2.RBAVARI.PR
             //Reset
             ReportViewer1.Reset();
             //datasource
-            DataTable dt = GetData(Name, EmpBank, ProcessMonth);
+            DataTable dt = GetData(Name, EmpBank, ProcessMonth,workLocation);
 
             ReportDataSource rds = new ReportDataSource("NetPayData", dt);
 
@@ -73,6 +81,7 @@ namespace WebApplication2.RBAVARI.PR
                     new ReportParameter ("Name",Name),
                     new ReportParameter ("EmpBank",EmpBank),
                     new ReportParameter ("Date",ProcessMonth),
+                    new ReportParameter ("workLocation",workLocation),
                     new ReportParameter("USERID",Session["u_id"].ToString(),false)
             };
             ReportViewer1.LocalReport.SetParameters(rptParms);
@@ -82,7 +91,7 @@ namespace WebApplication2.RBAVARI.PR
 
         }
 
-        private DataTable GetData(string Name, string EmpBank, string ProcessMonth)
+        private DataTable GetData(string Name, string EmpBank, string ProcessMonth,string workLocation)
         {
             Connection getCon = new Connection();
             string connectString = getCon.create_connection();
@@ -94,7 +103,7 @@ namespace WebApplication2.RBAVARI.PR
                 {
                     con.Open();
                 }
-                OracleDataAdapter da = new OracleDataAdapter("select old_Emp_no || '-' || employee_no emp_no, Company_Name, employee_name, father_spouse_name, cnic,phone_no,addressline, appointment_date, confirmation_Date, left_date, extension_date, days_Worked, employment_status, department, designation, grade, worklocation, city, regionname, employee_bank, employee_bank_branchname,emp_bank_ac,net from rbavari.Prv_Employeesalaryactl a where a.Process_Month = '" + ProcessMonth + "' AND compensation_code='00-000' AND employment_status='" + Name + "' AND employee_bank_branchname IN  ('" + EmpBank + "') AND employee_no not in (select emp_no from rbavari.pr_holdsalary where process_month = '" + ProcessMonth + "')", con);
+                OracleDataAdapter da = new OracleDataAdapter("select old_Emp_no || '-' || employee_no emp_no, Company_Name, employee_name, father_spouse_name, cnic,phone_no,addressline, appointment_date, confirmation_Date, left_date, extension_date, days_Worked, employment_status, department, designation, grade, worklocation, city, regionname, employee_bank, employee_bank_branchname,emp_bank_ac,net from rbavari.Prv_Employeesalaryactl a where a.Process_Month = '" + ProcessMonth + "' AND compensation_code='00-000' AND employment_status='" + Name + "' AND employee_bank_branchname IN  ('" + EmpBank + "') AND worklocation IN  ('" + workLocation + "') AND employee_no not in (select emp_no from rbavari.pr_holdsalary where process_month = '" + ProcessMonth + "')", con);
                 DataTable dt = new DataTable("DemoDt");
                 da.Fill(dt);
                 return dt;
@@ -151,6 +160,15 @@ namespace WebApplication2.RBAVARI.PR
                     ListBox3.DataTextField = ds3.Tables[0].Columns["Process_Month"].ToString();
                     ListBox3.DataValueField = ds3.Tables[0].Columns["Process_Month"].ToString();
                     ListBox3.DataBind();
+
+                    OracleCommand com4 = new OracleCommand("select  distinct worklocation  from rbavari.prv_employeesalaryactl order by worklocation", con);
+                    OracleDataAdapter da4 = new OracleDataAdapter(com4);
+                    DataSet ds4 = new DataSet();
+                    da4.Fill(ds4); // fill dataset
+                    ListBox4.DataSource = ds4.Tables[0];
+                    ListBox4.DataTextField = ds4.Tables[0].Columns["worklocation"].ToString();
+                    ListBox4.DataValueField = ds4.Tables[0].Columns["worklocation"].ToString();
+                    ListBox4.DataBind();
 
                 }
                 con.Close();

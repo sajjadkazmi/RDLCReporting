@@ -13,7 +13,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication2.RBAVARI.PO
 {
-    public partial class PO : System.Web.UI.Page
+    public partial class POWithoutTax : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,7 +34,7 @@ namespace WebApplication2.RBAVARI.PO
 
             if (Session["u_id"] == null)
             {
-               
+
             }
 
             if (!Page.IsPostBack)
@@ -89,7 +89,7 @@ namespace WebApplication2.RBAVARI.PO
             ReportViewer1.LocalReport.DataSources.Add(rds);
             //path
 
-            ReportViewer1.LocalReport.ReportPath = "./RBAVARI/PO/PO.rdlc";
+            ReportViewer1.LocalReport.ReportPath = "./RBAVARI/PO/POWithoutTax.rdlc";
             //parameter
             ReportParameter[] rptParms = new ReportParameter[]
             {
