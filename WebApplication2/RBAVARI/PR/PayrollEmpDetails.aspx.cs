@@ -56,10 +56,31 @@ namespace WebApplication2.RBAVARI.PR
             ReportViewer1.Reset();
             //datasource
             DataTable dt = GetData(string.Join(" ", ListBoxValues), ProcessMonth);
+            DataTable dt2 = GetData2(string.Join(" ", ListBoxValues), ProcessMonth);
+            DataTable dt3 = GetData3(string.Join(" ", ListBoxValues), ProcessMonth);
+            DataTable dt4 = GetDeduction(string.Join(" ", ListBoxValues), ProcessMonth);
+            DataTable dt5 = GetDeduction1(string.Join(" ", ListBoxValues), ProcessMonth);
+            DataTable dt6 = GetNet(string.Join(" ", ListBoxValues), ProcessMonth);
+            DataTable dt7 = GetGross(string.Join(" ", ListBoxValues), ProcessMonth);
+            DataTable dt8 = GetMaster(string.Join(" ", ListBoxValues), ProcessMonth);
 
-            ReportDataSource rds = new ReportDataSource("PayrollData", dt);
+            ReportDataSource rds = new ReportDataSource("D1", dt);
+            ReportDataSource rds2 = new ReportDataSource("D2", dt2);
+            ReportDataSource rds3 = new ReportDataSource("D3", dt3);
+            ReportDataSource rds4 = new ReportDataSource("DeductionData", dt4);
+            ReportDataSource rds5 = new ReportDataSource("DeductionData1", dt5);
+            ReportDataSource rds6 = new ReportDataSource("NetData", dt6);
+            ReportDataSource rds7 = new ReportDataSource("GrossData", dt7);
+            ReportDataSource rds8 = new ReportDataSource("MasterData", dt8);
 
             ReportViewer1.LocalReport.DataSources.Add(rds);
+            ReportViewer1.LocalReport.DataSources.Add(rds2);
+            ReportViewer1.LocalReport.DataSources.Add(rds3);
+            ReportViewer1.LocalReport.DataSources.Add(rds4);
+            ReportViewer1.LocalReport.DataSources.Add(rds5);
+            ReportViewer1.LocalReport.DataSources.Add(rds6);
+            ReportViewer1.LocalReport.DataSources.Add(rds7);
+            ReportViewer1.LocalReport.DataSources.Add(rds8);
             //path
 
             ReportViewer1.LocalReport.ReportPath = "./RBAVARI/PR/PayrollEmpDetail.rdlc";
@@ -68,7 +89,9 @@ namespace WebApplication2.RBAVARI.PR
             {
                     new ReportParameter ("Name",ListBoxValues),
                     new ReportParameter ("Date",ProcessMonth),
-                    new ReportParameter("USERID",Session["u_id"].ToString(),false)
+                    new ReportParameter("USERID",Session["u_id"].ToString(),false),
+                     new ReportParameter("REMS", Session["REMS"].ToString(),false),
+                    new ReportParameter("CO_LOGO", Session["CO_LOGO"].ToString(),false)
             };
             ReportViewer1.LocalReport.SetParameters(rptParms);
             //refresh
@@ -88,7 +111,183 @@ namespace WebApplication2.RBAVARI.PR
                 {
                     con.Open();
                 }
-                OracleDataAdapter da = new OracleDataAdapter("select old_Emp_no || '-' || employee_no emp_no, Company_Name, employee_name, father_spouse_name, cnic, appointment_date, confirmation_Date, left_date, extension_date, days_Worked, employment_status, department, designation, grade, worklocation, city, regionname, employee_bank, employee_bank_branchname, compensation, nvl(allowance, 0) - nvl(deduction, 0) amt from " + Session["schema_name"] + "prv_employeesalaryactl a where a.Process_Month = '" + Date + "' AND department IN  ('" + Name + "') ", con);
+                OracleDataAdapter da = new OracleDataAdapter(" select employee_no,process_month,basic_pay,house_rent,conveyance,utility,claa from lcpw.Prv_SalaryRegister_a1 where process_month = '" + Date + "' ", con);
+                DataTable dt = new DataTable("DemoDt");
+                da.Fill(dt);
+                return dt;
+
+                //con.Close();
+
+            }
+            catch (OracleException ex)
+            {
+                return null;
+            }
+        }
+        private DataTable GetData2(string Name, string Date)
+        {
+            Connection getCon = new Connection();
+            string connectString = getCon.create_connection();
+            try
+            {
+                //string schema_name = "rbavari.";
+                OracleConnection con = new OracleConnection(connectString);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                OracleDataAdapter da = new OracleDataAdapter("select employee_no,process_month,claa_2,adhoc_relief,adhoc_releif_2,sp_allow,wage_adj from lcpw.Prv_SalaryRegister_a2 where process_month =  '" + Date + "' ", con);
+                DataTable dt = new DataTable("DemoDt");
+                da.Fill(dt);
+                return dt;
+
+                //con.Close();
+
+            }
+            catch (OracleException ex)
+            {
+                return null;
+            }
+        }
+        private DataTable GetData3(string Name, string Date)
+        {
+            Connection getCon = new Connection();
+            string connectString = getCon.create_connection();
+            try
+            {
+                //string schema_name = "rbavari.";
+                OracleConnection con = new OracleConnection(connectString);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                OracleDataAdapter da = new OracleDataAdapter("   select employee_no,process_month,salary_adj,other_pay,ot_prod,ot_staff from lcpw.Prv_SalaryRegister_a3 where process_month =  '" + Date + "' ", con);
+                DataTable dt = new DataTable("DemoDt");
+                da.Fill(dt);
+                return dt;
+
+                //con.Close();
+
+            }
+            catch (OracleException ex)
+            {
+                return null;
+            }
+        }
+        private DataTable GetDeduction(string Name, string Date)
+        {
+            Connection getCon = new Connection();
+            string connectString = getCon.create_connection();
+            try
+            {
+                //string schema_name = "rbavari.";
+                OracleConnection con = new OracleConnection(connectString);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                OracleDataAdapter da = new OracleDataAdapter("   select  EMPLOYEE_NO,PROCESS_MONTH,P_FUND,PF_LOAN,INCOME_TAX,EOBI,UNION_FUND from  lcpw.Prv_SalaryRegister_d1 where process_month =  '" + Date + "' ", con);
+                DataTable dt = new DataTable("DemoDt");
+                da.Fill(dt);
+                return dt;
+
+                //con.Close();
+
+            }
+            catch (OracleException ex)
+            {
+                return null;
+            }
+        }
+        private DataTable GetDeduction1(string Name, string Date)
+        {
+            Connection getCon = new Connection();
+            string connectString = getCon.create_connection();
+            try
+            {
+                //string schema_name = "rbavari.";
+                OracleConnection con = new OracleConnection(connectString);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                OracleDataAdapter da = new OracleDataAdapter("select EMPLOYEE_NO, PROCESS_MONTH, OTHER_DED, CANTEEN, FAIR_PRICE, SALARY_DIFF, PF_INTEREST from lcpw.Prv_SalaryRegister_d2 where process_month = '" + Date + "' ", con);
+                DataTable dt = new DataTable("DemoDt");
+                da.Fill(dt);
+                return dt;
+
+                //con.Close();
+
+            }
+            catch (OracleException ex)
+            {
+                return null;
+            }
+        }
+
+        private DataTable GetGross(string Name, string Date)
+        {
+            Connection getCon = new Connection();
+            string connectString = getCon.create_connection();
+            try
+            {
+                //string schema_name = "rbavari.";
+                OracleConnection con = new OracleConnection(connectString);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                OracleDataAdapter da = new OracleDataAdapter("select * from  lcpw.Prv_SalaryRegister_gross where process_month= '" + Date + "' ", con);
+                DataTable dt = new DataTable("DemoDt");
+                da.Fill(dt);
+                return dt;
+
+                //con.Close();
+
+            }
+            catch (OracleException ex)
+            {
+                return null;
+            }
+        }
+        private DataTable GetNet(string Name, string Date)
+        {
+            Connection getCon = new Connection();
+            string connectString = getCon.create_connection();
+            try
+            {
+                //string schema_name = "rbavari.";
+                OracleConnection con = new OracleConnection(connectString);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                OracleDataAdapter da = new OracleDataAdapter(" select * from  lcpw.Prv_SalaryRegister_net where process_month= '" + Date + "' ", con);
+                DataTable dt = new DataTable("DemoDt");
+                da.Fill(dt);
+                return dt;
+
+                //con.Close();
+
+            }
+            catch (OracleException ex)
+            {
+                return null;
+            }
+        }
+        private DataTable GetMaster(string Name, string Date)
+        {
+            Connection getCon = new Connection();
+            string connectString = getCon.create_connection();
+            try
+            {
+                //string schema_name = "rbavari.";
+                OracleConnection con = new OracleConnection(connectString);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                OracleDataAdapter da = new OracleDataAdapter("  select employee_no,process_month, OLD_EMP_NO, EMPLOYEE_NAME, FATHER_SPOUSE_NAME, CNIC, APPOINTMENT_DATE, DAYS_WORKED, WORKLOCATION, DEPARTMENT, DESIGNATION, REGIONNAME, EMPLOYEE_BANK from       lcpw.Prv_SalaryRegister_master where process_month = '" + Date + "' AND DEPARTMENT IN  ('" + Name + "') ", con);
                 DataTable dt = new DataTable("DemoDt");
                 da.Fill(dt);
                 return dt;

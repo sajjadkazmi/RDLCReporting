@@ -79,83 +79,83 @@ namespace WebApplication2
             }
             else
             {
-                if (!this.IsPostBack)
-                {
-                    //Label1.Text = Session["u_id"].ToString();
-                    DataTable dt = this.GetMenuData();
-                    PopulateMenu(dt);
-                }
+                //if (!this.IsPostBack)
+                //{
+                //    //Label1.Text = Session["u_id"].ToString();
+                //    DataTable dt = this.GetMenuData();
+                //    PopulateMenu(dt);
+                //}
             }
         }
-        private void PopulateMenu(DataTable dt)
-        {
-            string currentPage = Path.GetFileName(Request.Url.AbsolutePath);
-            DataView view = new DataView(dt);
-            view.RowFilter = "mnu_id like '%MAIN%'";
-            foreach (DataRowView row in view)
-            {
-                MenuItem menuItem = new MenuItem
-                {
-                    Value = row["sub_mnu_id"].ToString(),
-                    Text = row["rems"].ToString(),
-                    NavigateUrl = row["report_url"].ToString(),
-                    Selected = row["report_url"].ToString().EndsWith(currentPage, StringComparison.CurrentCultureIgnoreCase)
-                };
-                Menu1.Items.Add(menuItem);
-                AddChildItems(dt, menuItem);
-            }
-        }
+        //private void PopulateMenu(DataTable dt)
+        //{
+        //    string currentPage = Path.GetFileName(Request.Url.AbsolutePath);
+        //    DataView view = new DataView(dt);
+        //    view.RowFilter = "mnu_id like '%MAIN%'";
+        //    foreach (DataRowView row in view)
+        //    {
+        //        MenuItem menuItem = new MenuItem
+        //        {
+        //            Value = row["sub_mnu_id"].ToString(),
+        //            Text = row["rems"].ToString(),
+        //            NavigateUrl = row["report_url"].ToString(),
+        //            Selected = row["report_url"].ToString().EndsWith(currentPage, StringComparison.CurrentCultureIgnoreCase)
+        //        };
+        //        Menu1.Items.Add(menuItem);
+        //        AddChildItems(dt, menuItem);
+        //    }
+        //}
 
 
-        private void AddChildItems(DataTable table, MenuItem menuItem)
-        {
-            DataView viewItem = new DataView(table);
-            //viewItem.RowFilter = "mnu_id=" + menuItem.Value;
-            viewItem.RowFilter = "mnu_id = '" + menuItem.Value + "' ";
+        //private void AddChildItems(DataTable table, MenuItem menuItem)
+        //{
+        //    DataView viewItem = new DataView(table);
+        //    //viewItem.RowFilter = "mnu_id=" + menuItem.Value;
+        //    viewItem.RowFilter = "mnu_id = '" + menuItem.Value + "' ";
 
-            foreach (DataRowView childView in viewItem)
-            {
-                MenuItem childmenuItem = new MenuItem
-                {
-                    Value = childView["sub_mnu_id"].ToString(),
-                    Text = childView["rems"].ToString(),
-                    NavigateUrl = childView["report_url"].ToString(),
-                };
-                menuItem.ChildItems.Add(childmenuItem);
-                AddChildItems(table, childmenuItem);
-            }
-        }
+        //    foreach (DataRowView childView in viewItem)
+        //    {
+        //        MenuItem childmenuItem = new MenuItem
+        //        {
+        //            Value = childView["sub_mnu_id"].ToString(),
+        //            Text = childView["rems"].ToString(),
+        //            NavigateUrl = childView["report_url"].ToString(),
+        //        };
+        //        menuItem.ChildItems.Add(childmenuItem);
+        //        AddChildItems(table, childmenuItem);
+        //    }
+        //}
 
-        private DataTable GetMenuData()
-        {
-            object userNameSession = Session["u_id"];
-            Connection getCon = new Connection();
-            string connectString = getCon.create_connection();
+        //private DataTable GetMenuData()
+        //{
+        //    object userNameSession = Session["u_id"];
+        //    Connection getCon = new Connection();
+        //    string connectString = getCon.create_connection();
 
-            try
-            {
-                OracleConnection con = new OracleConnection(connectString);
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-                }
-                OracleCommand comm = new OracleCommand("select mnu_id, sub_mnu_id, rems, report_url from "+Session["Schema_Name"] + " ReportMenu where auth_level like '%"+Session["auth_level"]+"%'  ", con);
+        //    try
+        //    {
+        //        OracleConnection con = new OracleConnection(connectString);
+        //        if (con.State == ConnectionState.Closed)
+        //        {
+        //            con.Open();
+        //        }
+        //        OracleCommand comm = new OracleCommand("select mnu_id, sub_mnu_id, rems, report_url from " + Session["Schema_Name"] + " ReportMenu where auth_level like '%" + Session["auth_level"] + "%'  ", con);
 
-                OracleDataAdapter da = new OracleDataAdapter(comm);
+        //        OracleDataAdapter da = new OracleDataAdapter(comm);
 
-                DataTable dt = new DataTable();
-                da.Fill(dt); // fill dataset
-                con.Close();
-                return dt;
-            }
+        //        DataTable dt = new DataTable();
+        //        da.Fill(dt); // fill dataset
+        //        con.Close();
+        //        return dt;
+        //    }
 
 
-            catch (Exception e)
-            {
+        //    catch (Exception e)
+        //    {
 
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {

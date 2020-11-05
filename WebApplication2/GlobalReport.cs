@@ -1,7 +1,9 @@
 ﻿using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -95,14 +97,13 @@ namespace WebApplication2
                         schema_name = (string)dr["schema_name"];
                         //Creating Session
                         System.Web.HttpContext.Current.Session["Pass_Code"] = pass_code;
-
                         System.Web.HttpContext.Current.Session["Auth_Level"] = auth_level;
                         System.Web.HttpContext.Current.Session["Schema_Name"] = schema_name;
                         System.Web.HttpContext.Current.Session["u_id"] = usr_name;
 
                     }
                     con.Close();
-                    //Response.Redirect("~/Dashboard.aspx");
+                    GetCompanyDetail();
                 }
                 else
                 {
@@ -119,5 +120,51 @@ namespace WebApplication2
             }
         }
 
+        public void GetCompanyDetail()
+        {
+            Connection getCon = new Connection();
+            string connectString = getCon.create_connection();
+            string CompanyName = "";
+            byte[] bytes;
+
+
+            try
+            {
+                OracleConnection con = new OracleConnection(connectString);
+                con.Open();
+                OracleCommand cmd = new OracleCommand("select rems,co_logo from " + System.Web.HttpContext.Current.Session["Schema_Name"] + " gccompany where ROWNUM <= 1 ", con);
+
+                OracleDataReader dr = cmd.ExecuteReader();
+                int FieldCount = dr.FieldCount;
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        CompanyName = (string)dr["REMS"];
+                        bytes = (byte[])dr["CO_LOGO"];
+
+                        byte[] imgBinary = File.ReadAllBytes("image.png");
+
+                        string imgString = Convert.ToBase64String(bytes);
+
+                        //Creating Session
+                        System.Web.HttpContext.Current.Session["REMS"] = CompanyName;
+                        System.Web.HttpContext.Current.Session["CO_LOGO"] = imgString;
+
+
+                    }
+                    con.Close();
+                }
+                else
+                {
+                }
+            }
+            catch (Exception err)
+            {
+                HttpContext.Current.Response.Redirect("~/Action/login.aspx");
+
+                throw;
+            }
+        }
     }
 }

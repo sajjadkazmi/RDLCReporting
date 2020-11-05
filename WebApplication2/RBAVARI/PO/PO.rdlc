@@ -1493,6 +1493,7 @@
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>8pt</FontSize>
                                                   <FontWeight>Bold</FontWeight>
+                                                  <Format>#,0;(#,0)</Format>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
@@ -1560,6 +1561,7 @@
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>8pt</FontSize>
                                                   <FontWeight>Bold</FontWeight>
+                                                  <Format>#,0;(#,0)</Format>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
@@ -2144,10 +2146,10 @@ Dim Rupees, Paisa As String
 Dim DecimalPlace, iCount
 Dim Hundreds, Words As String
 Dim place(9) As String
-place(0) = " Thousand "
-place(2) = " Lakh "
-place(4) = " Crore "
-place(6) = " Arab "
+place(0) = " thousand "
+place(2) = " hundred "
+place(4) = " million "
+place(6) = " hundred"
 place(8) = " "
 On Error Resume Next
 ' Convert MyNumber to a string, trimming extra spaces.

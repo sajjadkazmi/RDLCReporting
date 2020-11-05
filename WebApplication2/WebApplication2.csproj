@@ -273,18 +273,20 @@
     <Content Include="RBAVARI\PO\POWithoutTax.aspx" />
     <Content Include="RBAVARI\PR\AppointSummary.aspx" />
     <Content Include="RBAVARI\PR\BankAdvice.aspx" />
+    <Content Include="RBAVARI\PR\DischargeSummary.aspx" />
+    <Content Include="RBAVARI\PR\EmployeeMaster.aspx" />
+    <Content Include="RBAVARI\PR\GroupInsurance.aspx" />
+    <Content Include="RBAVARI\PR\MedicalReimburse.aspx" />
     <Content Include="RBAVARI\PR\PayrollEmpDetails.aspx" />
     <Content Include="RBAVARI\PR\PaySlip.aspx" />
     <Content Include="RBAVARI\PR\PerksReport.aspx" />
+    <Content Include="RBAVARI\PR\ReAppointmentSummary.aspx" />
     <Content Include="RBAVARI\SO\Activity.aspx" />
     <Content Include="RBAVARI\SO\DeliveryChallan.aspx" />
     <Content Include="RBAVARI\SO\Invoices.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="RBAVARI\PR\PayrollData.xsc">
-      <DependentUpon>PayrollData.xsd</DependentUpon>
-    </Content>
     <Content Include="RBAVARI\PR\NetPayData.xsc">
       <DependentUpon>NetPayData.xsd</DependentUpon>
     </Content>
@@ -317,6 +319,105 @@
     <Content Include="RBAVARI\PR\PerksData.xsc">
       <DependentUpon>PerksData.xsd</DependentUpon>
     </Content>
+    <Content Include="RBAVARI\PR\EmployeMasterData.xsc">
+      <DependentUpon>EmployeMasterData.xsd</DependentUpon>
+    </Content>
+    <Content Include="RBAVARI\PR\D1.xsc">
+      <DependentUpon>D1.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\PR\D1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>D1.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RBAVARI\PR\D1.xss">
+      <DependentUpon>D1.xsd</DependentUpon>
+    </Content>
+    <Content Include="RBAVARI\PR\D2.xsc">
+      <DependentUpon>D2.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\PR\D2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>D2.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RBAVARI\PR\D2.xss">
+      <DependentUpon>D2.xsd</DependentUpon>
+    </Content>
+    <Content Include="RBAVARI\PR\D3.xsc">
+      <DependentUpon>D3.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\PR\D3.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>D3.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RBAVARI\PR\D3.xss">
+      <DependentUpon>D3.xsd</DependentUpon>
+    </Content>
+    <Content Include="RBAVARI\PR\DeductionData.xsc">
+      <DependentUpon>DeductionData.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\PR\DeductionData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DeductionData.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RBAVARI\PR\DeductionData.xss">
+      <DependentUpon>DeductionData.xsd</DependentUpon>
+    </Content>
+    <Content Include="RBAVARI\PR\DeductionData1.xsc">
+      <DependentUpon>DeductionData1.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\PR\DeductionData1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DeductionData1.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RBAVARI\PR\DeductionData1.xss">
+      <DependentUpon>DeductionData1.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\PR\EmployeMasterData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmployeMasterData.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RBAVARI\PR\EmployeMasterData.xss">
+      <DependentUpon>EmployeMasterData.xsd</DependentUpon>
+    </Content>
+    <Content Include="RBAVARI\PR\MasterData.xsc">
+      <DependentUpon>MasterData.xsd</DependentUpon>
+    </Content>
+    <Content Include="RBAVARI\PR\GrossData.xsc">
+      <DependentUpon>GrossData.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\PR\GrossData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GrossData.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RBAVARI\PR\GrossData.xss">
+      <DependentUpon>GrossData.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\PR\MasterData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MasterData.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RBAVARI\PR\MasterData.xss">
+      <DependentUpon>MasterData.xsd</DependentUpon>
+    </Content>
+    <Content Include="RBAVARI\PR\NetData.xsc">
+      <DependentUpon>NetData.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\PR\NetData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NetData.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RBAVARI\PR\NetData.xss">
+      <DependentUpon>NetData.xsd</DependentUpon>
+    </Content>
     <None Include="RBAVARI\PR\PerksData.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -327,6 +428,17 @@
     </Content>
     <Content Include="RBAVARI\SO\CustomerLedgerData.xsc">
       <DependentUpon>CustomerLedgerData.xsd</DependentUpon>
+    </Content>
+    <Content Include="RBAVARI\PR\SalaryRegisterAllowances.xsc">
+      <DependentUpon>SalaryRegisterAllowances.xsd</DependentUpon>
+    </Content>
+    <None Include="RBAVARI\PR\SalaryRegisterAllowances.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SalaryRegisterAllowances.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RBAVARI\PR\SalaryRegisterAllowances.xss">
+      <DependentUpon>SalaryRegisterAllowances.xsd</DependentUpon>
     </Content>
     <None Include="RBAVARI\SO\CustomerLedgerData.xsd">
       <SubType>Designer</SubType>
@@ -351,14 +463,6 @@
     </None>
     <Content Include="RBAVARI\PR\NetPayData.xss">
       <DependentUpon>NetPayData.xsd</DependentUpon>
-    </Content>
-    <None Include="RBAVARI\PR\PayrollData.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PayrollData.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="RBAVARI\PR\PayrollData.xss">
-      <DependentUpon>PayrollData.xsd</DependentUpon>
     </Content>
     <Content Include="RBAVARI\PO\POData.xsc">
       <DependentUpon>POData.xsd</DependentUpon>
@@ -510,6 +614,79 @@
     <Compile Include="RBAVARI\PR\BankAdvice.aspx.designer.cs">
       <DependentUpon>BankAdvice.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RBAVARI\PR\D1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>D1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\D2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>D2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\D3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>D3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\DeductionData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeductionData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\DeductionData1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeductionData1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\DischargeSummary.aspx.cs">
+      <DependentUpon>DischargeSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAVARI\PR\DischargeSummary.aspx.designer.cs">
+      <DependentUpon>DischargeSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\EmployeeMaster.aspx.cs">
+      <DependentUpon>EmployeeMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAVARI\PR\EmployeeMaster.aspx.designer.cs">
+      <DependentUpon>EmployeeMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\EmployeMasterData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeMasterData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\GrossData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GrossData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\GroupInsurance.aspx.cs">
+      <DependentUpon>GroupInsurance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAVARI\PR\GroupInsurance.aspx.designer.cs">
+      <DependentUpon>GroupInsurance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\MasterData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MasterData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\MedicalReimburse.aspx.cs">
+      <DependentUpon>MedicalReimburse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAVARI\PR\MedicalReimburse.aspx.designer.cs">
+      <DependentUpon>MedicalReimburse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\NetData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NetData.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RBAVARI\PR\PayrollEmpDetails.aspx.cs">
       <DependentUpon>PayrollEmpDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -535,6 +712,18 @@
     </Compile>
     <Compile Include="RBAVARI\PR\PerksReport.aspx.designer.cs">
       <DependentUpon>PerksReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\ReAppointmentSummary.aspx.cs">
+      <DependentUpon>ReAppointmentSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAVARI\PR\ReAppointmentSummary.aspx.designer.cs">
+      <DependentUpon>ReAppointmentSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\SalaryRegisterAllowances.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalaryRegisterAllowances.xsd</DependentUpon>
     </Compile>
     <Compile Include="RBAVARI\SO\Activity.aspx.cs">
       <DependentUpon>Activity.aspx</DependentUpon>
@@ -576,11 +765,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>NetPayData.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="RBAVARI\PR\PayrollData.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PayrollData.xsd</DependentUpon>
     </Compile>
     <Compile Include="RBAVARI\PR\PaySlipData.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -632,6 +816,10 @@
     <EmbeddedResource Include="RBAVARI\GL\PettyCash.rdlc" />
     <EmbeddedResource Include="RBAVARI\PO\POWithoutTax.rdlc" />
     <EmbeddedResource Include="RBAVARI\PO\PO.rdlc" />
+    <EmbeddedResource Include="RBAVARI\PR\GroupInsurance.rdlc" />
+    <EmbeddedResource Include="RBAVARI\PR\Reimbursement.rdlc" />
+    <EmbeddedResource Include="RBAVARI\PR\EmployeeMaster.rdlc" />
+    <EmbeddedResource Include="RBAVARI\PR\DischargeSummary.rdlc" />
     <EmbeddedResource Include="RBAVARI\PR\Perks.rdlc" />
     <EmbeddedResource Include="RBAVARI\PR\PayrollEmpDetail.rdlc" />
     <EmbeddedResource Include="RBAVARI\PR\PaySlip.rdlc" />

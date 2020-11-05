@@ -78,10 +78,10 @@
                         <li><a runat="server" onserverclick="Delete" class="changehover" style="font-size: 16px" href="#"><span class="glyphicon glyphicon-log-out"></span><b>Logout </b></a></li>
                     </ul>
                 </div>
-                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" RenderingMode="List"
+<%--                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" RenderingMode="List"
                     IncludeStyleBlock="true" StaticMenuStyle-CssClass="nav navbar-nav" DynamicMenuStyle-CssClass="dropdown-menu" CssClass="menu changehover">
                   
-                </asp:Menu>
+                </asp:Menu>--%>
             </div>
         </div>
         <div class="container body-content" style="margin-left: 20px; margin-top: 40px;">

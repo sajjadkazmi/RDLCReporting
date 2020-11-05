@@ -3,6 +3,7 @@ using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -23,7 +24,8 @@ namespace WebApplication2.RBAVARI.PR
                 GlobalReport GLRpt = new GlobalReport();
                 GLRpt.GetPassCode(pass);
             }
-            else if (Session["Pass_Code"] != null)
+
+            else
             {
                 GlobalReport GLRpt = new GlobalReport();
                 GLRpt.GetPassCode(passcode);
@@ -45,38 +47,43 @@ namespace WebApplication2.RBAVARI.PR
 
         private void showReport()
         {
-            string ListBoxValues = "";
+            string Department = "";
             string value = "";
             foreach (int i in ListBox1.GetSelectedIndices())
             {
                 value = value + "'" + ListBox1.Items[i].Value + "',";
-                ListBoxValues = string.Join(" ", value.Split(' ').Select(x => x.Trim('\''))).TrimEnd(',').TrimEnd('\'');
+                Department = string.Join(" ", value.Split(' ').Select(x => x.Trim('\''))).TrimEnd(',').TrimEnd('\'');
             }
             string FromDate = ListBox2.SelectedValue.ToString().Substring(0, 9);
             string ToDate = ListBox3.SelectedValue.ToString().Substring(0, 9);
-            string query = "select a.department, employee_name, old_emp_no, employee_no, cnic, a.Appointment_date, sum(a.Allowance) Cur_mnth_allow,   sum(a.Deduction) Cur_mnth_ded,  nvl(sum(a.Allowance), 0) - nvl(sum(a.deduction), 0) Cur_mnth_net from rbavari.prv_employeesalarysiml a where nvl(a.salary_based, 'N') = 'Y'   and nvl(a.Employer_Part, 'N') = 'N' and a.department IN  ('" + ListBoxValues + "') AND a.Appointment_date >= to_date('" + FromDate + "', 'mm/dd/rrrr') AND a.Appointment_date < to_date('" + ToDate + "', 'mm/dd/rrrr') group by a.department, employee_name, old_emp_no, employee_no, cnic, a.Appointment_date";
+            string query = "SELECT OLD_EMP_NO,EMPLOYEE_NAME,FATHER_SPOUSE_NAME,CNIC,APPOINTMENT_DATE,DESIGNATION,DEPARTMENT_CODE,DEPARTMENT_SEQUENCE,DEPARTMENT,LEFT_DATE,ACTIVE_CHECK,STANDARD_GROSS,BIRTH_DATE,SOCIAL_SECURITY,SKILL_LEVEL,REGION,PROBATIONARY_DAYS FROM  "+Session["Schema_Name"] +" prv_EMPLOYEEMASTER where Appointment_date >= to_date('" + FromDate + "', 'mm/dd/rrrr') AND Appointment_date < to_date('" + ToDate + "', 'mm/dd/rrrr')  order by department_sequence";
+
             //Reset
             ReportViewer1.Reset();
             GlobalReport GLRpt = new GlobalReport();
-            DataTable dt = GLRpt.GetData(query,string.Join(" ", ListBoxValues), FromDate, ToDate);
-            ReportDataSource rds = new ReportDataSource("AppSummaryData", dt);
+            DataTable dt = GLRpt.GetData(query,string.Join(" ", Department), FromDate, ToDate);
+            ReportDataSource rds = new ReportDataSource("EmployeMasterData", dt);
             ReportViewer1.LocalReport.DataSources.Add(rds);
             ReportViewer1.LocalReport.ReportPath = "./RBAVARI/PR/AppointSummary.rdlc";
             ReportParameter[] rptParms = new ReportParameter[]
             {
-                    new ReportParameter ("Name",ListBoxValues),
+                    new ReportParameter ("Department",Department),
                     new ReportParameter ("FromDate",FromDate),
                     new ReportParameter ("ToDate",ToDate),
-                    new ReportParameter("USERID", Session["u_id"].ToString(),false)
+                    new ReportParameter("USERID", Session["u_id"].ToString(),false),
+                    new ReportParameter("REMS", Session["REMS"].ToString(),false),
+                    new ReportParameter("CO_LOGO", Session["CO_LOGO"].ToString(),false)
             };
+            ReportViewer1.LocalReport.EnableExternalImages = true;
             ReportViewer1.LocalReport.SetParameters(rptParms);
+            
             ReportViewer1.LocalReport.Refresh();
             PrintButton.Visible = true;
         }
         
         private void BindListbox1()
         {
-            string query = "select distinct department from rbavari.prv_employeesalarysiml";
+            string query = "select distinct department from " + Session["Schema_Name"] + "prv_EMPLOYEEMASTER";
             GlobalReport GLRpt = new GlobalReport();
             DataSet ds = GLRpt.Listbox(query);
 
@@ -88,7 +95,7 @@ namespace WebApplication2.RBAVARI.PR
         private void BindListbox2()
         {
 
-            string query = "select distinct Appointment_date from rbavari.prv_employeesalarysiml order by Appointment_date DESC";
+            string query = "select distinct Appointment_date from " + Session["Schema_Name"] + "prv_EMPLOYEEMASTER order by Appointment_date DESC";
             GlobalReport GLRpt = new GlobalReport();
             DataSet ds = GLRpt.Listbox(query);
 
@@ -104,6 +111,7 @@ namespace WebApplication2.RBAVARI.PR
             ListBox3.DataTextFormatString = "{0:dd-MMM-yyyy}";
             ListBox3.DataBind();
         }
+
         protected void PrintButton_Click(object sender, EventArgs e)
         {
             byte[] bytes = ReportViewer1.LocalReport.Render("PDF");

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SalaryRegisterAllowances" targetNamespace="http://tempuri.org/SalaryRegisterAllowances.xsd" xmlns:mstns="http://tempuri.org/SalaryRegisterAllowances.xsd" xmlns="http://tempuri.org/SalaryRegisterAllowances.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SalaryRegisterAllowances" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SalaryRegisterAllowances" msprop:Generator_UserDSName="SalaryRegisterAllowances">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Employee_No" msprop:Generator_ColumnVarNameInTable="columnEmployee_No" msprop:Generator_ColumnPropNameInRow="Employee_No" msprop:Generator_ColumnPropNameInTable="Employee_NoColumn" msprop:Generator_UserColumnName="Employee_No" type="xs:string" minOccurs="0" />
+              <xs:element name="Print_Seq" msprop:Generator_ColumnVarNameInTable="columnPrint_Seq" msprop:Generator_ColumnPropNameInRow="Print_Seq" msprop:Generator_ColumnPropNameInTable="Print_SeqColumn" msprop:Generator_UserColumnName="Print_Seq" type="xs:string" minOccurs="0" />
+              <xs:element name="Compensation" msprop:Generator_ColumnVarNameInTable="columnCompensation" msprop:Generator_ColumnPropNameInRow="Compensation" msprop:Generator_ColumnPropNameInTable="CompensationColumn" msprop:Generator_UserColumnName="Compensation" type="xs:string" minOccurs="0" />
+              <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
