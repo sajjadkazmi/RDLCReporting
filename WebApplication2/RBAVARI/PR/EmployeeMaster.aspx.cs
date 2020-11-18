@@ -14,20 +14,20 @@ namespace WebApplication2.RBAVARI.PR
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //string pass = Request["id"];
-            //string passcode = string.Empty;
-            //passcode = Convert.ToString(Session["Pass_Code"]);
+            string pass = Request["id"];
+            string passcode = string.Empty;
+            passcode = Convert.ToString(Session["Pass_Code"]);
 
-            //if (Session["Pass_Code"] == null)
-            //{
-            //    GlobalReport GLRpt = new GlobalReport();
-            //    GLRpt.GetPassCode(pass);
-            //}
-            //else if (Session["Pass_Code"] != null)
-            //{
-            //    GlobalReport GLRpt = new GlobalReport();
-            //    GLRpt.GetPassCode(passcode);
-            //}
+            if (Session["Pass_Code"] == null)
+            {
+                GlobalReport GLRpt = new GlobalReport();
+                GLRpt.GetPassCode(pass);
+            }
+            else if (Session["Pass_Code"] != null)
+            {
+                GlobalReport GLRpt = new GlobalReport();
+                GLRpt.GetPassCode(passcode);
+            }
 
             if (!Page.IsPostBack)
             {
@@ -51,7 +51,7 @@ namespace WebApplication2.RBAVARI.PR
                 Status = string.Join(" ", value.Split(' ').Select(x => x.Trim('\''))).TrimEnd(',').TrimEnd('\'');
             }
             
-            string query = "SELECT OLD_EMP_NO,EMPLOYEE_NAME,FATHER_SPOUSE_NAME,CNIC,APPOINTMENT_DATE,DESIGNATION,DEPARTMENT_CODE,DEPARTMENT_SEQUENCE,DEPARTMENT,LEFT_DATE,ACTIVE_CHECK,STANDARD_GROSS FROM  lcpw.prv_EMPLOYEEMASTER where ACTIVE_CHECK IN  ('" + Status + "') ";
+            string query = "SELECT OLD_EMP_NO,EMPLOYEE_NAME,FATHER_SPOUSE_NAME,CNIC,APPOINTMENT_DATE,DESIGNATION,DEPARTMENT_CODE,DEPARTMENT_SEQUENCE,DEPARTMENT,LEFT_DATE,ACTIVE_CHECK,STANDARD_GROSS FROM  " + Session["Schema_Name"] + "prv_EMPLOYEEMASTER where ACTIVE_CHECK IN  ('" + Status + "') ";
             string Empty = "";
             //Reset
             ReportViewer1.Reset();
@@ -63,7 +63,9 @@ namespace WebApplication2.RBAVARI.PR
             ReportParameter[] rptParms = new ReportParameter[]
             {
                     new ReportParameter ("Status",Status),
-                    //new ReportParameter("USERID", Session["u_id"].ToString(),false)
+                    new ReportParameter("USERID", Session["u_id"].ToString(),false),
+                    new ReportParameter("REMS", Session["REMS"].ToString(),false),
+                    new ReportParameter("CO_LOGO", Session["CO_LOGO"].ToString(),false)
             };
             ReportViewer1.LocalReport.SetParameters(rptParms);
             ReportViewer1.LocalReport.Refresh();
@@ -72,7 +74,7 @@ namespace WebApplication2.RBAVARI.PR
 
         private void BindListbox1()
         {
-            string query = "select distinct active_check from   lcpw.prv_EMPLOYEEMASTER";
+            string query = "select distinct active_check from   " + Session["Schema_Name"] + "prv_EMPLOYEEMASTER";
             GlobalReport GLRpt = new GlobalReport();
             DataSet ds = GLRpt.Listbox(query);
 
@@ -84,7 +86,7 @@ namespace WebApplication2.RBAVARI.PR
         protected void PrintButton_Click(object sender, EventArgs e)
         {
             byte[] bytes = ReportViewer1.LocalReport.Render("PDF");
-            Response.AddHeader("Content-Disposition", "inline; filename=AppointSummary.PDF");
+            Response.AddHeader("Content-Disposition", "inline; filename=EmployeeMaster.PDF");
             Response.ContentType = "application/PDF";
             Response.BinaryWrite(bytes);
             Response.End();

@@ -35,7 +35,7 @@ namespace WebApplication2.Action
 
                 OracleConnection con = new OracleConnection(connectString);
                 con.Open();
-                OracleCommand cmd = new OracleCommand("select user_name, auth_level, pass_code, schema_name from rbavari.gcpasscode where pass_code = '" + txtpasscode.Text + "' ", con);
+                OracleCommand cmd = new OracleCommand("select user_name, auth_level, pass_code, schema_name from rbarep.gcpasscode where pass_code = '" + txtpasscode.Text + "' ", con);
 
 
                 OracleDataReader dr = cmd.ExecuteReader();

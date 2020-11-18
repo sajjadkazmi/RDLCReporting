@@ -11,10 +11,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Parameters!ToDate.Value</Value>
+                    <Value>=CDate(Parameters!ToDate.Value).ToString("dd-MMM-yyyy")</Value>
                     <Style>
                       <FontFamily>Calibri</FontFamily>
                       <FontSize>8pt</FontSize>
+                      <Format>d MMM yyyy</Format>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -110,10 +111,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Parameters!FromDate.Value</Value>
+                    <Value>=CDate(Parameters!FromDate.Value).ToString("dd-MMM-yyyy")</Value>
                     <Style>
                       <FontFamily>Calibri</FontFamily>
                       <FontSize>8pt</FontSize>
+                      <Format>d MMM yyyy</Format>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -168,28 +170,25 @@
                           <TablixBody>
                             <TablixColumns>
                               <TablixColumn>
-                                <Width>0.88776in</Width>
+                                <Width>1.01319in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1.01308in</Width>
+                                <Width>1.13851in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>0.99072in</Width>
+                                <Width>1.11615in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>0.91084in</Width>
+                                <Width>1.01319in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>0.88776in</Width>
+                                <Width>1.01319in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>0.88776in</Width>
+                                <Width>1.01319in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>0.88776in</Width>
-                              </TablixColumn>
-                              <TablixColumn>
-                                <Width>0.88776in</Width>
+                                <Width>1.01319in</Width>
                               </TablixColumn>
                             </TablixColumns>
                             <TablixRows>
@@ -221,7 +220,7 @@
                                         <rd:DefaultName>Textbox1</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -258,7 +257,7 @@
                                         <rd:DefaultName>Textbox2</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -279,7 +278,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>CNIC</Value>
+                                                <Value>Designation</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontWeight>Bold</FontWeight>
@@ -295,44 +294,7 @@
                                         <rd:DefaultName>Textbox7</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
-                                            <Style>Solid</Style>
-                                          </Border>
-                                          <BackgroundColor>LightGrey</BackgroundColor>
-                                          <PaddingLeft>2pt</PaddingLeft>
-                                          <PaddingRight>2pt</PaddingRight>
-                                          <PaddingTop>2pt</PaddingTop>
-                                          <PaddingBottom>2pt</PaddingBottom>
-                                        </Style>
-                                      </Textbox>
-                                    </CellContents>
-                                  </TablixCell>
-                                  <TablixCell>
-                                    <CellContents>
-                                      <Textbox Name="Textbox9">
-                                        <CanGrow>true</CanGrow>
-                                        <KeepTogether>true</KeepTogether>
-                                        <Paragraphs>
-                                          <Paragraph>
-                                            <TextRuns>
-                                              <TextRun>
-                                                <Value>P. P.</Value>
-                                                <Style>
-                                                  <FontFamily>Calibri</FontFamily>
-                                                  <FontWeight>Bold</FontWeight>
-                                                  <Color>White</Color>
-                                                </Style>
-                                              </TextRun>
-                                            </TextRuns>
-                                            <Style>
-                                              <TextAlign>Center</TextAlign>
-                                            </Style>
-                                          </Paragraph>
-                                        </Paragraphs>
-                                        <rd:DefaultName>Textbox9</rd:DefaultName>
-                                        <Style>
-                                          <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -353,7 +315,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>BIRTH DATE</Value>
+                                                <Value>App Date</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontWeight>Bold</FontWeight>
@@ -369,7 +331,7 @@
                                         <rd:DefaultName>Textbox14</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -406,7 +368,7 @@
                                         <rd:DefaultName>Textbox11</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -427,7 +389,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>SOCIAL SECURITY</Value>
+                                                <Value>Left Date</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontWeight>Bold</FontWeight>
@@ -443,7 +405,7 @@
                                         <rd:DefaultName>Textbox6</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -464,7 +426,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>STANDARD GROSS</Value>
+                                                <Value>Gross</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontWeight>Bold</FontWeight>
@@ -480,7 +442,7 @@
                                         <rd:DefaultName>Textbox21</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -601,17 +563,18 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="PROBATIONARY_DAYS">
+                                      <Textbox Name="APPOINTMENT_DATE">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!PROBATIONARY_DAYS.Value</Value>
+                                                <Value>=Fields!APPOINTMENT_DATE.Value</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>8pt</FontSize>
+                                                  <Format>dd-MMM-yy</Format>
                                                   <Color>#4d4d4d</Color>
                                                 </Style>
                                               </TextRun>
@@ -619,42 +582,7 @@
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>PROBATIONARY_DAYS</rd:DefaultName>
-                                        <Style>
-                                          <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
-                                          </Border>
-                                          <PaddingLeft>2pt</PaddingLeft>
-                                          <PaddingRight>2pt</PaddingRight>
-                                          <PaddingTop>2pt</PaddingTop>
-                                          <PaddingBottom>2pt</PaddingBottom>
-                                        </Style>
-                                      </Textbox>
-                                    </CellContents>
-                                  </TablixCell>
-                                  <TablixCell>
-                                    <CellContents>
-                                      <Textbox Name="BIRTH_DATE">
-                                        <CanGrow>true</CanGrow>
-                                        <KeepTogether>true</KeepTogether>
-                                        <Paragraphs>
-                                          <Paragraph>
-                                            <TextRuns>
-                                              <TextRun>
-                                                <Value>=Fields!BIRTH_DATE.Value</Value>
-                                                <Style>
-                                                  <FontFamily>Calibri</FontFamily>
-                                                  <FontSize>8pt</FontSize>
-                                                  <Format>MMMM d, yyyy</Format>
-                                                  <Color>#4d4d4d</Color>
-                                                </Style>
-                                              </TextRun>
-                                            </TextRuns>
-                                            <Style />
-                                          </Paragraph>
-                                        </Paragraphs>
-                                        <rd:DefaultName>BIRTH_DATE</rd:DefaultName>
+                                        <rd:DefaultName>APPOINTMENT_DATE</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -704,17 +632,18 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="SOCIAL_SECURITY">
+                                      <Textbox Name="LEFT_DATE">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!SOCIAL_SECURITY.Value</Value>
+                                                <Value>=Fields!LEFT_DATE.Value</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>8pt</FontSize>
+                                                  <Format>dd-MMM-yy</Format>
                                                   <Color>#4d4d4d</Color>
                                                 </Style>
                                               </TextRun>
@@ -722,7 +651,7 @@
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>SOCIAL_SECURITY</rd:DefaultName>
+                                        <rd:DefaultName>LEFT_DATE</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -749,7 +678,7 @@
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>8pt</FontSize>
-                                                  <Format>#,0.00;(#,0.00)</Format>
+                                                  <Format>#,0;(#,0)</Format>
                                                   <Color>#4d4d4d</Color>
                                                 </Style>
                                               </TextRun>
@@ -799,7 +728,7 @@
                                         <rd:DefaultName>Textbox4</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
@@ -833,7 +762,7 @@
                                         <rd:DefaultName>Textbox20</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
@@ -867,41 +796,7 @@
                                         <rd:DefaultName>Textbox23</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
-                                            <Style>Solid</Style>
-                                          </Border>
-                                          <PaddingLeft>2pt</PaddingLeft>
-                                          <PaddingRight>2pt</PaddingRight>
-                                          <PaddingTop>2pt</PaddingTop>
-                                          <PaddingBottom>2pt</PaddingBottom>
-                                        </Style>
-                                      </Textbox>
-                                    </CellContents>
-                                  </TablixCell>
-                                  <TablixCell>
-                                    <CellContents>
-                                      <Textbox Name="Textbox24">
-                                        <CanGrow>true</CanGrow>
-                                        <KeepTogether>true</KeepTogether>
-                                        <Paragraphs>
-                                          <Paragraph>
-                                            <TextRuns>
-                                              <TextRun>
-                                                <Value />
-                                                <Style>
-                                                  <FontFamily>Calibri</FontFamily>
-                                                  <FontSize>8pt</FontSize>
-                                                  <FontWeight>Bold</FontWeight>
-                                                </Style>
-                                              </TextRun>
-                                            </TextRuns>
-                                            <Style />
-                                          </Paragraph>
-                                        </Paragraphs>
-                                        <rd:DefaultName>Textbox24</rd:DefaultName>
-                                        <Style>
-                                          <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
@@ -935,7 +830,7 @@
                                         <rd:DefaultName>Textbox16</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
@@ -969,7 +864,7 @@
                                         <rd:DefaultName>Textbox13</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
@@ -1003,7 +898,7 @@
                                         <rd:DefaultName>Textbox10</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
@@ -1028,7 +923,7 @@
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>8pt</FontSize>
                                                   <FontWeight>Bold</FontWeight>
-                                                  <Format>#,0.00;(#,0.00)</Format>
+                                                  <Format>#,0;(#,0)</Format>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
@@ -1038,7 +933,7 @@
                                         <rd:DefaultName>Textbox25</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
@@ -1055,7 +950,6 @@
                           </TablixBody>
                           <TablixColumnHierarchy>
                             <TablixMembers>
-                              <TablixMember />
                               <TablixMember />
                               <TablixMember />
                               <TablixMember />
@@ -1080,7 +974,7 @@
                           <Top>0.72796in</Top>
                           <Left>0.02311in</Left>
                           <Height>0.75in</Height>
-                          <Width>7.35343in</Width>
+                          <Width>7.32061in</Width>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -1097,7 +991,6 @@
                                   <Value>=First(Fields!DEPARTMENT.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>Underline</TextDecoration>
                                   </Style>
@@ -1107,7 +1000,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>DEPARTMENT</rd:DefaultName>
-                          <Top>0.04514in</Top>
+                          <Top>0.40852in</Top>
+                          <Left>0.15625in</Left>
                           <Height>0.25in</Height>
                           <Width>2.74112in</Width>
                           <ZIndex>1</ZIndex>
@@ -1131,7 +1025,7 @@
                                   <Value>=First(Fields!REGION.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>None</TextDecoration>
                                   </Style>
@@ -1141,8 +1035,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>department</rd:DefaultName>
-                          <Top>0.45018in</Top>
-                          <Left>0.17023in</Left>
+                          <Top>0.03472in</Top>
+                          <Left>0.02311in</Left>
                           <Height>0.25in</Height>
                           <Width>2.57089in</Width>
                           <ZIndex>2</ZIndex>
@@ -1164,6 +1058,7 @@
                         </Border>
                       </Style>
                     </Rectangle>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -1180,12 +1075,9 @@
             <TablixMember>
               <Group Name="Details">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!DEPARTMENT.Value</GroupExpression>
                   <GroupExpression>=Fields!REGION.Value</GroupExpression>
+                  <GroupExpression>=Fields!DEPARTMENT.Value</GroupExpression>
                 </GroupExpressions>
-                <PageBreak>
-                  <BreakLocation>Between</BreakLocation>
-                </PageBreak>
               </Group>
             </TablixMember>
           </TablixMembers>

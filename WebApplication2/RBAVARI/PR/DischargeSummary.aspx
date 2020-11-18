@@ -7,10 +7,10 @@
 
                     <table>
         <tr>
-<%--            <td>
+            <td>
                 <asp:Label ID="Label2" runat="server" for="usr"> <h4>Select Department Name:</h4> </asp:Label>
                 <asp:ListBox ID="ListBox1" runat="server" class="form-control" SelectionMode="multiple" ClientIDMode="Static"></asp:ListBox>
-            </td>--%>
+            </td>
             </tr>
                         <tr>
             <td>
@@ -32,7 +32,7 @@
 
     <div ID="ReportViewer1_ctl10">
         <asp:Button ID="PrintButton" class="btn btn-primary" runat="server" Text="Print" Visible="false" OnClick="PrintButton_Click" />
-        <rsweb:ReportViewer ID="ReportViewer1" runat="server"></rsweb:ReportViewer>
+        <rsweb:ReportViewer ID="ReportViewer1" runat="server"  Height="600px" Width="1000px"></rsweb:ReportViewer>
         </div>
 
 </asp:Content>

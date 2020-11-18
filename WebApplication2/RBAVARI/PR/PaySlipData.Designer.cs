@@ -329,6 +329,8 @@ namespace WebApplication2.RBAVARI.PR {
             
             private global::System.Data.DataColumn columnNet;
             
+            private global::System.Data.DataColumn columnBarCode;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -564,6 +566,14 @@ namespace WebApplication2.RBAVARI.PR {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BarCodeColumn {
+                get {
+                    return this.columnBarCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -624,7 +634,8 @@ namespace WebApplication2.RBAVARI.PR {
                         string Company_Name, 
                         string allowance, 
                         string deduction, 
-                        string Net) {
+                        string Net, 
+                        byte[] BarCode) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         old_Emp_no,
@@ -651,7 +662,8 @@ namespace WebApplication2.RBAVARI.PR {
                         Company_Name,
                         allowance,
                         deduction,
-                        Net};
+                        Net,
+                        BarCode};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -699,6 +711,7 @@ namespace WebApplication2.RBAVARI.PR {
                 this.columnallowance = base.Columns["allowance"];
                 this.columndeduction = base.Columns["deduction"];
                 this.columnNet = base.Columns["Net"];
+                this.columnBarCode = base.Columns["BarCode"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -754,6 +767,8 @@ namespace WebApplication2.RBAVARI.PR {
                 base.Columns.Add(this.columndeduction);
                 this.columnNet = new global::System.Data.DataColumn("Net", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNet);
+                this.columnBarCode = new global::System.Data.DataColumn("BarCode", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBarCode);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1296,6 +1311,22 @@ namespace WebApplication2.RBAVARI.PR {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public byte[] BarCode {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableDataTable1.BarCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BarCode\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.BarCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isold_Emp_noNull() {
                 return this.IsNull(this.tableDataTable1.old_Emp_noColumn);
             }
@@ -1592,6 +1623,18 @@ namespace WebApplication2.RBAVARI.PR {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNetNull() {
                 this[this.tableDataTable1.NetColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBarCodeNull() {
+                return this.IsNull(this.tableDataTable1.BarCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBarCodeNull() {
+                this[this.tableDataTable1.BarCodeColumn] = global::System.Convert.DBNull;
             }
         }
         

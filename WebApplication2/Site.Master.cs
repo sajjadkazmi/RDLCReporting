@@ -73,20 +73,69 @@ namespace WebApplication2
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["u_id"] == null)
-            {
-                Response.Redirect("~/Action/Login.aspx");
-            }
-            else
-            {
-                //if (!this.IsPostBack)
-                //{
-                //    //Label1.Text = Session["u_id"].ToString();
-                //    DataTable dt = this.GetMenuData();
-                //    PopulateMenu(dt);
-                //}
-            }
+            //if (Session["u_id"] == null)
+            //{
+            //    Response.Redirect("~/Action/Login.aspx");
+            //}
+            //else
+            //{
+            //    if (!this.IsPostBack)
+            //    {
+            //        //Label1.Text = Session["u_id"].ToString();
+            //        DataTable dt = this.GetMenuData();
+            //        PopulateMenu(dt);
+            //    }
+            //}
+            //GetCompanyDetail();
         }
+
+
+        //public void GetCompanyDetail()
+        //{
+        //    Connection getCon = new Connection();
+        //    string connectString = getCon.create_connection();
+        //    string CompanyName = "";
+        //    byte[] bytes;
+
+
+        //    try
+        //    {
+        //        OracleConnection con = new OracleConnection(connectString);
+        //        con.Open();
+        //        OracleCommand cmd = new OracleCommand("select rems,co_logo from " +Session["Schema_Name"] + " gccompany where ROWNUM <= 1 ", con);
+
+        //        OracleDataReader dr = cmd.ExecuteReader();
+        //        int FieldCount = dr.FieldCount;
+        //        if (dr.HasRows)
+        //        {
+        //            while (dr.Read())
+        //            {
+        //                CompanyName = (string)dr["REMS"];
+        //                bytes = (byte[])dr["CO_LOGO"];
+
+        //                //byte[] imgBinary = File.filenam .ReadAllBytes("image.png");
+
+        //                string imgString = Convert.ToBase64String(bytes);
+
+        //                //Creating Session
+        //                Session["REMS"] = CompanyName;
+        //                Session["CO_LOGO"] = imgString;
+
+
+        //            }
+        //            con.Close();
+        //        }
+        //        else
+        //        {
+        //        }
+        //    }
+        //    catch (Exception err)
+        //    {
+        //        //HttpContext.Current.Response.Redirect("~/Action/login.aspx");
+
+        //        throw;
+        //    }
+        //}
         //private void PopulateMenu(DataTable dt)
         //{
         //    string currentPage = Path.GetFileName(Request.Url.AbsolutePath);

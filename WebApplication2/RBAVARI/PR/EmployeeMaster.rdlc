@@ -1114,24 +1114,10 @@
   <Width>7.40463in</Width>
   <Page>
     <PageHeader>
-      <Height>0.84868in</Height>
+      <Height>0.93792in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Image Name="Logo">
-          <Source>Embedded</Source>
-          <Value>ID121</Value>
-          <Sizing>FitProportional</Sizing>
-          <Top>0.00451in</Top>
-          <Left>0.00887in</Left>
-          <Height>0.7782in</Height>
-          <Width>0.97261in</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </Image>
         <Textbox Name="Textbox74">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -1152,11 +1138,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox64</rd:DefaultName>
-          <Top>0.30322in</Top>
+          <Top>0.26026in</Top>
           <Left>6.02833in</Left>
           <Height>0.19445in</Height>
           <Width>1.32425in</Width>
-          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1187,11 +1172,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox64</rd:DefaultName>
-          <Top>0.05043in</Top>
+          <Top>0.00747in</Top>
           <Left>6.02833in</Left>
           <Height>0.19445in</Height>
           <Width>1.32425in</Width>
-          <ZIndex>2</ZIndex>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1223,11 +1208,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox64</rd:DefaultName>
-          <Top>0.05043in</Top>
+          <Top>0.00747in</Top>
           <Left>5.34658in</Left>
           <Height>0.19445in</Height>
           <Width>0.66162in</Width>
-          <ZIndex>3</ZIndex>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1259,11 +1244,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox64</rd:DefaultName>
-          <Top>0.50045in</Top>
+          <Top>0.45749in</Top>
           <Left>5.34658in</Left>
           <Height>0.19445in</Height>
           <Width>0.66579in</Width>
-          <ZIndex>4</ZIndex>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1295,11 +1280,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox64</rd:DefaultName>
-          <Top>0.28793in</Top>
+          <Top>0.24497in</Top>
           <Left>5.34658in</Left>
           <Height>0.19445in</Height>
           <Width>0.67412in</Width>
-          <ZIndex>5</ZIndex>
+          <ZIndex>4</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1332,10 +1317,45 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox70</rd:DefaultName>
-          <Top>0.5959in</Top>
+          <Top>0.6683in</Top>
           <Left>2.81918in</Left>
           <Height>0.25278in</Height>
           <Width>1.78245in</Width>
+          <ZIndex>5</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox75">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Parameters!USERID.Value</Value>
+                  <Style>
+                    <FontFamily>calibri</FontFamily>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox64</rd:DefaultName>
+          <Top>0.41807in</Top>
+          <Left>6.0396in</Left>
+          <Height>0.2788in</Height>
+          <Width>1.32425in</Width>
           <ZIndex>6</ZIndex>
           <Style>
             <Border>
@@ -1347,14 +1367,14 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox71">
+        <Textbox Name="Textbox73">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Lahore Chemical &amp; Pharmaceutical Works</Value>
+                  <Value>=Parameters!REMS.Value</Value>
                   <Style>
                     <FontFamily>Calibri</FontFamily>
                     <FontSize>16pt</FontSize>
@@ -1368,10 +1388,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox71</rd:DefaultName>
-          <Top>0.05043in</Top>
-          <Left>1.92126in</Left>
-          <Height>0.54547in</Height>
-          <Width>3.41144in</Width>
+          <Top>0.00747in</Top>
+          <Left>1.89437in</Left>
+          <Height>0.5626in</Height>
+          <Width>3.39666in</Width>
           <ZIndex>7</ZIndex>
           <Style>
             <Border>
@@ -1383,6 +1403,21 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Image Name="Image1">
+          <Source>Database</Source>
+          <Value>=Parameters!CO_LOGO.Value</Value>
+          <MIMEType>image/png</MIMEType>
+          <Sizing>FitProportional</Sizing>
+          <Left>0.03198in</Left>
+          <Height>0.88236in</Height>
+          <Width>0.97689in</Width>
+          <ZIndex>8</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
       </ReportItems>
       <Style>
         <Border>
@@ -1476,6 +1511,18 @@
   </DataSets>
   <ReportParameters>
     <ReportParameter Name="Status">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="USERID">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="REMS">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CO_LOGO">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>

@@ -71,7 +71,7 @@ namespace WebApplication2
         }
         public void GetPassCode(string pass)
         {
-            //string pass = system.web.httpcontext.current.request["id"];
+            string passcode = System.Web.HttpContext.Current.Request["id"];
             Connection getCon = new Connection();
             string connectString = getCon.create_connection();
             string usr_name = "";
@@ -83,7 +83,7 @@ namespace WebApplication2
             {
                 OracleConnection con = new OracleConnection(connectString);
                 con.Open();
-                OracleCommand cmd = new OracleCommand("select user_name, auth_level, pass_code, schema_name from rbavari.gcpasscode where pass_code = '" + pass + "' ", con);
+                OracleCommand cmd = new OracleCommand("select user_name, auth_level, pass_code, schema_name from rbarep.gcpasscode where pass_code = '" + passcode + "' ", con);
 
                 OracleDataReader dr = cmd.ExecuteReader();
                 int FieldCount = dr.FieldCount;
@@ -107,14 +107,14 @@ namespace WebApplication2
                 }
                 else
                 {
-                   HttpContext.Current.Response.Redirect("~/Action/login.aspx");
+                   HttpContext.Current.Response.Redirect("~/Dashboard.aspx");
                     
                     //lblMessage.Text = "Please Provide a Corrrect Pass Code or Generate a New Pass Code from your Self Service";
                 }
             }
             catch (Exception err)
             {
-                   HttpContext.Current.Response.Redirect("~/Action/login.aspx");
+                   HttpContext.Current.Response.Redirect("~/Error.aspx");
 
                 throw;
             }
@@ -143,7 +143,7 @@ namespace WebApplication2
                         CompanyName = (string)dr["REMS"];
                         bytes = (byte[])dr["CO_LOGO"];
 
-                        byte[] imgBinary = File.ReadAllBytes("image.png");
+                        //byte[] imgBinary = File.ReadAllBytes("image.png");
 
                         string imgString = Convert.ToBase64String(bytes);
 
@@ -161,7 +161,7 @@ namespace WebApplication2
             }
             catch (Exception err)
             {
-                HttpContext.Current.Response.Redirect("~/Action/login.aspx");
+                //HttpContext.Current.Response.Redirect("~/Action/login.aspx");
 
                 throw;
             }

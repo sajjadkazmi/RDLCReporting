@@ -56,7 +56,7 @@ namespace WebApplication2.RBAVARI.PR
             }
             string FromDate = ListBox2.SelectedValue.ToString().Substring(0, 9);
             string ToDate = ListBox3.SelectedValue.ToString().Substring(0, 9);
-            string query = "SELECT OLD_EMP_NO,EMPLOYEE_NAME,FATHER_SPOUSE_NAME,CNIC,APPOINTMENT_DATE,DESIGNATION,DEPARTMENT_CODE,DEPARTMENT_SEQUENCE,DEPARTMENT,LEFT_DATE,ACTIVE_CHECK,STANDARD_GROSS,BIRTH_DATE,SOCIAL_SECURITY,SKILL_LEVEL,REGION,PROBATIONARY_DAYS FROM  "+Session["Schema_Name"] +" prv_EMPLOYEEMASTER where Appointment_date >= to_date('" + FromDate + "', 'mm/dd/rrrr') AND Appointment_date < to_date('" + ToDate + "', 'mm/dd/rrrr')  order by department_sequence";
+            string query = "SELECT OLD_EMP_NO,EMPLOYEE_NAME,FATHER_SPOUSE_NAME,CNIC,APPOINTMENT_DATE,DESIGNATION,DEPARTMENT_CODE,DEPARTMENT_SEQUENCE,DEPARTMENT,LEFT_DATE,ACTIVE_CHECK,STANDARD_GROSS,BIRTH_DATE,SOCIAL_SECURITY,SKILL_LEVEL,REGION,PROBATIONARY_DAYS FROM  "+Session["Schema_Name"] + " prv_EMPLOYEEMASTER where DEPARTMENT IN('"+Department+"') AND Appointment_date >= to_date('" + FromDate + "', 'mm/dd/rrrr') AND Appointment_date < to_date('" + ToDate + "', 'mm/dd/rrrr')  order by REGION, department_sequence";
 
             //Reset
             ReportViewer1.Reset();

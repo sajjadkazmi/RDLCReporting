@@ -23,7 +23,7 @@ namespace WebApplication2.RBAVARI.SO
                 GlobalReport GLRpt = new GlobalReport();
                 GLRpt.GetPassCode(pass);
             }
-            else if(Session["Pass_Code"] != null)
+            else
             {
                 GlobalReport GLRpt = new GlobalReport();
                 GLRpt.GetPassCode(passcode);
@@ -142,6 +142,7 @@ namespace WebApplication2.RBAVARI.SO
             }
 
         }
+        
 
         protected void Button2_Click(object sender, EventArgs e)
         {
@@ -195,5 +196,7 @@ namespace WebApplication2.RBAVARI.SO
             Response.End();
             ClientScript.RegisterStartupScript(typeof(Page), "key", "<script type='text/javascript'>window.print();;</script>");
         }
+
+
     }
 }

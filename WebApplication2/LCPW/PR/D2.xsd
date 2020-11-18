@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="D2" targetNamespace="http://tempuri.org/D2.xsd" xmlns:mstns="http://tempuri.org/D2.xsd" xmlns="http://tempuri.org/D2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="D2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="D2" msprop:Generator_UserDSName="D2">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="employee_no" msprop:Generator_ColumnVarNameInTable="columnemployee_no" msprop:Generator_ColumnPropNameInRow="employee_no" msprop:Generator_ColumnPropNameInTable="employee_noColumn" msprop:Generator_UserColumnName="employee_no" type="xs:string" minOccurs="0" />
+              <xs:element name="process_month" msprop:Generator_ColumnVarNameInTable="columnprocess_month" msprop:Generator_ColumnPropNameInRow="process_month" msprop:Generator_ColumnPropNameInTable="process_monthColumn" msprop:Generator_UserColumnName="process_month" type="xs:string" minOccurs="0" />
+              <xs:element name="claa_2" msdata:Caption="basic_pay" msprop:Generator_ColumnVarNameInTable="columnclaa_2" msprop:Generator_ColumnPropNameInRow="claa_2" msprop:Generator_ColumnPropNameInTable="claa_2Column" msprop:Generator_UserColumnName="claa_2" type="xs:string" minOccurs="0" />
+              <xs:element name="adhoc_relief" msdata:Caption="house_rent" msprop:Generator_ColumnVarNameInTable="columnadhoc_relief" msprop:Generator_ColumnPropNameInRow="adhoc_relief" msprop:Generator_ColumnPropNameInTable="adhoc_reliefColumn" msprop:Generator_UserColumnName="adhoc_relief" type="xs:string" minOccurs="0" />
+              <xs:element name="adhoc_releif_2" msdata:Caption="conveyance" msprop:Generator_ColumnVarNameInTable="columnadhoc_releif_2" msprop:Generator_ColumnPropNameInRow="adhoc_releif_2" msprop:Generator_ColumnPropNameInTable="adhoc_releif_2Column" msprop:Generator_UserColumnName="adhoc_releif_2" type="xs:string" minOccurs="0" />
+              <xs:element name="sp_allow" msdata:Caption="utility" msprop:Generator_ColumnVarNameInTable="columnsp_allow" msprop:Generator_ColumnPropNameInRow="sp_allow" msprop:Generator_ColumnPropNameInTable="sp_allowColumn" msprop:Generator_UserColumnName="sp_allow" type="xs:string" minOccurs="0" />
+              <xs:element name="wage_adj" msdata:Caption="claa" msprop:Generator_ColumnVarNameInTable="columnwage_adj" msprop:Generator_ColumnPropNameInRow="wage_adj" msprop:Generator_ColumnPropNameInTable="wage_adjColumn" msprop:Generator_UserColumnName="wage_adj" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
