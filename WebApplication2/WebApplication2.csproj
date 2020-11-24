@@ -272,9 +272,11 @@
     <Content Include="LCPW\PR\AppointSummary.aspx" />
     <Content Include="LCPW\PR\DischargeSummary.aspx" />
     <Content Include="LCPW\PR\EmployeeMaster.aspx" />
+    <Content Include="LCPW\PR\FnF.aspx" />
     <Content Include="LCPW\PR\GroupInsurance.aspx" />
     <Content Include="LCPW\PR\MedicalReimburse.aspx" />
     <Content Include="LCPW\PR\PayrollEmpDetails.aspx" />
+    <Content Include="LCPW\PR\PaySlip.aspx" />
     <Content Include="RBAVARI\GL\PettyCash.aspx" />
     <Content Include="RBAVARI\PO\PO.aspx" />
     <Content Include="RBAVARI\PO\POWithoutTax.aspx" />
@@ -683,6 +685,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EmployeMasterData2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="LCPW\PR\FnF.aspx.cs">
+      <DependentUpon>FnF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LCPW\PR\FnF.aspx.designer.cs">
+      <DependentUpon>FnF.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LCPW\PR\GrossData.Designer.cs">
       <DependentUpon>GrossData.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -718,6 +727,13 @@
     </Compile>
     <Compile Include="LCPW\PR\PayrollEmpDetails.aspx.designer.cs">
       <DependentUpon>PayrollEmpDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LCPW\PR\PaySlip.aspx.cs">
+      <DependentUpon>PaySlip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LCPW\PR\PaySlip.aspx.designer.cs">
+      <DependentUpon>PaySlip.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -953,7 +969,7 @@
     <Content Include="LCPW\PR\DischargeSummary.rdlc" />
     <Content Include="LCPW\PR\EmployeeMaster.rdlc" />
     <Content Include="LCPW\PR\GroupInsurance.rdlc" />
-    <EmbeddedResource Include="LCPW\PR\PayrollEmpDetail - Copy.rdlc" />
+    <Content Include="LCPW\PR\Fnf.rdlc" />
     <Content Include="LCPW\PR\PayrollEmpDetail.rdlc" />
     <Content Include="RBAVARI\GL\PettyCash.rdlc" />
     <Content Include="RBAVARI\PO\POWithoutTax.rdlc" />
@@ -971,6 +987,7 @@
     <Content Include="RBAVARI\PR\AppointSummary.rdlc" />
     <Content Include="LCPW\PR\Reimbursement.rdlc" />
     <Content Include="RBAVARI\PR\PO.rdlc" />
+    <Content Include="LCPW\PR\PaySlip.rdlc" />
     <EmbeddedResource Include="RBAVARI\PR\Report1.rdlc" />
     <Content Include="RBAVARI\SO\DeliveryChallan.rdlc" />
     <Content Include="RBAVARI\SO\CustomerLedger.rdlc" />

@@ -151,7 +151,7 @@
                                         <rd:DefaultName>Textbox2</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -188,7 +188,7 @@
                                         <rd:DefaultName>Textbox5</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -225,7 +225,7 @@
                                         <rd:DefaultName>Textbox1</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -262,7 +262,7 @@
                                         <rd:DefaultName>Textbox6</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -299,7 +299,7 @@
                                         <rd:DefaultName>Textbox9</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -320,7 +320,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>Cnic</Value>
+                                                <Value>CNIC</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontWeight>Bold</FontWeight>
@@ -336,7 +336,7 @@
                                         <rd:DefaultName>Textbox14</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -373,7 +373,7 @@
                                         <rd:DefaultName>Textbox3</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -550,7 +550,9 @@
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
-                                            <Style />
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
                                           </Paragraph>
                                         </Paragraphs>
                                         <rd:DefaultName>APPOINTMENT_DATE</rd:DefaultName>
@@ -659,7 +661,7 @@
                             </TablixMembers>
                           </TablixRowHierarchy>
                           <DataSetName>EmployeMasterData</DataSetName>
-                          <Top>0.36458in</Top>
+                          <Top>0.70591in</Top>
                           <Height>0.5in</Height>
                           <Width>7.34373in</Width>
                           <Style>
@@ -678,7 +680,6 @@
                                   <Value>=First(Fields!DEPARTMENT.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>Underline</TextDecoration>
                                   </Style>
@@ -688,10 +689,46 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>DEPARTMENT</rd:DefaultName>
-                          <Top>0.04514in</Top>
+                          <Top>0.40035in</Top>
+                          <Left>0.17107in</Left>
                           <Height>0.25in</Height>
                           <Width>2.74112in</Width>
                           <ZIndex>1</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="department2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=First(Fields!REGION.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>department</rd:DefaultName>
+                          <Top>0.06822in</Top>
+                          <Left>0.03793in</Left>
+                          <Height>0.25in</Height>
+                          <Width>2.57089in</Width>
+                          <ZIndex>2</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>

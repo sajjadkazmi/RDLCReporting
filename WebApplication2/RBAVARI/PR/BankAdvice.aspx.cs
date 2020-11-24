@@ -152,7 +152,7 @@ namespace WebApplication2.RBAVARI.PR
 
                     //listbox3
 
-                    OracleCommand com3 = new OracleCommand("select  distinct Process_Month  from rbavari.prv_employeesalaryactl order by Process_Month", con);
+                    OracleCommand com3 = new OracleCommand("select  distinct Process_Month  from rbavari.prv_employeesalaryactl order by Process_Month DESC", con);
                     OracleDataAdapter da3 = new OracleDataAdapter(com3);
                     DataSet ds3 = new DataSet();
                     da3.Fill(ds3); // fill dataset

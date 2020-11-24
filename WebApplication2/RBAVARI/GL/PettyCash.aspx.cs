@@ -22,7 +22,7 @@ namespace WebApplication2.RBAVARI.GL
                 GlobalReport GLRpt = new GlobalReport();
                 GLRpt.GetPassCode(pass);
             }
-            else if (Session["Pass_Code"] != null)
+            else
             {
                 GlobalReport GLRpt = new GlobalReport();
                 GLRpt.GetPassCode(passcode);

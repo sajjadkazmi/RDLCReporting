@@ -13,14 +13,18 @@
             </td>
             </tr>
                         <tr>
-            <td>
-                <asp:Label ID="Label3" runat="server" for="usr"> <h4> From Date :</h4> </asp:Label>
-                <asp:ListBox ID="ListBox2" runat="server" class="form-control" SelectionMode="Single" ClientIDMode="Static"></asp:ListBox>
-            </td>
-             <td>
-                <asp:Label ID="Label4" runat="server" for="usr"> <h4> To Date :</h4> </asp:Label>
-                <asp:ListBox ID="ListBox3" runat="server" class="form-control" SelectionMode="Single" ClientIDMode="Static"></asp:ListBox>
-            </td>
+              <td>
+                    <asp:Label ID="Label1" runat="server" for="usr"> <h4> From Date :</h4>
+                    </asp:Label>
+                    <%--                <asp:ListBox ID="ListBox2" runat="server" class="form-control" SelectionMode="Single" ClientIDMode="Static"></asp:ListBox>--%>
+                    <asp:TextBox ID="datepicker" class="form-control datePicker" placeholder="Select Date" autocomplete="off" runat="server" />
+                </td>
+                <td>
+                    <asp:Label ID="Label4" runat="server" for="usr"> <h4> To Date :</h4> </asp:Label>
+                    <%--                <asp:ListBox ID="ListBox3" runat="server" class="form-control" SelectionMode="Single" ClientIDMode="Static"></asp:ListBox>--%>
+                    <asp:TextBox ID="datepicker2" class="form-control datePicker" placeholder="Select Date" autocomplete="off" runat="server" />
+                </td>
+
            <td style=" padding-top: 38px; padding-left:20px">
      <asp:Button ID="Button1" class="btn btn-primary" runat="server" OnClick="Button1_Click" Text="View Report" /> 
            </td>

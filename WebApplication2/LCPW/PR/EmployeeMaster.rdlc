@@ -482,7 +482,7 @@
                                               </TextRun>
                                             </TextRuns>
                                             <Style>
-                                              <TextAlign>Center</TextAlign>
+                                              <TextAlign>Left</TextAlign>
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
@@ -518,7 +518,7 @@
                                               </TextRun>
                                             </TextRuns>
                                             <Style>
-                                              <TextAlign>Center</TextAlign>
+                                              <TextAlign>Left</TextAlign>
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
@@ -554,7 +554,7 @@
                                               </TextRun>
                                             </TextRuns>
                                             <Style>
-                                              <TextAlign>Center</TextAlign>
+                                              <TextAlign>Left</TextAlign>
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
@@ -624,7 +624,9 @@
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
-                                            <Style />
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
                                           </Paragraph>
                                         </Paragraphs>
                                         <rd:DefaultName>APPOINTMENT_DATE</rd:DefaultName>
@@ -659,7 +661,9 @@
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
-                                            <Style />
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
                                           </Paragraph>
                                         </Paragraphs>
                                         <rd:DefaultName>LEFT_DATE</rd:DefaultName>
@@ -689,6 +693,7 @@
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>8pt</FontSize>
+                                                  <Format>#,0;(#,0)</Format>
                                                   <Color>#4d4d4d</Color>
                                                 </Style>
                                               </TextRun>
@@ -974,6 +979,7 @@
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>8pt</FontSize>
                                                   <FontWeight>Bold</FontWeight>
+                                                  <Format>#,0;(#,0)</Format>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>

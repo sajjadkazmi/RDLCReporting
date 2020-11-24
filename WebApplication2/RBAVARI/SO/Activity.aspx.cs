@@ -60,7 +60,6 @@ namespace WebApplication2.RBAVARI.SO
             string date1 = datepicker2.Text.ToString();
             var datetime1 = DateTime.Parse(date1);
             var ToDate = datetime1.ToString("dd-MMM-yyyy");
-            string RT = "";
             
             //Reset
             ReportViewer1.Reset();

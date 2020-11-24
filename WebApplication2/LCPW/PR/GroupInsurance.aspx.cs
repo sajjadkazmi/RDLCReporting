@@ -50,7 +50,7 @@ namespace WebApplication2.LCPW.PR
                 Status = string.Join(" ", value.Split(' ').Select(x => x.Trim('\''))).TrimEnd(',').TrimEnd('\'');
             }
 
-            string query = "SELECT OLD_EMP_NO,EMPLOYEE_NAME,FATHER_SPOUSE_NAME,CNIC,APPOINTMENT_DATE,DESIGNATION,DEPARTMENT_CODE,DEPARTMENT_SEQUENCE,DEPARTMENT,LEFT_DATE,ACTIVE_CHECK,BIRTH_DATE,SKILL_LEVEL FROM    " + Session["Schema_Name"] + "prv_EMPLOYEEMASTER where ACTIVE_CHECK IN  ('" + Status + "') ";
+            string query = "SELECT OLD_EMP_NO,EMPLOYEE_NAME,FATHER_SPOUSE_NAME,CNIC,APPOINTMENT_DATE,DESIGNATION,DEPARTMENT_CODE,DEPARTMENT_SEQUENCE,DEPARTMENT,LEFT_DATE,ACTIVE_CHECK,BIRTH_DATE,SKILL_LEVEL,REGION FROM    " + Session["Schema_Name"] + "prv_EMPLOYEEMASTER where ACTIVE_CHECK IN  ('" + Status + "') ";
             string Empty = "";
             //Reset
             ReportViewer1.Reset();

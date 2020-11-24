@@ -11,7 +11,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Parameters!ToDate.Value</Value>
+                    <Value>=CDate(Parameters!ToDate.Value).ToString("dd-MMM-yyyy")</Value>
                     <Style>
                       <FontFamily>Calibri</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -111,7 +111,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Parameters!FromDate.Value</Value>
+                    <Value>=CDate(Parameters!FromDate.Value).ToString("dd-MMM-yyyy")</Value>
                     <Style>
                       <FontFamily>Calibri</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -223,7 +223,7 @@
                                         <rd:DefaultName>Textbox1</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -260,7 +260,7 @@
                                         <rd:DefaultName>Textbox2</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -297,7 +297,7 @@
                                         <rd:DefaultName>Textbox7</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -334,7 +334,7 @@
                                         <rd:DefaultName>Textbox9</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -371,7 +371,7 @@
                                         <rd:DefaultName>Textbox14</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -408,7 +408,7 @@
                                         <rd:DefaultName>Textbox11</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -445,7 +445,7 @@
                                         <rd:DefaultName>Textbox6</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -482,7 +482,7 @@
                                         <rd:DefaultName>Textbox21</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
@@ -653,7 +653,9 @@
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
-                                            <Style />
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
                                           </Paragraph>
                                         </Paragraphs>
                                         <rd:DefaultName>BIRTH_DATE</rd:DefaultName>
@@ -801,7 +803,7 @@
                                         <rd:DefaultName>Textbox4</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
@@ -835,7 +837,7 @@
                                         <rd:DefaultName>Textbox20</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
@@ -869,7 +871,7 @@
                                         <rd:DefaultName>Textbox23</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
@@ -903,7 +905,7 @@
                                         <rd:DefaultName>Textbox24</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
@@ -937,7 +939,7 @@
                                         <rd:DefaultName>Textbox16</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
@@ -971,7 +973,7 @@
                                         <rd:DefaultName>Textbox13</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
@@ -1005,7 +1007,7 @@
                                         <rd:DefaultName>Textbox10</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
@@ -1040,7 +1042,7 @@
                                         <rd:DefaultName>Textbox25</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>Gray</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
@@ -1099,7 +1101,6 @@
                                   <Value>=First(Fields!DEPARTMENT.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>Underline</TextDecoration>
                                   </Style>
@@ -1109,7 +1110,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>DEPARTMENT</rd:DefaultName>
-                          <Top>0.04514in</Top>
+                          <Top>0.43629in</Top>
+                          <Left>0.17355in</Left>
                           <Height>0.25in</Height>
                           <Width>2.74112in</Width>
                           <ZIndex>1</ZIndex>
@@ -1133,7 +1135,7 @@
                                   <Value>=First(Fields!REGION.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>None</TextDecoration>
                                   </Style>
@@ -1143,8 +1145,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>department</rd:DefaultName>
-                          <Top>0.45018in</Top>
-                          <Left>0.17023in</Left>
+                          <Top>0.06249in</Top>
+                          <Left>0.04041in</Left>
                           <Height>0.25in</Height>
                           <Width>2.57089in</Width>
                           <ZIndex>2</ZIndex>
@@ -1166,6 +1168,7 @@
                         </Border>
                       </Style>
                     </Rectangle>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

@@ -10,25 +10,7 @@
 namespace WebApplication2.LCPW.PR {
     
     
-    public partial class DischargeSummary {
-        
-        /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-        
-        /// <summary>
-        /// ListBox1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBox1;
+    public partial class PaySlip {
         
         /// <summary>
         /// Label1 control.
@@ -40,31 +22,31 @@ namespace WebApplication2.LCPW.PR {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// datepicker control.
+        /// ListBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox datepicker;
+        protected global::System.Web.UI.WebControls.ListBox ListBox1;
         
         /// <summary>
-        /// Label4 control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// datepicker2 control.
+        /// ListBox2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox datepicker2;
+        protected global::System.Web.UI.WebControls.ListBox ListBox2;
         
         /// <summary>
         /// Button1 control.
@@ -85,13 +67,13 @@ namespace WebApplication2.LCPW.PR {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// PrintButton control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button PrintButton;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
         /// ReportViewer1 control.
