@@ -269,7 +269,9 @@
     </Content>
     <Content Include="Error.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="LCPW\PR\DeductionReport.aspx" />
     <Content Include="LCPW\PR\AppointSummary.aspx" />
+    <Content Include="LCPW\PR\Absentee.aspx" />
     <Content Include="LCPW\PR\DischargeSummary.aspx" />
     <Content Include="LCPW\PR\EmployeeMaster.aspx" />
     <Content Include="LCPW\PR\FnF.aspx" />
@@ -280,6 +282,7 @@
     <Content Include="RBAVARI\GL\PettyCash.aspx" />
     <Content Include="RBAVARI\PO\PO.aspx" />
     <Content Include="RBAVARI\PO\POWithoutTax.aspx" />
+    <Content Include="RBAVARI\PR\Absentee.aspx" />
     <Content Include="RBAVARI\PR\AppointSummary.aspx" />
     <Content Include="RBAVARI\PR\BankAdvice.aspx" />
     <Content Include="RBAVARI\PR\DischargeSummary.aspx" />
@@ -309,6 +312,17 @@
     </Content>
     <Content Include="LCPW\PR\D1.xsc">
       <DependentUpon>D1.xsd</DependentUpon>
+    </Content>
+    <Content Include="LCPW\PR\AbsenteeData.xsc">
+      <DependentUpon>AbsenteeData.xsd</DependentUpon>
+    </Content>
+    <None Include="LCPW\PR\AbsenteeData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AbsenteeData.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="LCPW\PR\AbsenteeData.xss">
+      <DependentUpon>AbsenteeData.xsd</DependentUpon>
     </Content>
     <None Include="LCPW\PR\D1.xsd">
       <Generator>MSDataSetGenerator</Generator>
@@ -634,6 +648,18 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalReport.cs" />
+    <Compile Include="LCPW\PR\DeductionReport.aspx.cs">
+      <DependentUpon>DeductionReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LCPW\PR\DeductionReport.aspx.designer.cs">
+      <DependentUpon>DeductionReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LCPW\PR\AbsenteeData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AbsenteeData.xsd</DependentUpon>
+    </Compile>
     <Compile Include="LCPW\PR\AppointSummary.aspx.cs">
       <DependentUpon>AppointSummary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -665,6 +691,13 @@
       <DependentUpon>DeductionData1.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="LCPW\PR\Absentee.aspx.cs">
+      <DependentUpon>Absentee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LCPW\PR\Absentee.aspx.designer.cs">
+      <DependentUpon>Absentee.aspx</DependentUpon>
     </Compile>
     <Compile Include="LCPW\PR\DischargeSummary.aspx.cs">
       <DependentUpon>DischargeSummary.aspx</DependentUpon>
@@ -762,6 +795,13 @@
     </Compile>
     <Compile Include="RBAVARI\PO\POWithoutTax.aspx.designer.cs">
       <DependentUpon>POWithoutTax.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAVARI\PR\Absentee.aspx.cs">
+      <DependentUpon>Absentee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAVARI\PR\Absentee.aspx.designer.cs">
+      <DependentUpon>Absentee.aspx</DependentUpon>
     </Compile>
     <Compile Include="RBAVARI\PR\AppointSummary.aspx.cs">
       <DependentUpon>AppointSummary.aspx</DependentUpon>
@@ -988,6 +1028,9 @@
     <Content Include="LCPW\PR\Reimbursement.rdlc" />
     <Content Include="RBAVARI\PR\PO.rdlc" />
     <Content Include="LCPW\PR\PaySlip.rdlc" />
+    <Content Include="LCPW\PR\Absentee.rdlc" />
+    <Content Include="LCPW\PR\Deduction.rdlc" />
+    <Content Include="RBAVARI\PR\Absentee.rdlc" />
     <EmbeddedResource Include="RBAVARI\PR\Report1.rdlc" />
     <Content Include="RBAVARI\SO\DeliveryChallan.rdlc" />
     <Content Include="RBAVARI\SO\CustomerLedger.rdlc" />

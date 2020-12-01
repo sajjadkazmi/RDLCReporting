@@ -27,7 +27,7 @@ namespace WebApplication2.LCPW.PR
                 GlobalReport GLRpt = new GlobalReport();
                 GLRpt.GetPassCode(pass);
             }
-            else if (Session["Pass_Code"] != null)
+            else
             {
                 GlobalReport GLRpt = new GlobalReport();
                 GLRpt.GetPassCode(passcode);
@@ -50,20 +50,13 @@ namespace WebApplication2.LCPW.PR
 
         private void showReport()
         {
-
-            //string Region = "";
-            //string value = "";
-            //foreach (int i in ListBox2.GetSelectedIndices())
-            //{
-            //    value = value + "'" + ListBox2.Items[i].Value + "',";
-            //    Region = string.Join(" ", value.Split(' ').Select(x => x.Trim('\''))).TrimEnd(',').TrimEnd('\'');
-            //}
+           
 
             string EmpName = "";
             string value2 = "";
-            foreach (int i in ListBox2.GetSelectedIndices())
+            foreach (int i in ListBox3.GetSelectedIndices())
             {
-                value2 = value2 + "'" + ListBox2.Items[i].Value + "',";
+                value2 = value2 + "'" + ListBox3.Items[i].Value + "',";
                 EmpName = string.Join(" ", value2.Split(' ').Select(x => x.Trim('\''))).TrimEnd(',').TrimEnd('\'');
             }
             string Date = ListBox1.SelectedValue.ToString().Substring(0, 10);
@@ -185,14 +178,13 @@ namespace WebApplication2.LCPW.PR
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
-                    OracleCommand comm = new OracleCommand("Select distinct(employee_no),employee_name from lcpw.prv_employeesalaryactl order by employee_name", con);
+                    OracleCommand comm = new OracleCommand("Select distinct(department) from lcpw.prv_employeesalaryactl order by department", con);
                     OracleDataAdapter da = new OracleDataAdapter(comm);
                     DataSet ds = new DataSet();
                     da.Fill(ds); // fill dataset
                     ListBox2.DataSource = ds.Tables[0];
-                    ListBox2.DataTextField = ds.Tables[0].Columns["employee_name"].ToString();
-                    ListBox2.DataValueField = ds.Tables[0].Columns["employee_no"].ToString();
-                    ListBox2.DataTextFormatString = "{0:dd-MMM-yyyy}";
+                    ListBox2.DataTextField = ds.Tables[0].Columns["department"].ToString();
+                    ListBox2.DataValueField = ds.Tables[0].Columns["department"].ToString();
                     ListBox2.DataBind();
                 }
                 con.Close();
@@ -205,7 +197,47 @@ namespace WebApplication2.LCPW.PR
             }
 
         }
-    
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Connection getCon = new Connection();
+            string connectString = getCon.create_connection();
+            //string schema_name = "rbavari.";
+            string value2 = "";
+            string Department = "";
+
+            foreach (int i in ListBox2.GetSelectedIndices())
+            {
+                value2 = value2 + "'" + ListBox2.Items[i].Value + "',";
+                Department = string.Join(" ", value2.Split(' ').Select(x => x.Trim('\''))).TrimEnd(',').TrimEnd('\'');
+            }
+            try
+            {
+
+                OracleConnection con = new OracleConnection(connectString);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                    OracleCommand comm = new OracleCommand("Select distinct(employee_no),employee_name from lcpw.prv_employeesalaryactl where department IN('"+ Department + "') order by employee_name ", con);
+                    OracleDataAdapter da = new OracleDataAdapter(comm);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds); // fill dataset
+                    ListBox3.DataSource = ds.Tables[0];
+                    ListBox3.DataTextField = ds.Tables[0].Columns["employee_name"].ToString();
+                    ListBox3.DataValueField = ds.Tables[0].Columns["employee_no"].ToString();
+                    ListBox3.DataBind();
+
+
+                }
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         public static string getHomePath()
         {
