@@ -57,6 +57,10 @@ namespace WebApplication2.RBAVARI.PR
             var FromDate = datetime.ToString("dd-MMM-yyyy");
 
             string date1 = datepicker2.Text.ToString();
+            if (date1 == "")
+            {
+                date1 = DateTime.Now.ToString();
+            }
             var datetime1 = DateTime.Parse(date1);
             var ToDate = datetime1.ToString("dd-MMM-yyyy");
 

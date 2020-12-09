@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>7.65934in</Width>
+              <Width>7.62943in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -21,25 +21,28 @@
                           <TablixBody>
                             <TablixColumns>
                               <TablixColumn>
-                                <Width>0.93601in</Width>
+                                <Width>0.82359in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1.10509in</Width>
+                                <Width>1.11567in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1in</Width>
+                                <Width>1.01058in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1.68782in</Width>
+                                <Width>1.6984in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>0.91759in</Width>
+                                <Width>0.51923in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>0.91923in</Width>
+                                <Width>0.76436in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1.00673in</Width>
+                                <Width>0.7944in</Width>
+                              </TablixColumn>
+                              <TablixColumn>
+                                <Width>0.84023in</Width>
                               </TablixColumn>
                             </TablixColumns>
                             <TablixRows>
@@ -180,6 +183,43 @@
                                           </Paragraph>
                                         </Paragraphs>
                                         <rd:DefaultName>Textbox7</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <BackgroundColor>LightGrey</BackgroundColor>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox8">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>Qty.</Value>
+                                                <Style>
+                                                  <FontFamily>Calibri</FontFamily>
+                                                  <FontWeight>Bold</FontWeight>
+                                                  <Color>White</Color>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox8</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -444,6 +484,40 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
+                                      <Textbox Name="qty">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!qty.Value</Value>
+                                                <Style>
+                                                  <FontFamily>Calibri</FontFamily>
+                                                  <FontSize>7pt</FontSize>
+                                                  <Format>#,0;(#,0)</Format>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>qty</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
                                       <Textbox Name="debit_amount">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
@@ -589,6 +663,40 @@
                                   <TablixCell />
                                   <TablixCell>
                                     <CellContents>
+                                      <Textbox Name="Textbox12">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value />
+                                                <Style>
+                                                  <FontFamily>Calibri</FontFamily>
+                                                  <FontSize>8pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox12</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
                                       <Textbox Name="Textbox25">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
@@ -705,6 +813,7 @@
                               <TablixMember />
                               <TablixMember />
                               <TablixMember />
+                              <TablixMember />
                             </TablixMembers>
                           </TablixColumnHierarchy>
                           <TablixRowHierarchy>
@@ -717,10 +826,18 @@
                             </TablixMembers>
                           </TablixRowHierarchy>
                           <DataSetName>CustomerLedgerData</DataSetName>
+                          <SortExpressions>
+                            <SortExpression>
+                              <Value>=Fields!value_Date.Value</Value>
+                            </SortExpression>
+                            <SortExpression>
+                              <Value>=Fields!ref1.Value</Value>
+                            </SortExpression>
+                          </SortExpressions>
                           <Top>0.71404in</Top>
                           <Left>0.05295in</Left>
                           <Height>0.75in</Height>
-                          <Width>7.57247in</Width>
+                          <Width>7.56646in</Width>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -985,7 +1102,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Parameters!RT.Value</Value>
+                                      <Value>=Parameters!RT.Value * 1</Value>
                                       <Style>
                                         <FontFamily>calibri</FontFamily>
                                         <FontSize>8pt</FontSize>
@@ -1062,7 +1179,7 @@
         <Top>0.06944in</Top>
         <Left>0.01489in</Left>
         <Height>2.29514in</Height>
-        <Width>7.65934in</Width>
+        <Width>7.62943in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1073,7 +1190,7 @@
     <Height>2.36458in</Height>
     <Style />
   </Body>
-  <Width>7.67423in</Width>
+  <Width>7.67156in</Width>
   <Page>
     <PageHeader>
       <Height>1in</Height>
@@ -1474,6 +1591,10 @@
         </Field>
         <Field Name="ref1">
           <DataField>ref1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="qty">
+          <DataField>qty</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

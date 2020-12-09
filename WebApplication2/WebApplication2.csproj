@@ -1035,6 +1035,7 @@
     <Content Include="RBAVARI\SO\DeliveryChallan.rdlc" />
     <Content Include="RBAVARI\SO\CustomerLedger.rdlc" />
     <Content Include="RBAVARI\SO\Invoice.rdlc" />
+    <Content Include="RBAVARI\SO\Activity.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

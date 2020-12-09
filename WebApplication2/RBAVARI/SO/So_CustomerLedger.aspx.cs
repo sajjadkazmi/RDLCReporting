@@ -23,7 +23,7 @@ namespace WebApplication2.RBAVARI.SO
                 GlobalReport GLRpt = new GlobalReport();
                 GLRpt.GetPassCode(pass);
             }
-            else if (Session["Pass_Code"] != null)
+            else
             {
                 GlobalReport GLRpt = new GlobalReport();
                 GLRpt.GetPassCode(passcode);
@@ -58,6 +58,10 @@ namespace WebApplication2.RBAVARI.SO
             var FromDate = datetime.ToString("dd-MMM-yyyy");
 
             string date1 = datepicker2.Text.ToString();
+            if (date1 == "")
+            {
+                date1 = DateTime.Now.ToString();
+            }
             var datetime1 = DateTime.Parse(date1);
             var ToDate = datetime1.ToString("dd-MMM-yyyy");
             string RT = "" ; 
@@ -118,7 +122,7 @@ namespace WebApplication2.RBAVARI.SO
                 {
                     con.Open();
                 }
-                OracleDataAdapter da = new OracleDataAdapter("select grp_seq,grp_remarks, value_date, tpp_code, ref1, customer_name, discount_reference,   item_name, debit_amount, credit_amount from rbavari.Sov_Customerledger a where cust_code IN('" + CustName + "')  and value_date >= '" + FromDate + "' AND value_date <= '" + ToDate + "' order by value_date, GRP_SEQ", con);
+                OracleDataAdapter da = new OracleDataAdapter("select grp_seq,grp_remarks, value_date, tpp_code, ref1, customer_name, discount_reference,   item_name, debit_amount, credit_amount,qty from rbavari.Sov_Customerledger a where cust_code IN('" + CustName + "')  and value_date >= '" + FromDate + "' AND value_date <= '" + ToDate + "' order by value_date, GRP_SEQ", con);
                 DataTable dt = new DataTable("DemoDt");
                 da.Fill(dt);
                 return dt;

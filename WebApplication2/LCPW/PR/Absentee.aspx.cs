@@ -56,10 +56,14 @@ namespace WebApplication2.LCPW.PR
             var FromDate = datetime.ToString("dd-MMM-yyyy");
 
             string date1 = datepicker2.Text.ToString();
+            if (date1 == "")
+            {
+                date1 = DateTime.Now.ToString();
+            }
             var datetime1 = DateTime.Parse(date1);
             var ToDate = datetime1.ToString("dd-MMM-yyyy");
 
-            string query = "select EMP_NO,OLD_EMP_NO,EMP_FIRST_NAME,F_NAME,DESIGNATION,DEPARTMENT,REGIONNAME,START_DATE,NO_OF_DAYS,LEAVENAME from " + Session["Schema_Name"] + " prv_leaveRegister where DEPARTMENT IN ('" + Department + "') AND START_DATE >= '" + FromDate + "' AND START_DATE < '" + ToDate + "' ";
+            string query = "select EMP_NO,OLD_EMP_NO,EMP_FIRST_NAME,F_NAME,DESIGNATION,DEPARTMENT,REGIONNAME,START_DATE,NO_OF_DAYS,LEAVENAME from " + Session["Schema_Name"] + " prv_leaveRegister where DEPARTMENT IN ('" + Department + "') AND START_DATE >= '" + FromDate + "' AND START_DATE < '" + ToDate + "' order by dept_sequence ";
             string Empty = "";
             //Reset
             ReportViewer1.Reset();

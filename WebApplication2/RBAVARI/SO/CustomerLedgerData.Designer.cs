@@ -309,6 +309,8 @@ namespace WebApplication2.RBAVARI.SO {
             
             private global::System.Data.DataColumn columnref1;
             
+            private global::System.Data.DataColumn columnqty;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -464,6 +466,14 @@ namespace WebApplication2.RBAVARI.SO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn qtyColumn {
+                get {
+                    return this.columnqty;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -499,7 +509,23 @@ namespace WebApplication2.RBAVARI.SO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string grp_seq, string grp_remarks, string trxref, string value_Date, string cust_code, string customer_name, string discount_reference, string item_name, string debit_amount, string credit_amount, string RT, string zone_description, string region_description, string cityname, string ref1) {
+            public DataTable1Row AddDataTable1Row(
+                        string grp_seq, 
+                        string grp_remarks, 
+                        string trxref, 
+                        string value_Date, 
+                        string cust_code, 
+                        string customer_name, 
+                        string discount_reference, 
+                        string item_name, 
+                        string debit_amount, 
+                        string credit_amount, 
+                        string RT, 
+                        string zone_description, 
+                        string region_description, 
+                        string cityname, 
+                        string ref1, 
+                        string qty) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         grp_seq,
@@ -516,7 +542,8 @@ namespace WebApplication2.RBAVARI.SO {
                         zone_description,
                         region_description,
                         cityname,
-                        ref1};
+                        ref1,
+                        qty};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -554,6 +581,7 @@ namespace WebApplication2.RBAVARI.SO {
                 this.columnregion_description = base.Columns["region_description"];
                 this.columncityname = base.Columns["cityname"];
                 this.columnref1 = base.Columns["ref1"];
+                this.columnqty = base.Columns["qty"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -589,6 +617,8 @@ namespace WebApplication2.RBAVARI.SO {
                 base.Columns.Add(this.columncityname);
                 this.columnref1 = new global::System.Data.DataColumn("ref1", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnref1);
+                this.columnqty = new global::System.Data.DataColumn("qty", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnqty);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -971,6 +1001,22 @@ namespace WebApplication2.RBAVARI.SO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string qty {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.qtyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'qty\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.qtyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isgrp_seqNull() {
                 return this.IsNull(this.tableDataTable1.grp_seqColumn);
             }
@@ -1147,6 +1193,18 @@ namespace WebApplication2.RBAVARI.SO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setref1Null() {
                 this[this.tableDataTable1.ref1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsqtyNull() {
+                return this.IsNull(this.tableDataTable1.qtyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetqtyNull() {
+                this[this.tableDataTable1.qtyColumn] = global::System.Convert.DBNull;
             }
         }
         

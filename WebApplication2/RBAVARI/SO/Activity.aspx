@@ -20,7 +20,7 @@
                 </td>--%>
                 <td>
                     <div class="input-group">
-                    <asp:Label ID="Label1" runat="server" for="usr"> <h4>To Date:</h4> </asp:Label>
+                    <asp:Label ID="Label1" runat="server" for="usr"> <h4>Cut Off Date:</h4> </asp:Label>
                     <asp:TextBox id="datepicker2" class="form-control datePicker" placeholder="Select Date" autocomplete="off" runat="server"/>
                     </div>
                 </td>

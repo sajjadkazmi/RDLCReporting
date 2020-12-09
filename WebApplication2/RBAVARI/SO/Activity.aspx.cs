@@ -23,7 +23,7 @@ namespace WebApplication2.RBAVARI.SO
                 GlobalReport GLRpt = new GlobalReport();
                 GLRpt.GetPassCode(pass);
             }
-            else if (Session["Pass_Code"] != null)
+            else
             {
                 GlobalReport GLRpt = new GlobalReport();
                 GLRpt.GetPassCode(passcode);
@@ -53,13 +53,15 @@ namespace WebApplication2.RBAVARI.SO
                 CustName = string.Join(" ", value.Split(' ').Select(x => x.Trim('\''))).TrimEnd(',').TrimEnd('\'');
             }
 
-            //string date = datepicker.Text.ToString();
-            //var datetime = DateTime.Parse(date);
-            //var FromDate = datetime.ToString("dd-MMM-yyyy");
-
             string date1 = datepicker2.Text.ToString();
+            if (date1 == "")
+            {
+                date1 = DateTime.Now.ToString();
+            }
             var datetime1 = DateTime.Parse(date1);
             var ToDate = datetime1.ToString("dd-MMM-yyyy");
+
+          
             
             //Reset
             ReportViewer1.Reset();
